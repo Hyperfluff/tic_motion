@@ -15,6 +15,8 @@
 */
 
 void setup(){
+  delay(100);       //recovery delay, verhindert lästige bugs :D
+  initGPIO();       //found in tab "GPIO_Definitions"
   
 }
 void loop(){
