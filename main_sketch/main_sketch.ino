@@ -13,11 +13,14 @@
   
   contact: mail@jroering.com
 */
+//andere sketch tabs einbinden
+#include "GPIO_Definitions.h"
+#include "Settings.h"
 
 void setup(){
   delay(100);       //recovery delay, verhindert lästige bugs :D
   initGPIO();       //found in tab "GPIO_Definitions"
-  
+  Serial.begin(SERIAL_BAUD);
 }
 void loop(){
   
