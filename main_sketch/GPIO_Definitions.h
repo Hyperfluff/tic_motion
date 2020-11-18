@@ -47,7 +47,7 @@
 #define A_Rly_8 48  //  Ausgang Relais -K16, nicht verwendet
 
 /**
-  initializes all GPIO Pins to the correct pinMode (Input, Output or Input with Pullup)
+  initialisiert alle GPIO Pins auf den korrekten pinMode (Input, Output or Input with Pullup)
 */
 void initGPIO() {
   //inputs
@@ -76,7 +76,8 @@ void initGPIO() {
   pinMode(A_Rly_8, OUTPUT);
 
   //ausgänge auf definierten status setzen
-  pinMode(A_Rly_Power, HIGH);         //relais -K9 einschalten um 24V für -K10 bis -K16 freizugeben
+  digitalWrite(A_Mot_Freigabe, HIGH);       //Gebe den Motor Frei
+  digitalWrite(A_Rly_Power, HIGH);          //relais -K9 einschalten um 24V für -K10 bis -K16 freizugeben
   digitalWrite(A_Rly_Zyl_1, LOW);
   digitalWrite(A_Rly_Zyl_2, LOW);
   digitalWrite(A_Rly_Zyl_3, LOW);

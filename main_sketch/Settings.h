@@ -16,6 +16,9 @@
 //--Kommunikation--
 #define SERIAL_BAUD 115200                          // Übertragungsgeschwindigkeit der Seriellen Schnittstelle in Bits / Sekunde
 
+//--Sicherheitsmechanismen--
+#define C_zylinderNichtUeberwachen false            // Schaltet Endlagenüberwachung der Zylinder ab
+
 //--Motor--
 const int C_homePosInMM = 1100;                     // Position die nach Referenzfahrt angefahren wird
 const int C_minPosInMM = 0;                         // Unterer Grenzwert Motorposition in mm
@@ -31,3 +34,6 @@ const int C_beschleunigung = 1000;                  // Beschleunigung des Motors
 
 //--Zylinder Überwachung-- 
 const int C_zylEinfahrdauer = 500;                  // Zeit zum einfahren der Zylinder in ms
+
+//Systemwerte, NICHT BEARBEITEN ohne konkreten grund!!!
+#define SERIAL_RX_BUFFER_SIZE 256                   //Systemvariable für Seriellen eingangsbuffer, nicht ändern
