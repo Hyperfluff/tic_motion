@@ -14,11 +14,11 @@
   contact: mail@jroering.com
 */
 
+
 /*
  * Variablen die für diesen tab benötigt werden
  */
 int lastStatus;                       //zwischenspeicher des letzten statuscodes von handleStatus();
-
 
 /**
   initialisiert das Serial interface
@@ -30,8 +30,15 @@ void initSerial(){
   Serial.println(F("#Dateiname " __FILE__));
   Serial.println(F("#Stand " __DATE__));
   Serial.println(Boot_Text);    //infotext ausgeben, wird in texts.h definiert
-  if (override_Pneumatics_Check) printText("ACHTUNG PNEUMATIK WIRD NICHT ÜBERWACHT");
+  if (!C_zylinderUeberwachen) printText("ACHTUNG PNEUMATIK WIRD NICHT ÜBERWACHT");
 }
+
+/**
+  Verarbeitet Serielle befehle, sobald diese ankommen
+  */
+/*void serialEvent() {
+  
+}*/
 
 /**
   sendet menschenlesbaren text an serielle schnittstelle mit § als kennzeichnung für infotext
@@ -40,6 +47,72 @@ void initSerial(){
 void printText(String text) {
   Serial.print("§");
   Serial.println(text);
+}
+
+/**
+  gibt Position der Analge über Seriell aus
+  Aufbau Datensatz:
+  *P$[PositionInMM]
+  *Z$1,[PositionZylinder1]
+  *Z$2,[PositionZylinder2]
+  *Z$3,[PositionZylinder3]
+  *Z$4,[PositionZylinder4]
+  *Z$5,[PositionZylinder5]
+  *H$S[tatusMerkerReferenzfahrtGefahren]
+ */
+void printPos() {
+  //gebe motor/schlittenposition aus
+  Serial.print("*P$");
+  Serial.println(-Motor.getCurrentPositionInMillimeters());
+
+  //prüfe ob Pneumatik überwachung aktiv ist
+  if (C_zylinderUeberwachen) {
+    //gebe Position Zylinder 1 aus
+    Serial.print("*Z$1,");
+    Serial.println(digitalRead(E_Ini_Zyl_1));
+    
+    //gebe Position Zylinder 2 aus
+    Serial.print("*Z$2,");
+    Serial.println(digitalRead(E_Ini_Zyl_2));
+    
+    //gebe Position Zylinder 3 aus
+    Serial.print("*Z$3,");
+    Serial.println(digitalRead(E_Ini_Zyl_3));
+    
+    //gebe Position Zylinder 4 aus
+    Serial.print("*Z$4,");
+    Serial.println(digitalRead(E_Ini_Zyl_4));
+    
+    //gebe Position Zylinder 5 aus
+    Serial.print("*Z$5,");
+    Serial.println(digitalRead(E_Ini_Zyl_5));
+  }
+  //ansonsten gebe status der Ventilausgänge aus
+  else {
+    //gebe Status Ventil 1 aus
+    Serial.print("*Z$1,");
+    Serial.println(digitalRead(A_Rly_Zyl_1));
+    
+    //gebe Status Ventil 2 aus
+    Serial.print("*Z$2,");
+    Serial.println(digitalRead(A_Rly_Zyl_2));
+    
+    //gebe Status Ventil 3 aus
+    Serial.print("*Z$3,");
+    Serial.println(digitalRead(A_Rly_Zyl_3));
+    
+    //gebe Status Ventil 4 aus
+    Serial.print("*Z$4,");
+    Serial.println(digitalRead(A_Rly_Zyl_4));
+    
+    //gebe Status Ventil 5 aus
+    Serial.print("*Z$5,");
+    Serial.println(digitalRead(A_Rly_Zyl_5));
+  }
+
+  //gebe Status der Referenzfahrt aus (Merker für Referenzfahrt gefahren)
+  Serial.print("*H$");
+  Serial.println(Merker_Referenzfahrt_Gefahren);
 }
 
 /**

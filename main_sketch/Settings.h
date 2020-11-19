@@ -17,7 +17,7 @@
 #define SERIAL_BAUD 115200                          // Übertragungsgeschwindigkeit der Seriellen Schnittstelle in Bits / Sekunde
 
 //--Sicherheitsmechanismen--
-#define C_zylinderNichtUeberwachen false            // Schaltet Endlagenüberwachung der Zylinder ab
+#define C_zylinderUeberwachen true                  // Schaltet Endlagenüberwachung der Zylinder ein
 
 //--Motor--
 const int C_homePosInMM = 1100;                     // Position die nach Referenzfahrt angefahren wird

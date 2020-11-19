@@ -14,7 +14,6 @@
   contact: mail@jroering.com
 */
 
-
 //  Eingänge
 //  --Bedienpult--
 #define E_Anlage_EIN  2 //  Eingang vom Überwachungskontakt für K1, betätigt durch Notaus
