@@ -5,7 +5,7 @@
   Arduino IDE Version: 1.8.10
 
   @author Johannes Röring
-  @version 1.0.0 18/11/20
+  @version 1.0.0 19/11/20
 
   the following scripts will all be documented in german,
   for international use as well as translations and questions,
@@ -24,7 +24,7 @@ void initMotor(){
   Motor.setStepsPerMillimeter(C_schritteProMM);                           //gebe die anzahl an schritten pro mm verfahrstrecke an
   Motor.setStepsPerRevolution(C_schritteProUmdrehung);                    //gebe das verhältnis von schritten zu umdrehungen der riemenachse an
   Motor.setSpeedInMillimetersPerSecond(C_speed);                          //Lege die Maximalgeschwindigkeit des Motors in mm/s fest
-  Motor.setAccelerationInMillimetersPerSecondPerSecond(C_beschleunigung); //lege die Beschleunigung in mm/s fest
+  Motor.setAccelerationInMillimetersPerSecondPerSecond(C_beschleunigung); //lege die Beschleunigung in mm/s² fest
   
   //Referenzmerker inizialisieren
   Merker_Referenzfahrt_Gefahren = false;
@@ -79,6 +79,7 @@ void referenzfahrt() {
 
   Motor.moveToPositionInMillimeters(-C_homePosInMM);                //fahre auf grundposition
   Merker_Referenzfahrt_Gefahren = true;                             //speichere das der referenzpunkt geholt wurde
+  digitalWrite(A_Rly_Bed_Referenz, HIGH);                           //Schalte Meldeleuchte im bedienpult ein für Referenzfahrt gefahren
   handleStatus(502);        //gebe statuscode 502 aus, für referenzfahrt beendet
   printPos();               //gebe die Position der Anlage über seriell aus
   return;                   //beende die Funktion

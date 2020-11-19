@@ -5,7 +5,7 @@
   Arduino IDE Version: 1.8.10
 
   @author Johannes Röring
-  @version 1.0.0 18/11/20
+  @version 1.0.0 19/11/20
 
   the following scripts will all be documented in german,
   for international use as well as translations and questions,
@@ -14,11 +14,6 @@
   contact: mail@jroering.com
 */
 
-
-/*
- * Variablen die für diesen tab benötigt werden
- */
-int lastStatus;                       //zwischenspeicher des letzten statuscodes von handleStatus();
 
 /**
   initialisiert das Serial interface
@@ -29,7 +24,16 @@ void initSerial(){
   printText(Boot_Software_Info);       //Startnachricht ausgeben, enthält auch die Version der software
   Serial.println(F("#Dateiname " __FILE__));
   Serial.println(F("#Stand " __DATE__));
-  Serial.println(Boot_Text);    //infotext ausgeben, wird in texts.h definiert
+
+  //gebe starttext aus, diese funktion ist etwas komplexer da anstatt einem string der text im PROGMEM (nicht im RAM) abgelegt wird
+  printCharArray(Boot_Text);
+  char myChar;                                              //lege leere Variable für einzelne textzeichen an
+  for (unsigned long k = 0; k < strlen_P(Boot_Text); k++) { //widerhole schleife für jedes zeichen im text
+    myChar = pgm_read_byte_near(Boot_Text + k);             //lege das textzeichen in die variable ab
+    Serial.print(myChar);                                   //gebe das textzeichen aus
+  }
+  
+  //Serial.println(Boot_Text);    //infotext ausgeben, wird in texts.h definiert
   if (!C_zylinderUeberwachen) printText("ACHTUNG PNEUMATIK WIRD NICHT ÜBERWACHT");
 }
 
@@ -47,6 +51,18 @@ void initSerial(){
 void printText(String text) {
   Serial.print("§");
   Serial.println(text);
+}
+
+/**
+  gibt in PROGMEM gespeicherten text aus
+  @param VARIABLENNAME enthält das relevante char array.
+  */
+void printCharArray(char* VARIABLENNAME){
+  char myChar;                                              //lege leere Variable für einzelne textzeichen an
+  for (unsigned long k = 0; k < strlen_P(VARIABLENNAME); k++) { //widerhole schleife für jedes zeichen im text
+    myChar = pgm_read_byte_near(VARIABLENNAME + k);             //lege das textzeichen in die variable ab
+    Serial.print(myChar);                                   //gebe das textzeichen aus
+  }
 }
 
 /**
