@@ -37,11 +37,10 @@ const char Boot_Text[] PROGMEM = R"(#
 #******************************************************************
 #Erklärung der Ausgaben:
 # Zeilen die mit * beginnen sind als Maschinenlesbare daten formatiert,
-# und werden vom Pi verarbeitet, 
-# zur info welcher parameter was bedeutet, gebe ?2 ein
-#
-# zeilen die mit # beginnen sind ausschließlich in der seriellen konsole lesbar
-# und werden vom PI ignoriert
+#   und werden vom Pi verarbeitet, 
+#   zur info welcher parameter was bedeutet, gebe "?2" ein
+# Zeilen die mit # beginnen sind ausschließlich in der seriellen konsole lesbar
+#   und werden vom PI ignoriert
 #
 # zeilen die mit § beginnen sind informationstexte die auch in der Bedienoberfläche erscheinen
 #
@@ -55,6 +54,7 @@ const char Help_Text_1[] PROGMEM = R"(#
 #*                            Befehle                             *
 #*                                                                *
 #******************************************************************
+#Ausgabe nächster seite mit "?2"
 #
 #Steuerbefehle:
 #Syntax   Beschreibung
@@ -79,6 +79,7 @@ const char Help_Text_2[] PROGMEM = R"(#
 #*                           Feedback                             *
 #*                                                                *
 #******************************************************************
+#Ausgabe nächster seite mit "?3"
 #
 #Feedbackdaten (Arduino -> RPI):
 #Aufbau: *[Parameter]$[wert1],[wert2],[...]
@@ -86,7 +87,7 @@ const char Help_Text_2[] PROGMEM = R"(#
 #parameter          beschreibung
 #---------          ------------
 #*F$[Statuscode]    gibt Status und fehlercodes aus, für eine Liste der codes siehe seite 3
-#*K$[x]             Reserviert für ausgabe von Fernbedienungs befehlen zu Arduino
+#*K$[x]             taster nr x am arduino gedrückt (derzeit nur einer vorhanden)
 #*P$[pos]           gibt Position des Schlittens in mm aus
 #*Z$[x],[y]         gibt zustand y des zylinders x aus (y=1 -> ausgefahren; y=0 -> eingefahren)
 #*H$[status]        gibt status des referenzmerkers aus (1 = referenz gefahren)

@@ -21,17 +21,16 @@
 void initSerial(){
   Serial.begin(SERIAL_BAUD);  //Initialisiere eine Serielle Konsole, BAUD definiert in settings.h
   Serial.println();           //Beginne eine Neue Zeile, verhindert nach neustart das die erste zeile an der vorherigen beginnt
+  Serial.println();           //gebe eine leere zeile aus
+  Serial.println();           //gebe eine leere zeile aus
+  Serial.println();           //gebe eine leere zeile aus
+  Serial.println();           //gebe eine leere zeile aus
   printText(Boot_Software_Info);       //Startnachricht ausgeben, enthält auch die Version der software
   Serial.println(F("#Dateiname " __FILE__));
   Serial.println(F("#Stand " __DATE__));
 
   //gebe starttext aus, diese funktion ist etwas komplexer da anstatt einem string der text im PROGMEM (nicht im RAM) abgelegt wird
-  printCharArray(Boot_Text);
-  char myChar;                                              //lege leere Variable für einzelne textzeichen an
-  for (unsigned long k = 0; k < strlen_P(Boot_Text); k++) { //widerhole schleife für jedes zeichen im text
-    myChar = pgm_read_byte_near(Boot_Text + k);             //lege das textzeichen in die variable ab
-    Serial.print(myChar);                                   //gebe das textzeichen aus
-  }
+  printCharArray(Boot_Text);  
   
   //Serial.println(Boot_Text);    //infotext ausgeben, wird in texts.h definiert
   if (!C_zylinderUeberwachen) printText("ACHTUNG PNEUMATIK WIRD NICHT ÜBERWACHT");
@@ -40,9 +39,9 @@ void initSerial(){
 /**
   Verarbeitet Serielle befehle, sobald diese ankommen
   */
-/*void serialEvent() {
+void serialEvent() {
   
-}*/
+}
 
 /**
   sendet menschenlesbaren text an serielle schnittstelle mit § als kennzeichnung für infotext

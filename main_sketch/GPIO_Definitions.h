@@ -76,7 +76,7 @@ void initGPIO() {
 
   //ausgänge auf definierten status setzen
   digitalWrite(A_Mot_Freigabe, HIGH);       //Gebe den Motor Frei
-  digitalWrite(A_Rly_Power, HIGH);          //relais -K9 einschalten um 24V für -K10 bis -K16 freizugeben
+  digitalWrite(A_Rly_Power, LOW);          //relais -K9 einschalten um 24V für -K10 bis -K16 freizugeben
   digitalWrite(A_Rly_Zyl_1, LOW);
   digitalWrite(A_Rly_Zyl_2, LOW);
   digitalWrite(A_Rly_Zyl_3, LOW);

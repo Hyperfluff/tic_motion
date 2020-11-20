@@ -32,8 +32,11 @@ const int C_ref_speed = 250;                        // Maximalgeschwindigkeit in
 const int C_speed = 250;                            // Maximalgeschwindigkeit in mm/s
 const int C_beschleunigung = 1000;                  // Beschleunigung des Motors in mm/s²
 
-//--Zylinder Überwachung-- 
+//--Zylinder Überwachung--
 const int C_zylEinfahrdauer = 500;                  // Zeit zum einfahren der Zylinder in ms
+
+//--Optik--
+const long C_ref_blink_Interval = 250;              //Blinkintervall der Meldeleuchte wenn keine Referenz gefahren ist
 
 //Systemwerte, NICHT BEARBEITEN ohne konkreten grund!!!
 #define SERIAL_RX_BUFFER_SIZE 256                   //Systemvariable für Seriellen eingangsbuffer, nicht ändern
