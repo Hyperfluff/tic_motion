@@ -5,7 +5,7 @@
   Arduino IDE Version: 1.8.10
 
   @author Johannes Röring
-  @version 1.0.0 19/11/20
+  @version 1.0.1 20/11/20
 
   the following scripts will all be documented in german,
   for international use as well as translations and questions,
@@ -41,10 +41,14 @@ void referenzfahrt() {
   Serial.print("*H$");
   Serial.println(Merker_Referenzfahrt_Gefahren);
 
-  digitalWrite(A_Rly_Bed_Referenz, LOW);                    //deaktiviere die meldeleuchte im bedienpult
-  
-  
-  handleStatus(503);                                        //gebe statuscode 503 aus, für referenzfahrt gestartet
+  //deaktiviere die meldeleuchte im bedienpult
+  digitalWrite(A_Rly_Bed_Referenz, LOW);
+
+  //lösche referenzfahrt
+  resetReference();
+
+  //gebe statuscode 503 aus, für referenzfahrt gestartet
+  handleStatus(503);
 
   //prüfe ob Steuerspannung eingeschaltet und Notaus nicht betätigt ist, ansonsten führe diesen block aus
   if (digitalRead(E_Anlage_EIN) == HIGH) {
@@ -82,13 +86,63 @@ void referenzfahrt() {
   delay(200);
 
 
-  Motor.moveToPositionInMillimeters(-C_homePosInMM);                  //fahre auf grundposition
+  fahreAbsolut(C_homePosInMM);                  //fahre auf grundposition
   Merker_Referenzfahrt_Gefahren = true;                               //speichere das der referenzpunkt geholt wurde
   handleStatus(502);        //gebe statuscode 502 aus, für referenzfahrt beendet
   printPos();               //gebe die Position der Anlage über seriell aus
   return;                   //beende die Funktion
 }
 
+/**
+  diese funktion verfährt den Motor auf die absolute position in mm die als parameter angegeben wird
+  @param zielwert - zielposition in mm
+*/
+void fahreAbsolut(float zielwert) {
+  zielwert = -zielwert;                                 //negiere zielwert da koordinatensystem negiert ist
+  if (checkFahrenOk(zielwert))Motor.moveToPositionInMillimeters(zielwert);         //fahre auf zielposition in mm, sofern grenzbereich frei
+}
+
+/**
+  diese funktion verfährt den Motor relativ von der aktuellen position in mm, um den wert der als parameter angegeben wird
+  @param zielwert - verfahrweg in mm
+*/
+void fahreRelativ(float verfahrwert) {
+  verfahrwert = -verfahrwert;                           //negiere zielwert da koordinatensystem negiert ist
+  float zielwert = verfahrwert + motorPosition();
+  fahreAbsolut(-zielwert);
+}
+
+/**
+  lese die aktuelle motorposition aus und gebe diese zurück
+  @return motorposition in mm
+*/
+float motorPosition() {
+  return (-Motor.getCurrentPositionInMillimeters());    //negiere den Positionswert da koordinatensystem negiert ist und gib diesen wert zurück
+}
+
+/**
+  diese funktion prüft ob der zielwert ausserhalb der Grenzbereiche des Motorsliegt
+  wenn grenzbereiche eingehalten sind und zylinder eingefahren sind gebe true zurück sonst false
+  @return freigabe ok oder nicht (true = fahren on, false = nicht fahren !!!)
+*/
+bool checkFahrenOk(float zielwert) {
+  zielwert = -zielwert;                                 //wieder zurück negieren
+  if (!Merker_Referenzfahrt_Gefahren) return (false); //wenn referenzfahrt fehlt, gebe false zurück
+  if (checkCylinder()) return (false);                  //wenn zylinder nicht eingefahren sind, gebe false zurück
+  //wenn zielwert zu klein ist
+  else {
+    if (zielwert < C_minPosInMM) {                      //wenn zielwert zu klein
+      handleStatus(420);                                //gebe fehlercode 420 aus, für zielwert zu klein
+      return (false);                                   //gebe false zurück
+    }
+    //wenn zielwert zu gross ist
+    else if (zielwert > C_maxPosInMM) {                 //sonst wenn zielwert zu gross
+      handleStatus(421);                                //gebe fehlercode 421 aus, für zielwert zu gross
+      return (false);                                   //gebe false zurück
+    }
+    else return (true);
+  }
+}
 
 /**
   diese funktion prüft ob alle Zylinder eingefahren sind,
@@ -134,13 +188,13 @@ bool checkCylinder() {
   return (flag);
 }
 
-
 /**
   diese funktion fährt einzelne zylinder aus oder ein
   @param nr - nummer des Zylinders
   @param state - richtung, 1 = ausfahren / 0 = einfahren
 */
 void setCylinder(int nr, bool state) {
+  if (!Merker_Referenzfahrt_Gefahren) return;
   //frage variable nr ab, welcher zylinder angesteuert werden soll
   switch (nr) {
     case 1:

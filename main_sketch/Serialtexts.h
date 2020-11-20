@@ -5,7 +5,7 @@
   Arduino IDE Version: 1.8.10
 
   @author Johannes Röring
-  @version 1.0.0 19/11/20
+  @version 1.0.1 20/11/20
 
   the following scripts will all be documented in german,
   for international use as well as translations and questions,

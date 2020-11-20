@@ -5,7 +5,7 @@
   Arduino IDE Version: 1.8.10
 
   @author Johannes Röring
-  @version 1.0.0 19/11/20
+  @version 1.0.1 20/11/20
 
   the following scripts will all be documented in german,
   for international use as well as translations and questions,
@@ -105,18 +105,18 @@ void bedienfeld() {
         lastAutocycleState = true;                            //merke das Automatik zuletzt an war, um bei ausschalten auf grundpos zu fahren
         switch (Automatikbetrieb_Schritt) {                   //prüfe welcher schritt zuletzt aktiv war
           case 0:
-            Motor.moveToPositionInMillimeters(0);             //fahre auf 0
+            fahreAbsolut(0);                                  //fahre auf 0
             Automatikbetrieb_Schritt = 1;                     //merke den letzten schritt des Automatikzyklusses
             break;
           case 1:
-            Motor.moveToPositionInMillimeters(-1200);         //fahre auf 1200
+            fahreAbsolut(1200);                               //fahre auf 1200
             Automatikbetrieb_Schritt = 0;                     //merke den letzten schritt des Automatikzyklusses
         }
       }
     }
     //ansonsten wenn automatik zuletzt an war fahre auf grundposition
     else if (lastAutocycleState == true) {
-      Motor.moveToPositionInMillimeters(-1100);               //fahre auf Grundposition (1100)
+      fahreAbsolut(1100);                                     //fahre auf Grundposition (1100)
       lastAutocycleState = false;                             //merke das Automatik zuletzt aus war
     }
   }
