@@ -66,7 +66,6 @@ void loop() {
   if (checkFehler()) return;
   bedienfeld();
 }
-
 /**
   die verarbeitung von Seriellen events findet im tab Serial_Functions statt
   die funktion serialEvent() wird automatisch gestartet sobald seriell daten kommen und bedarf keiner manuellen abfrage

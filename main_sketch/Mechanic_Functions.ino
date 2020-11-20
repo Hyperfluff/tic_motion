@@ -60,31 +60,30 @@ void referenzfahrt() {
   setCylinder(4, 0);                                        //zylinder 4 einfahren
   setCylinder(5, 0);                                        //zylinder 5 einfahren
   delay(C_zylEinfahrdauer * 2);                             //warte, um den zylindern zeit zu geben um einzufahren (*2 für eventuellen druckabfall)
-
   //prüfe ob alle zylinder auf grundposition stehen, wenn nicht führe diesen block aus
   if (checkCylinder())  {
     //fehlercode für Zylinder hat vorrang, darum wird 405 nicht ausgegeben
     //handleStatus(405);      //gebe fehlercode 405 aus, für referenzfahrt fehlgeschlagen
-    Merker_Referenzfahrt_Gefahren = false;                          //speichere das der referenzpunkt nicht geholt wurde
+    Merker_Referenzfahrt_Gefahren = false;                            //speichere das der referenzpunkt nicht geholt wurde
     return;                 //breche die referenzfahrt ab und beende die funktion
   }
   //fahre den Initiator - referenz an, falls dies fehlschlägt führe folgenden block aus
   if (Motor.moveToHomeInMillimeters(C_ref_directionTowardsHome, C_ref_speed, C_ref_maximaleReferenzstreckeInMM, E_Ini_Referenz) == false) {
     handleStatus(405);      //gebe fehlercode 405 aus, für referenzfahrt fehlgeschlagen
     handleStatus(408);      //gebe fehlercode 408 aus, für ini nicht gefunden
-    Merker_Referenzfahrt_Gefahren = false;                          //speichere das der referenzpunkt nicht geholt wurde
+    Merker_Referenzfahrt_Gefahren = false;                            //speichere das der referenzpunkt nicht geholt wurde
     return;                 //breche die referenzfahrt ab und beende die funktion
   }
 
   //Versetze den Nullpunkt falls nötig
   Motor.setCurrentPositionInMillimeters(V_ref_nullpunktversatzInMM);  //lege die entfernung zum Nullpunkt fest
-  digitalWrite(A_Rly_Bed_Referenz, HIGH);                           //Schalte Meldeleuchte im bedienpult ein für Referenzfahrt gefahren
+  digitalWrite(A_Rly_Bed_Referenz, HIGH);                             //Schalte Meldeleuchte im bedienpult ein für Referenzfahrt gefahren
 
   delay(200);
 
 
-  Motor.moveToPositionInMillimeters(-C_homePosInMM);                //fahre auf grundposition
-  Merker_Referenzfahrt_Gefahren = true;                             //speichere das der referenzpunkt geholt wurde
+  Motor.moveToPositionInMillimeters(-C_homePosInMM);                  //fahre auf grundposition
+  Merker_Referenzfahrt_Gefahren = true;                               //speichere das der referenzpunkt geholt wurde
   handleStatus(502);        //gebe statuscode 502 aus, für referenzfahrt beendet
   printPos();               //gebe die Position der Anlage über seriell aus
   return;                   //beende die Funktion
@@ -142,7 +141,7 @@ bool checkCylinder() {
   @param state - richtung, 1 = ausfahren / 0 = einfahren
 */
 void setCylinder(int nr, bool state) {
-  //frage variable nr auf die möglichen szenarien ab
+  //frage variable nr ab, welcher zylinder angesteuert werden soll
   switch (nr) {
     case 1:
       digitalWrite(A_Rly_Zyl_1, state);   //steuere zylinder 1 an
