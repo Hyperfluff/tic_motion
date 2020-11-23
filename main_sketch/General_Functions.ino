@@ -17,7 +17,7 @@
 bool Merker_Blink_Meldeleuchte_Status = LOW;      //Merker für status der Meldeleuchte, wird für blinken benutzt
 unsigned long previousMillis = 0;                 //speichert letzten zeitpunkt des LED Updates
 int Automatikbetrieb_Schritt = 0;                 //schrittmerker für automatikzyklus
-bool lastAutocycleState = true;                    //speichert ob zuletzt automatik aktiv war, um auf grundpos zu fahren
+bool lastAutocycleState = true;                   //speichert ob zuletzt automatik aktiv war, um auf grundpos zu fahren
 /**
   diese funktion prüft ob fehler vorhanden sind, und gibt bei fehler ein true zurück
   zur prüfung ob fehler vorhanden sind kann folgende funktion verwendet werden:
@@ -60,6 +60,7 @@ bool checkFehler() {
 void resetReference() {
   if (Merker_Referenzfahrt_Gefahren) handleStatus(409);   //gebe fehlercode 409 aus, für referenzpunkt verloren, referenzfahrt wird benötigt
   Merker_Referenzfahrt_Gefahren = false;                  //lösche merker für referenzfahrt gefahren
+  //ausschalten der Meldeleuchte wird über Blinkfunktion erledigt
 }
 
 /**
