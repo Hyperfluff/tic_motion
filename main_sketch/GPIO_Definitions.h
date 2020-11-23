@@ -32,9 +32,10 @@
 
 //  Ausgänge
 //  --Motor--
-#define A_Mot_Freigabe  A0  //  Ausgang Motorfreigabe, HIGH = Motor freigegeben
-#define A_Mot_Richtung  A1  //  Ausgang Motor Richtung, HIGH = Linkslauf
-#define A_Mot_Takt  A2  //  Ausgang Motor Takt
+#define A_Mot_Freigabe  A0          //  Ausgang Motorfreigabe, HIGH = Motor freigegeben
+#define A_Mot_Richtung  A1          //  Ausgang Motor Richtung
+#define A_Mot_Takt  A2              //  Ausgang Motor Takt
+#define C_Mot_Richtung_Pegel  HIGH  //  Motor Drehrichtung, HIGH = Linkslauf als Positive Achsrichtung
 //  --Relais--
 #define A_Rly_Power 41  //  Ausgang Relais -K9, Stromversorgung Relais -K10 bis -K16
 #define A_Rly_Zyl_1 42  //  Ausgang Relais -K10, Zylinder 1 ausfahren
