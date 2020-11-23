@@ -20,7 +20,7 @@
 */
 void initMotor() {
   //motor initialisieren
-  Motor.connectToPins(A_Mot_Takt, A_Mot_Richtung);                        //Initialisiere das Objekt motor mit den Pins des Motors
+  Motor.connectToPins(A_Mot_Takt, A_Mot_Richtung, C_Mot_Richtung_Pegel);  //Initialisiere das Objekt motor mit den Pins des Motors und der Richtung des Koordinatensystems
   Motor.setStepsPerMillimeter(C_schritteProMM);                           //gebe die anzahl an schritten pro mm verfahrstrecke an
   Motor.setStepsPerRevolution(C_schritteProUmdrehung);                    //gebe das verhältnis von schritten zu umdrehungen der riemenachse an
   Motor.setSpeedInMillimetersPerSecond(C_speed);                          //Lege die Maximalgeschwindigkeit des Motors in mm/s fest
@@ -94,7 +94,6 @@ void referenzfahrt() {
   @param zielwert - zielposition in mm
 */
 void fahreAbsolut(float zielwert) {
-  zielwert = -zielwert;                                 //negiere zielwert da koordinatensystem negiert ist
   if (checkFahrenOk(zielwert))Motor.moveToPositionInMillimeters(zielwert);         //fahre auf zielposition in mm, sofern grenzbereich frei
 }
 
@@ -103,9 +102,8 @@ void fahreAbsolut(float zielwert) {
   @param zielwert - verfahrweg in mm
 */
 void fahreRelativ(float verfahrwert) {
-  verfahrwert = -verfahrwert;                           //negiere zielwert da koordinatensystem negiert ist
   float zielwert = verfahrwert + motorPosition();
-  fahreAbsolut(-zielwert);
+  fahreAbsolut(zielwert);
 }
 
 /**
@@ -113,7 +111,7 @@ void fahreRelativ(float verfahrwert) {
   @return motorposition in mm
 */
 float motorPosition() {
-  return (-Motor.getCurrentPositionInMillimeters());    //negiere den Positionswert da koordinatensystem negiert ist und gib diesen wert zurück
+  return (Motor.getCurrentPositionInMillimeters());    //gebe position des Motors in mm zurück
 }
 
 /**
@@ -122,7 +120,6 @@ float motorPosition() {
   @return freigabe ok oder nicht (true = fahren on, false = nicht fahren !!!)
 */
 bool checkFahrenOk(float zielwert) {
-  zielwert = -zielwert;                                 //wieder zurück negieren
   if (!Merker_Referenzfahrt_Gefahren) return (false); //wenn referenzfahrt fehlt, gebe false zurück
   if (checkCylinder()) return (false);                  //wenn zylinder nicht eingefahren sind, gebe false zurück
   //wenn zielwert zu klein ist
