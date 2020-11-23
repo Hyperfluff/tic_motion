@@ -5,7 +5,7 @@
   Arduino IDE Version: 1.8.10
 
   @author Johannes Röring
-  @version 1.0.1 20/11/20
+  @version 1.1.0 23/11/20
 
   the following scripts will all be documented in german,
   for international use as well as translations and questions,
@@ -82,12 +82,8 @@ void referenzfahrt() {
   //Versetze den Nullpunkt falls nötig
   Motor.setCurrentPositionInMillimeters(V_ref_nullpunktversatzInMM);  //lege die entfernung zum Nullpunkt fest
   digitalWrite(A_Rly_Bed_Referenz, HIGH);                             //Schalte Meldeleuchte im bedienpult ein für Referenzfahrt gefahren
-
-  delay(200);
-
-
-  fahreAbsolut(C_homePosInMM);                  //fahre auf grundposition
   Merker_Referenzfahrt_Gefahren = true;                               //speichere das der referenzpunkt geholt wurde
+  fahreAbsolut(C_homePosInMM);                                        //fahre auf grundposition
   handleStatus(502);        //gebe statuscode 502 aus, für referenzfahrt beendet
   printPos();               //gebe die Position der Anlage über seriell aus
   return;                   //beende die Funktion
