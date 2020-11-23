@@ -185,7 +185,7 @@ void printCharArray(char* VARIABLENNAME) {
 void printPos() {
   //gebe motor/schlittenposition aus
   Serial.print("*P$");
-  Serial.println(-Motor.getCurrentPositionInMillimeters());
+  Serial.println(motorPosition());
 
   //prüfe ob Pneumatik überwachung aktiv ist
   if (C_zylinderUeberwachen) {
