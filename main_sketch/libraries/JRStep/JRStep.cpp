@@ -3,7 +3,7 @@
 //      *                                                                *
 //      *                     JRStep Motor Driver                        *
 //      *                                                                *
-//      *            Johannes Röring                18/11/2020           *
+//      *            Johannes Röring                23/11/2020           *
 //      *                  Copyright (c) J. Röring, 2014                 *
 //      *                                                                *
 //      ******************************************************************
@@ -11,7 +11,7 @@
 
 // MIT License
 // 
-// Copyright (c) 2014 Johannes Röring
+// Copyright (c) 2020 Johannes Röring
 // 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -196,9 +196,13 @@
 
 //
 // direction signal level for "step and direction"
+// now defined in constructor
 //
-#define POSITIVE_DIRECTION LOW
-#define NEGATIVE_DIRECTION HIGH
+//#define POSITIVE_DIRECTION LOW
+//#define NEGATIVE_DIRECTION HIGH
+bool POSITIVE_DIRECTION;
+bool NEGATIVE_DIRECTION;
+
 
 
 // ---------------------------------------------------------------------------------
@@ -235,13 +239,18 @@ JRStep::JRStep()
 //          enablePinNumber = IO pin number for the enable bit (LOW is enabled)
 //            set to 0 if enable is not supported
 //
-void JRStep::connectToPins(byte stepPinNumber, byte directionPinNumber)
+void JRStep::connectToPins(byte stepPinNumber, byte directionPinNumber, bool positiveDirectionState)
 {
   //
   // remember the pin numbers
   //
   stepPin = stepPinNumber;
   directionPin = directionPinNumber;
+  
+  //save direction
+  POSITIVE_DIRECTION = positiveDirectionState;
+  NEGATIVE_DIRECTION = !POSITIVE_DIRECTION;
+  
   
   //
   // configure the IO bits

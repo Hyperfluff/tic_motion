@@ -1,16 +1,17 @@
 
 //      ******************************************************************
 //      *                                                                *
-//      *                 Header file for JRStep.c                 	 *
+//      *                 Header file for JRStep.c                       *
 //      *                                                                *
-//      *               Copyright (c) J. Röring, 2020               	 *
+//      *            Johannes Röring                23/11/2020           *
+//      *               Copyright (c) J. Röring, 2020                    *
 //      *                                                                *
 //      ******************************************************************
 //	This library is based on JRStep
 
 // MIT License
 // 
-// Copyright (c) 2014 Stanley Reifel & Co.
+// Copyright (c) 2020 Johannes Röring
 // 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -48,7 +49,7 @@ class JRStep
     // public functions
     //
     JRStep();
-    void connectToPins(byte stepPinNumber, byte directionPinNumber);
+    void connectToPins(byte stepPinNumber, byte directionPinNumber, bool positiveDirectionState);
 
     void setStepsPerMillimeter(float motorStepPerMillimeter);
     float getCurrentPositionInMillimeters();
