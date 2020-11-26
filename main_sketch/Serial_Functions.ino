@@ -119,7 +119,6 @@ void serialEvent() {
         setCylinder(int1, true);                //fahre zylinder aus
         delay(int2);                            //warte
         setCylinder(int1, false);               //fahre zylinder wieder ein
-        delay(C_zylEinfahrdauer);               //warte die einfahrdauer ab
         break;
       //setze zylinder auf bestimmten status
       case 'Z':
