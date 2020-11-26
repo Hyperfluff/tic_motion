@@ -31,7 +31,7 @@ const char Boot_Text[] PROGMEM = R"(#
 #*                                                                *
 #*        Programm für den Die Steuerung des Messestandes         *
 #*                                                                *
-#*               J.Röring                18/11/2020               *
+#*               J.Röring                26/11/20               *
 #*                   Ausgabe Hilfetext mit ?                      *
 #*                                                                *
 #******************************************************************
