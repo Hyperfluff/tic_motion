@@ -42,13 +42,13 @@ bool checkFehler() {
   }
   //prüfe ob der letzte fehler behoben ist, dann gebe statuscode 501 aus, für Anlage bereit, ref fahren
   else {
-    if (lastStatus == 402 && !digitalRead(E_Anlage_EIN)) handleStatus(501);        //steuerspannung/notaus wieder ein
+    if (lastStatus == 402 && !digitalRead(E_Anlage_EIN)) handleStatus(501);             //steuerspannung/notaus wieder ein
     else if (lastStatus == 406 && !digitalRead(E_Ini_Endschalter)) handleStatus(501);   //endschalter wieder frei
-    else if (lastStatus == 410 && !checkCylinder()) handleStatus(501);                 //zylinder 1 wieder eingefahren
-    else if (lastStatus == 411 && !checkCylinder()) handleStatus(501);                 //zylinder 2 wieder eingefahren
-    else if (lastStatus == 412 && !checkCylinder()) handleStatus(501);                 //zylinder 3 wieder eingefahren
-    else if (lastStatus == 413 && !checkCylinder()) handleStatus(501);                 //zylinder 4 wieder eingefahren
-    else if (lastStatus == 414 && !checkCylinder()) handleStatus(501);                 //zylinder 5 wieder eingefahren
+    else if (lastStatus == 410 && !checkCylinder(1)) handleStatus(501);                 //zylinder 1 wieder eingefahren
+    else if (lastStatus == 411 && !checkCylinder(2)) handleStatus(501);                 //zylinder 2 wieder eingefahren
+    else if (lastStatus == 412 && !checkCylinder(3)) handleStatus(501);                 //zylinder 3 wieder eingefahren
+    else if (lastStatus == 413 && !checkCylinder(4)) handleStatus(501);                 //zylinder 4 wieder eingefahren
+    else if (lastStatus == 414 && !checkCylinder(5)) handleStatus(501);                 //zylinder 5 wieder eingefahren
   }
   return (false);
 }
