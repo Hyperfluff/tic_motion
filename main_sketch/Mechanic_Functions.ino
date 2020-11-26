@@ -187,7 +187,7 @@ bool checkCylinder() {
   @param state - richtung, 1 = ausfahren / 0 = einfahren
 */
 void setCylinder(int nr, bool state) {
-  if (!Merker_Referenzfahrt_Gefahren) return;
+  if (!Merker_Referenzfahrt_Gefahren && (state == 1)) return;
   //frage variable nr ab, welcher zylinder angesteuert werden soll
   switch (nr) {
     case 1:
