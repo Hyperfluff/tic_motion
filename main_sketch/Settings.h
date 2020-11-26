@@ -33,7 +33,7 @@ const int C_speed = 250;                            // Maximalgeschwindigkeit in
 const int C_beschleunigung = 1000;                  // Beschleunigung des Motors in mm/s²
 
 //--Zylinder Überwachung--
-const int C_zylEinfahrdauer = 500;                  // Zeit zum einfahren der Zylinder in ms
+const long C_zylEinfahrdauer = 1000;                // Zeit zum einfahren der Zylinder in ms
 
 //--Optik--
 const long C_ref_blink_Interval = 250;              //Blinkintervall der Meldeleuchte wenn keine Referenz gefahren ist
