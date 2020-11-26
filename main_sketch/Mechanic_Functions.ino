@@ -63,9 +63,8 @@ void referenzfahrt() {
   setCylinder(3, 0);                                        //zylinder 3 einfahren
   setCylinder(4, 0);                                        //zylinder 4 einfahren
   setCylinder(5, 0);                                        //zylinder 5 einfahren
-  delay(C_zylEinfahrdauer * 2);                             //warte, um den zylindern zeit zu geben um einzufahren (*2 für eventuellen druckabfall)
   //prüfe ob alle zylinder auf grundposition stehen, wenn nicht führe diesen block aus
-  if (checkCylinder())  {
+  if (checkAllCylinders())  {
     //fehlercode für Zylinder hat vorrang, darum wird 405 nicht ausgegeben
     //handleStatus(405);      //gebe fehlercode 405 aus, für referenzfahrt fehlgeschlagen
     Merker_Referenzfahrt_Gefahren = false;                            //speichere das der referenzpunkt nicht geholt wurde
@@ -121,7 +120,7 @@ float motorPosition() {
 */
 bool checkFahrenOk(float zielwert) {
   if (!Merker_Referenzfahrt_Gefahren) return (false); //wenn referenzfahrt fehlt, gebe false zurück
-  if (checkCylinder()) return (false);                  //wenn zylinder nicht eingefahren sind, gebe false zurück
+  if (checkAllCylinders()) return (false);                  //wenn zylinder nicht eingefahren sind, gebe false zurück
   //wenn zielwert zu klein ist
   else {
     if (zielwert < C_minPosInMM) {                      //wenn zielwert zu klein
@@ -141,38 +140,25 @@ bool checkFahrenOk(float zielwert) {
   diese funktion prüft ob alle Zylinder eingefahren sind,
   sie ist als bool ausgeführt da die funktion ein ergebnis zurück gibt
   zur prüfung ob die Zylinder eingefahren sind kann folgende funktion verwendet werden:
-  if (checkCylinder()){aktion}
+  if (checkAllCylinders()){aktion}
   ist einer der Zylinder nicht eingefahren wird true zurückgegeben
   und der entsprechende fehlercode automatisch gesendet
   zudem wird die Referenzfahrt zurückgesetzt, um fahren mit aktivem Zylinder zu verhindern
   @return ergebnis ob zylinder ausgefahren sind, true wenn einer NICHT Eingefahren ist, sonst false
 */
-bool checkCylinder() {
+bool checkAllCylinders() {
   //lege temporäre variablen an, diese werden nach ablauf der funktion wieder gelöscht
   bool flag = true;         // lege variable flag an, sind Zylinder ausgefahren wird diese nicht auf false gesetzt
 
-  //prüfe ob Pneumatik überwachung aktiv ist
-  if (C_zylinderUeberwachen) {
-    //wenn Endlagenüberwachung des Zylinders nicht eingefahren anzeigt, gib jeweiligen fehlercode aus
-    if (digitalRead(E_Ini_Zyl_1)) handleStatus(410);
-    else if (digitalRead(E_Ini_Zyl_2)) handleStatus(411);
-    else if (digitalRead(E_Ini_Zyl_3)) handleStatus(412);
-    else if (digitalRead(E_Ini_Zyl_4)) handleStatus(413);
-    else if (digitalRead(E_Ini_Zyl_5)) handleStatus(414);
-    //ansonsten setze die flag auf false, für "alle zylinder eingefahren"
-    else flag = false;
-  }
-  //ansonsten prüfe nur das ausgangssignal der Ventile
-  else {
-    //wenn ausgangssignal für Ventile high ist (zylinder ausfahren), gib jeweiligen fehlercode aus
-    if (digitalRead(A_Rly_Zyl_1)) handleStatus(410);
-    else if (digitalRead(A_Rly_Zyl_2)) handleStatus(411);
-    else if (digitalRead(A_Rly_Zyl_3)) handleStatus(412);
-    else if (digitalRead(A_Rly_Zyl_4)) handleStatus(413);
-    else if (digitalRead(A_Rly_Zyl_5)) handleStatus(414);
-    //ansonsten setze die flag auf false, für "alle zylinder eingefahren"
-    else flag = false;
-  }
+  //wenn Endlagenüberwachung des Zylinders nicht eingefahren anzeigt, gib jeweiligen fehlercode aus
+  if (checkCylinder(1)) handleStatus(410);
+  else if (checkCylinder(2)) handleStatus(411);
+  else if (checkCylinder(3)) handleStatus(412);
+  else if (checkCylinder(4)) handleStatus(413);
+  else if (checkCylinder(5)) handleStatus(414);
+  //ansonsten setze die flag auf false, für "alle zylinder eingefahren"
+  else flag = false;
+
 
   //wenn flag immernoch true ist, also ein zylinder nicht eingefahren ist, lösche die referenzfahrt
   if (flag) Merker_Referenzfahrt_Gefahren = false;
@@ -181,6 +167,49 @@ bool checkCylinder() {
   return (flag);
 }
 
+/**
+  diese funktion prüft ob der gewünschte zylinder eingefahren ist,
+  sie ist als bool ausgeführt da die funktion ein ergebnis zurück gibt
+  zur prüfung ob der Zylinder eingefahren ist kann folgende funktion verwendet werden:
+  if (checkCylinder(nr)){aktion}
+  ist der Zylinder eingefahren wird true zurückgegeben
+  @param nr -> Zylinder der abgefragt werden soll
+  @return ergebnis ob der zylinder ausgefahren ist, true NICHT Eingefahren ist, sonst false
+*/
+bool checkCylinder(int nr) {
+  //wenn zylinder überwachung aktiv ist, frage die sensoren ab
+  if (C_zylinderUeberwachen) {
+    switch (nr) {
+      case 1:
+        return (digitalRead(E_Ini_Zyl_1));
+      case 2:
+        return (digitalRead(E_Ini_Zyl_2));
+      case 3:
+        return (digitalRead(E_Ini_Zyl_3));
+      case 4:
+        return (digitalRead(E_Ini_Zyl_4));
+      case 5:
+        return (digitalRead(E_Ini_Zyl_5));
+    }
+  }
+  //ansonsten frage die ausgänge der ventile ab
+  else {
+    switch (nr) {
+      case 1:
+        return (digitalRead(A_Rly_Zyl_1));
+      case 2:
+        return (digitalRead(A_Rly_Zyl_2));
+      case 3:
+        return (digitalRead(A_Rly_Zyl_3));
+      case 4:
+        return (digitalRead(A_Rly_Zyl_4));
+      case 5:
+        return (digitalRead(A_Rly_Zyl_5));
+    }
+  }
+  //ansonsten gebe einfach wahr aus, dies fügt der anlage keinen schaden zu
+  return (true);
+}
 /**
   diese funktion fährt einzelne zylinder aus oder ein
   @param nr - nummer des Zylinders
@@ -205,5 +234,21 @@ void setCylinder(int nr, bool state) {
     case 5:
       digitalWrite(A_Rly_Zyl_5, state);   //steuere zylinder 5 an
       break;
+  }
+  if (state == 0) waitForCylinder(nr, C_zylEinfahrdauer);
+}
+
+/**
+  diese funktion wartet bis zylinder x eingefahren ist, innerhalb einer bestimmten zeit,
+  erreicht der zylinder in dieser maximalen zeit nicht die endlage,
+  läuft das programm regulär weiter und löst dann damit einen fehler aus
+  diese funktion verkürzt nur die wartezeit, falls der zylinder schon eingefahren ist
+  @param nr -> zylinder auf den gewartet werden soll
+  @param maxTime -> maximale zeit die gewartet werden darf
+*/
+void waitForCylinder(int nr,long maxTime) {
+  long lastMillis = millis();
+  while (millis() < lastMillis + maxTime){
+    if(!checkCylinder(nr))break;
   }
 }
