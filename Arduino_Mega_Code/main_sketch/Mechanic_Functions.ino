@@ -82,7 +82,7 @@ void referenzfahrt() {
   Motor.setCurrentPositionInMillimeters(V_ref_nullpunktversatzInMM);  //lege die entfernung zum Nullpunkt fest
   digitalWrite(A_Rly_Bed_Referenz, HIGH);                             //Schalte Meldeleuchte im bedienpult ein für Referenzfahrt gefahren
   Merker_Referenzfahrt_Gefahren = true;                               //speichere das der referenzpunkt geholt wurde
-  fahreAbsolut(C_homePosInMM);                                        //fahre auf grundposition
+  if (digitalRead(E_Bed_Automatik))fahreAbsolut(C_homePosInMM);       //wenn kein Automatikbetrieb aktiv ist fahre auf grundposition
   handleStatus(502);        //gebe statuscode 502 aus, für referenzfahrt beendet
   printPos();               //gebe die Position der Anlage über seriell aus
   return;                   //beende die Funktion
@@ -134,6 +134,28 @@ bool checkFahrenOk(float zielwert) {
     }
     else return (true);
   }
+}
+
+/**
+  diese funktion lässt den Motor im endloszyklus fahren
+*/
+void pendelbetrieb() {
+  lastAutocycleState = true;                            //merke das Automatik zuletzt an war, um bei ausschalten auf grundpos zu fahren
+  switch (Automatikbetrieb_Schritt) {                   //prüfe welcher schritt zuletzt aktiv war
+    case 0:
+      fahreAbsolut(1198);                               //fahre auf Auswurfposition
+      setCylinder(5, 1);                                //fahre Zylinder 5 aus
+      delay(500);                                       //warte 500ms
+      setCylinder(5, 0);                                //fahre Zylinder 5 wieder ein
+      Automatikbetrieb_Schritt++;                       //Zähle schritt hoch
+      break;
+    case 1:
+      fahreAbsolut(0);                                  //fahre auf 0
+      Automatikbetrieb_Schritt++;                       //Zähle schritt hoch
+      break;
+
+  }
+  if (Automatikbetrieb_Schritt == 5) Automatikbetrieb_Schritt = 0;
 }
 
 /**
@@ -246,12 +268,12 @@ void setCylinder(int nr, bool state) {
   @param nr -> zylinder auf den gewartet werden soll
   @param maxTime -> maximale zeit die gewartet werden darf
 */
-void waitForCylinder(int nr,long maxTime) {
+void waitForCylinder(int nr, long maxTime) {
   long lastMillis = millis();                 //speichere Systemzeit
-  while (millis() < lastMillis + maxTime){    //wenn Maximale zeit noch nicht erreicht ist
-    if(!checkCylinder(nr)){                   //prüfe ob Zylinder eingefahren ist
+  while (millis() < lastMillis + maxTime) {   //wenn Maximale zeit noch nicht erreicht ist
+    if (!checkCylinder(nr)) {                 //prüfe ob Zylinder eingefahren ist
       delay(1);                               //warte zum entprellen
-      if(!checkCylinder(nr))break;            //prüfe ob Zylinder immernoch eingefahren ist, dann beende das warten
+      if (!checkCylinder(nr))break;           //prüfe ob Zylinder immernoch eingefahren ist, dann beende das warten
     }
   }
 }

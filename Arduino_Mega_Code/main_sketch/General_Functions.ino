@@ -111,18 +111,7 @@ void bedienfeld() {
     //prüfe ob Schalter Automatikbetrieb betätigt ist (inkl. entprellen)
     if (!digitalRead(E_Bed_Automatik)) {
       delay(5);                                               //kurzes delay wegen prellen und induktionsproblemen
-      if (!digitalRead(E_Bed_Automatik)) {
-        lastAutocycleState = true;                            //merke das Automatik zuletzt an war, um bei ausschalten auf grundpos zu fahren
-        switch (Automatikbetrieb_Schritt) {                   //prüfe welcher schritt zuletzt aktiv war
-          case 0:
-            fahreAbsolut(0);                                  //fahre auf 0
-            Automatikbetrieb_Schritt = 1;                     //merke den letzten schritt des Automatikzyklusses
-            break;
-          case 1:
-            fahreAbsolut(1200);                               //fahre auf 1200
-            Automatikbetrieb_Schritt = 0;                     //merke den letzten schritt des Automatikzyklusses
-        }
-      }
+      if (!digitalRead(E_Bed_Automatik)) pendelbetrieb();     //fahre im Pendelbetrieb
     }
     //ansonsten wenn automatik zuletzt an war fahre auf grundposition
     else if (lastAutocycleState == true) {
