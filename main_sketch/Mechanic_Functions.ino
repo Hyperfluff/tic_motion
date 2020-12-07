@@ -247,8 +247,11 @@ void setCylinder(int nr, bool state) {
   @param maxTime -> maximale zeit die gewartet werden darf
 */
 void waitForCylinder(int nr,long maxTime) {
-  long lastMillis = millis();
-  while (millis() < lastMillis + maxTime){
-    if(!checkCylinder(nr))break;
+  long lastMillis = millis();                 //speichere Systemzeit
+  while (millis() < lastMillis + maxTime){    //wenn Maximale zeit noch nicht erreicht ist
+    if(!checkCylinder(nr)){                   //prüfe ob Zylinder eingefahren ist
+      delay(1);                               //warte zum entprellen
+      if(!checkCylinder(nr))break;            //prüfe ob Zylinder immernoch eingefahren ist, dann beende das warten
+    }
   }
 }
