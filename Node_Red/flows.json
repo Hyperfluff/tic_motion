@@ -1,0 +1,4984 @@
+[
+    {
+        "id": "c7595e13.cbbe9",
+        "type": "tab",
+        "label": "HTTP anfragen",
+        "disabled": false,
+        "info": "# Verarbeitung der Steuerbefehle\n## ausgelöst durch das Quiz\n\ndas steuern der Anlage erfolgt so:\nauf der Webseite wird ein Link eingebunden welcher zuerst auf 192.168.0.10:1880/<irgendwas> geht\nin node red wird dann unter diesem /<irgendwas> eine weiterleitung auf die zielwebseite generiert und gleichzeitig eine aktion ausgelöst\n\ndiese weiterleitung wird normalerweise aggressiv gecachet was manuell verhindert werden muss..."
+    },
+    {
+        "id": "ce8195e.4c0cf68",
+        "type": "tab",
+        "label": "Serial Handler",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "99c30596.370c78",
+        "type": "tab",
+        "label": "Dasbhoard Handbetrieb",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "c9cb89cd.736bd8",
+        "type": "tab",
+        "label": "Dashboard Status",
+        "disabled": false,
+        "info": "Hier sind die Statusanzeigen hinterlegt"
+    },
+    {
+        "id": "88973f0a.53b75",
+        "type": "tab",
+        "label": "Zyklen",
+        "disabled": false,
+        "info": "# Zyklen tab\n## hier werden automatische zyklen hinterlegt\n"
+    },
+    {
+        "id": "c81cf74e.ef3338",
+        "type": "tab",
+        "label": "IO / Trigger",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "c7305e50.48bd5",
+        "type": "tab",
+        "label": "Funktionen",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "ccdbcd9b.22b11",
+        "type": "subflow",
+        "name": "Output to Arduino",
+        "info": "",
+        "category": "",
+        "in": [
+            {
+                "x": 260,
+                "y": 280,
+                "wires": [
+                    {
+                        "id": "a81f2fb3.29407"
+                    }
+                ]
+            }
+        ],
+        "out": [],
+        "env": [],
+        "color": "#DDAA99"
+    },
+    {
+        "id": "cef98315.81339",
+        "type": "subflow",
+        "name": "Referenz Fahren",
+        "info": "",
+        "category": "",
+        "in": [
+            {
+                "x": 140,
+                "y": 160,
+                "wires": [
+                    {
+                        "id": "d607dedc.a9cef"
+                    }
+                ]
+            }
+        ],
+        "out": [],
+        "env": [],
+        "color": "#DDAA99"
+    },
+    {
+        "id": "5003a3ba.fc9f3c",
+        "type": "subflow",
+        "name": "Fahre auf Nullpunkt",
+        "info": "",
+        "category": "",
+        "in": [
+            {
+                "x": 120,
+                "y": 200,
+                "wires": [
+                    {
+                        "id": "b59db552.ea2b88"
+                    },
+                    {
+                        "id": "532ad208.af77ac"
+                    }
+                ]
+            }
+        ],
+        "out": [
+            {
+                "x": 500,
+                "y": 240,
+                "wires": [
+                    {
+                        "id": "532ad208.af77ac",
+                        "port": 0
+                    }
+                ]
+            }
+        ],
+        "env": [],
+        "color": "#DDAA99"
+    },
+    {
+        "id": "2e8d7b9.dda7184",
+        "type": "subflow",
+        "name": "Fahre auf Grundposition",
+        "info": "",
+        "category": "",
+        "in": [
+            {
+                "x": 140,
+                "y": 260,
+                "wires": [
+                    {
+                        "id": "ae1b33ba.32738"
+                    },
+                    {
+                        "id": "529b5f27.930db"
+                    }
+                ]
+            }
+        ],
+        "out": [
+            {
+                "x": 460,
+                "y": 300,
+                "wires": [
+                    {
+                        "id": "ae1b33ba.32738",
+                        "port": 0
+                    }
+                ]
+            }
+        ],
+        "env": [],
+        "color": "#DDAA99"
+    },
+    {
+        "id": "6588ff82.e153b",
+        "type": "subflow",
+        "name": "Fahre auf Auswurfposition",
+        "info": "",
+        "category": "",
+        "in": [
+            {
+                "x": 100,
+                "y": 140,
+                "wires": [
+                    {
+                        "id": "b93d7f26.d66f3"
+                    },
+                    {
+                        "id": "8303a6c9.7a6818"
+                    }
+                ]
+            }
+        ],
+        "out": [
+            {
+                "x": 440,
+                "y": 180,
+                "wires": [
+                    {
+                        "id": "b93d7f26.d66f3",
+                        "port": 0
+                    }
+                ]
+            }
+        ],
+        "env": [],
+        "color": "#DDAA99"
+    },
+    {
+        "id": "af233270.79565",
+        "type": "subflow",
+        "name": "Zyklus Test",
+        "info": "",
+        "category": "",
+        "in": [
+            {
+                "x": 100,
+                "y": 200,
+                "wires": [
+                    {
+                        "id": "f3009024.db64d"
+                    },
+                    {
+                        "id": "5aee138d.ce7bcc"
+                    }
+                ]
+            }
+        ],
+        "out": [
+            {
+                "x": 440,
+                "y": 240,
+                "wires": [
+                    {
+                        "id": "f3009024.db64d",
+                        "port": 0
+                    }
+                ]
+            }
+        ],
+        "env": [],
+        "color": "#DDAA99"
+    },
+    {
+        "id": "a898155e.67c758",
+        "type": "subflow",
+        "name": "Zyklus Sorte 1",
+        "info": "",
+        "category": "",
+        "in": [
+            {
+                "x": 60,
+                "y": 120,
+                "wires": [
+                    {
+                        "id": "5662fde9.68cea4"
+                    },
+                    {
+                        "id": "6adb9f1b.463e1"
+                    },
+                    {
+                        "id": "566131a7.d2c8a"
+                    }
+                ]
+            }
+        ],
+        "out": [
+            {
+                "x": 320,
+                "y": 160,
+                "wires": [
+                    {
+                        "id": "5662fde9.68cea4",
+                        "port": 0
+                    }
+                ]
+            }
+        ],
+        "env": [],
+        "color": "#DDAA99"
+    },
+    {
+        "id": "6be034a7.37e81c",
+        "type": "subflow",
+        "name": "Zyklus Sorte 2",
+        "info": "",
+        "category": "",
+        "in": [
+            {
+                "x": 80,
+                "y": 200,
+                "wires": [
+                    {
+                        "id": "a188cf47.7ad61"
+                    },
+                    {
+                        "id": "391907e9.0533c8"
+                    },
+                    {
+                        "id": "ba844610.1f58f8"
+                    }
+                ]
+            }
+        ],
+        "out": [
+            {
+                "x": 360,
+                "y": 240,
+                "wires": [
+                    {
+                        "id": "391907e9.0533c8",
+                        "port": 0
+                    }
+                ]
+            }
+        ],
+        "env": [],
+        "color": "#DDAA99"
+    },
+    {
+        "id": "c0fcdc76.a99c2",
+        "type": "subflow",
+        "name": "Zyklus Sorte 3",
+        "info": "",
+        "category": "",
+        "in": [
+            {
+                "x": 60,
+                "y": 260,
+                "wires": [
+                    {
+                        "id": "64263df5.e02244"
+                    },
+                    {
+                        "id": "64cf65ce.b9952c"
+                    },
+                    {
+                        "id": "2429e21a.0193ae"
+                    }
+                ]
+            }
+        ],
+        "out": [
+            {
+                "x": 400,
+                "y": 300,
+                "wires": [
+                    {
+                        "id": "64cf65ce.b9952c",
+                        "port": 0
+                    }
+                ]
+            }
+        ],
+        "env": [],
+        "color": "#DDAA99"
+    },
+    {
+        "id": "5b6015e1.9df0fc",
+        "type": "subflow",
+        "name": "Zyklus Sorte 4",
+        "info": "",
+        "category": "",
+        "in": [
+            {
+                "x": 80,
+                "y": 200,
+                "wires": [
+                    {
+                        "id": "544199af.7ceae8"
+                    },
+                    {
+                        "id": "e36cdeac.aad73"
+                    },
+                    {
+                        "id": "277e1f95.25ffe"
+                    }
+                ]
+            }
+        ],
+        "out": [
+            {
+                "x": 380,
+                "y": 240,
+                "wires": [
+                    {
+                        "id": "e36cdeac.aad73",
+                        "port": 0
+                    }
+                ]
+            }
+        ],
+        "env": [],
+        "color": "#DDAA99"
+    },
+    {
+        "id": "c86d3eb6.1f301",
+        "type": "subflow",
+        "name": "Reset Zyklen Zähler",
+        "info": "",
+        "category": "",
+        "in": [
+            {
+                "x": 80,
+                "y": 220,
+                "wires": [
+                    {
+                        "id": "cad9d84d.f77558"
+                    }
+                ]
+            }
+        ],
+        "out": [],
+        "env": [],
+        "color": "#DDAA99"
+    },
+    {
+        "id": "544ad43a.507b8c",
+        "type": "subflow",
+        "name": "Abfrage Zyklen Zähler",
+        "info": "",
+        "category": "",
+        "in": [
+            {
+                "x": 120,
+                "y": 200,
+                "wires": [
+                    {
+                        "id": "8f600baf.b1e188"
+                    }
+                ]
+            }
+        ],
+        "out": [
+            {
+                "x": 560,
+                "y": 140,
+                "wires": [
+                    {
+                        "id": "8f600baf.b1e188",
+                        "port": 0
+                    }
+                ]
+            },
+            {
+                "x": 560,
+                "y": 180,
+                "wires": [
+                    {
+                        "id": "8f600baf.b1e188",
+                        "port": 1
+                    }
+                ]
+            },
+            {
+                "x": 560,
+                "y": 220,
+                "wires": [
+                    {
+                        "id": "8f600baf.b1e188",
+                        "port": 2
+                    }
+                ]
+            },
+            {
+                "x": 560,
+                "y": 260,
+                "wires": [
+                    {
+                        "id": "8f600baf.b1e188",
+                        "port": 3
+                    }
+                ]
+            }
+        ],
+        "env": [
+            {
+                "name": "val 1",
+                "type": "str",
+                "value": ""
+            }
+        ],
+        "color": "#DDAA99"
+    },
+    {
+        "id": "9fc3bd98.a178c",
+        "type": "serial-port",
+        "z": "",
+        "serialport": "/dev/ttyACM0",
+        "serialbaud": "115200",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "1",
+        "waitfor": "",
+        "dtr": "low",
+        "rts": "none",
+        "cts": "none",
+        "dsr": "none",
+        "newline": "\\n",
+        "bin": "false",
+        "out": "char",
+        "addchar": "",
+        "responsetimeout": "10000"
+    },
+    {
+        "id": "c1e67f8b.2e893",
+        "type": "ui_tab",
+        "z": "",
+        "name": "Maschinensteuerung",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "40b145a0.9b3e8c",
+        "type": "ui_group",
+        "z": "",
+        "name": "Verfahren",
+        "tab": "c1e67f8b.2e893",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "5349b843.6e3218",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-dark",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#097479",
+                    "value": "#097479",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#097479",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#0eb8c0",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#555555",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#eeeeee",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#097479",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey"
+            }
+        },
+        "site": {
+            "name": "Maschinensteuerung, Manuell",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "40bdc89a.1958b8",
+        "type": "ui_group",
+        "z": "",
+        "name": "Position",
+        "tab": "c1e67f8b.2e893",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "8c236a36.bb5ae8",
+        "type": "ui_group",
+        "z": "",
+        "name": "Auswurf",
+        "tab": "",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "f2841f78.d5671",
+        "type": "ui_group",
+        "z": "",
+        "d": true,
+        "name": "Hand",
+        "tab": "c1e67f8b.2e893",
+        "order": 5,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "fb62c0ba.3abdd",
+        "type": "ui_tab",
+        "z": "",
+        "name": "Status",
+        "icon": "dashboard",
+        "order": 2,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "c8463278.704c6",
+        "type": "ui_group",
+        "z": "",
+        "name": "Verfahren",
+        "tab": "c1e67f8b.2e893",
+        "order": 2,
+        "disp": true,
+        "width": 6,
+        "collapse": false
+    },
+    {
+        "id": "383b1827.7fd428",
+        "type": "ui_group",
+        "z": "",
+        "name": "Position Schlitten",
+        "tab": "fb62c0ba.3abdd",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "f9ae9fca.da912",
+        "type": "ui_group",
+        "z": "",
+        "name": "Position Zylinder",
+        "tab": "fb62c0ba.3abdd",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "d91da91d.797388",
+        "type": "ui_group",
+        "z": "",
+        "name": "Zyklen",
+        "tab": "c1e67f8b.2e893",
+        "order": 4,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "6ba47504.d9680c",
+        "type": "ui_group",
+        "z": "",
+        "name": "Zylinder manuell",
+        "tab": "c1e67f8b.2e893",
+        "order": 6,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "14c927a4.bb4f18",
+        "type": "ui_group",
+        "z": "",
+        "name": "Taster Zylinder",
+        "tab": "c1e67f8b.2e893",
+        "order": 7,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "2313ca4.0946c36",
+        "type": "ui_group",
+        "z": "",
+        "name": "Zyklenzähler",
+        "tab": "fb62c0ba.3abdd",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "67153b61.cea8d4",
+        "type": "http in",
+        "z": "c7595e13.cbbe9",
+        "name": "Anfrage auf /referenzfahrt",
+        "url": "/referenzfahrt",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 150,
+        "y": 80,
+        "wires": [
+            [
+                "c9eb2f2f.e4ca4",
+                "e5897b5a.2d86c8"
+            ]
+        ],
+        "info": "das aufrufen von \nemag.com:1880/referenzfahrt\nleitet automatisch zurück zur startseite um\nlink: emag.com\n\nund startet gleichzeitig die funktion referenzfahrt"
+    },
+    {
+        "id": "aac715b4.517148",
+        "type": "serial in",
+        "z": "ce8195e.4c0cf68",
+        "name": "Daten - Arduino",
+        "serial": "9fc3bd98.a178c",
+        "x": 180,
+        "y": 180,
+        "wires": [
+            [
+                "c13bb4a1.3adbb8"
+            ]
+        ]
+    },
+    {
+        "id": "2b25bbfc.6c4914",
+        "type": "function",
+        "z": "ce8195e.4c0cf68",
+        "name": "Datensatz Trennen in Topic und Payload",
+        "func": "var values = msg.payload.trim().split('$');    // trim off the crlf first then split into parts   \nmsg.payload = values[1];  // replace payload with the reading we want\nmsg.topic = values[0];      // set the topic in case we need to tell them apart later\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 260,
+        "y": 340,
+        "wires": [
+            [
+                "538acc09.b8d194"
+            ]
+        ]
+    },
+    {
+        "id": "538acc09.b8d194",
+        "type": "switch",
+        "z": "ce8195e.4c0cf68",
+        "name": "nach Topic sortieren",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "*A",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "*R",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "*D",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "*H",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "*Z",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "*P",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "*F",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "*K",
+                "vt": "str"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 9,
+        "x": 540,
+        "y": 340,
+        "wires": [
+            [
+                "b46b9c34.86438"
+            ],
+            [
+                "f3fa79c.eb8f088"
+            ],
+            [
+                "781ae0e6.2fefe"
+            ],
+            [
+                "1d6250f2.81887f",
+                "6cf706ff.516028"
+            ],
+            [
+                "7d500616.2b2fc8"
+            ],
+            [
+                "14899231.d4e30e",
+                "1d77e115.14f51f"
+            ],
+            [
+                "49e509d1.22d138"
+            ],
+            [
+                "360a64c5.33d20c"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "fabcf5b5.8ed838",
+        "type": "ui_toast",
+        "z": "ce8195e.4c0cf68",
+        "position": "top right",
+        "displayTime": "1",
+        "highlight": "",
+        "sendall": true,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "Cancel",
+        "raw": false,
+        "topic": "",
+        "name": "Benachrichtigung",
+        "x": 850,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "c13bb4a1.3adbb8",
+        "type": "switch",
+        "z": "ce8195e.4c0cf68",
+        "name": "Benachrichtigung wenn kein wert sondern text kommt",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "cont",
+                "v": "*",
+                "vt": "str"
+            },
+            {
+                "t": "cont",
+                "v": "§",
+                "vt": "str"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 3,
+        "x": 500,
+        "y": 180,
+        "wires": [
+            [
+                "2b25bbfc.6c4914"
+            ],
+            [
+                "fabcf5b5.8ed838"
+            ],
+            []
+        ],
+        "info": "# Prüfe auf daten\nwenn über seriell ein zahlenwert kommt\ndann ist dieser mit *[identifikator]$[wert]\nformatiert, kommt kein wert wird der input\nals nachricht angezeigt"
+    },
+    {
+        "id": "14899231.d4e30e",
+        "type": "link out",
+        "z": "ce8195e.4c0cf68",
+        "name": "Feedback - Position Schlitten (mm)",
+        "links": [
+            "184ea8cd.b151d7",
+            "c4632273.6be33",
+            "f1758f92.8044b",
+            "dce098a5.608ae8"
+        ],
+        "x": 900,
+        "y": 440,
+        "wires": [],
+        "l": true
+    },
+    {
+        "id": "55317649.78a258",
+        "type": "function",
+        "z": "ce8195e.4c0cf68",
+        "name": "Datensatz verarbeiten",
+        "func": "var values = msg.payload.trim().split(',');    // trim off the crlf first then split into parts   \nmsg.topic = values[0];      // set the topic in case we need to tell them apart later\nmsg.payload = values[1];  // replace payload with the reading we want\nif (msg.payload == 1) msg.payload = \"Ausgefahren\";\nelse if (msg.payload == 0) msg.payload = \"Eingefahren\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 420,
+        "y": 640,
+        "wires": [
+            [
+                "92004824.ec1c38",
+                "bf21d97f.b0de48"
+            ]
+        ]
+    },
+    {
+        "id": "92004824.ec1c38",
+        "type": "switch",
+        "z": "ce8195e.4c0cf68",
+        "name": "Daten aufteilen",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "2",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "3",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "4",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 5,
+        "x": 640,
+        "y": 640,
+        "wires": [
+            [
+                "1d7b05d5.a9b8da"
+            ],
+            [
+                "6440d453.3a620c"
+            ],
+            [
+                "b84130aa.78c0a"
+            ],
+            [
+                "bdb0c8c3.a4d358"
+            ],
+            [
+                "71ad8ee9.473b1"
+            ]
+        ]
+    },
+    {
+        "id": "1d7b05d5.a9b8da",
+        "type": "ui_text",
+        "z": "ce8195e.4c0cf68",
+        "group": "f2841f78.d5671",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Zylinder Abwurfposition",
+        "format": "{{msg.payload}}",
+        "layout": "row-center",
+        "x": 990,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "6440d453.3a620c",
+        "type": "ui_text",
+        "z": "ce8195e.4c0cf68",
+        "group": "f2841f78.d5671",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Zylinder Magazin 1",
+        "format": "{{msg.payload}}",
+        "layout": "row-center",
+        "x": 970,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "b84130aa.78c0a",
+        "type": "ui_text",
+        "z": "ce8195e.4c0cf68",
+        "group": "f2841f78.d5671",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Zylinder Magazin 2",
+        "format": "{{msg.payload}}",
+        "layout": "row-center",
+        "x": 970,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "bdb0c8c3.a4d358",
+        "type": "ui_text",
+        "z": "ce8195e.4c0cf68",
+        "group": "f2841f78.d5671",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Zylinder Magazin 3",
+        "format": "{{msg.payload}}",
+        "layout": "row-center",
+        "x": 970,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "71ad8ee9.473b1",
+        "type": "ui_text",
+        "z": "ce8195e.4c0cf68",
+        "group": "f2841f78.d5671",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Zylinder Magazin 4",
+        "format": "{{msg.payload}}",
+        "layout": "row-center",
+        "x": 970,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "f6915786.b7a028",
+        "type": "ui_gauge",
+        "z": "c9cb89cd.736bd8",
+        "name": "",
+        "group": "383b1827.7fd428",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Position - Schlitten",
+        "label": "mm",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "1200",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 950,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "f1758f92.8044b",
+        "type": "link in",
+        "z": "c9cb89cd.736bd8",
+        "name": "Werteingang - Position Diagram",
+        "links": [
+            "14899231.d4e30e"
+        ],
+        "x": 330,
+        "y": 160,
+        "wires": [
+            [
+                "f6915786.b7a028"
+            ]
+        ],
+        "l": true
+    },
+    {
+        "id": "bf21d97f.b0de48",
+        "type": "link out",
+        "z": "ce8195e.4c0cf68",
+        "name": "Daten Zylinder",
+        "links": [
+            "a5e5f062.5ae17"
+        ],
+        "x": 575,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "a5e5f062.5ae17",
+        "type": "link in",
+        "z": "c9cb89cd.736bd8",
+        "name": "Daten Zylinder",
+        "links": [
+            "bf21d97f.b0de48"
+        ],
+        "x": 280,
+        "y": 320,
+        "wires": [
+            [
+                "19c60bf1.6271a4"
+            ]
+        ],
+        "l": true
+    },
+    {
+        "id": "19c60bf1.6271a4",
+        "type": "switch",
+        "z": "c9cb89cd.736bd8",
+        "name": "Daten aufteilen",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "5",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "2",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "3",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "4",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 5,
+        "x": 660,
+        "y": 320,
+        "wires": [
+            [
+                "39c1ffd8.fc367"
+            ],
+            [
+                "8546b54a.fd5c18"
+            ],
+            [
+                "362e5316.1c616c"
+            ],
+            [
+                "f48d5a8f.d73d78"
+            ],
+            [
+                "96ed1ca9.05fb9"
+            ]
+        ]
+    },
+    {
+        "id": "39c1ffd8.fc367",
+        "type": "ui_text",
+        "z": "c9cb89cd.736bd8",
+        "group": "f9ae9fca.da912",
+        "order": 11,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Zylinder Abwurfposition",
+        "format": "{{msg.payload}}",
+        "layout": "row-center",
+        "x": 970,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "8546b54a.fd5c18",
+        "type": "ui_text",
+        "z": "c9cb89cd.736bd8",
+        "group": "f9ae9fca.da912",
+        "order": 7,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Zylinder Magazin 1",
+        "format": "{{msg.payload}}",
+        "layout": "row-center",
+        "x": 950,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "362e5316.1c616c",
+        "type": "ui_text",
+        "z": "c9cb89cd.736bd8",
+        "group": "f9ae9fca.da912",
+        "order": 8,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Zylinder Magazin 2",
+        "format": "{{msg.payload}}",
+        "layout": "row-center",
+        "x": 950,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "f48d5a8f.d73d78",
+        "type": "ui_text",
+        "z": "c9cb89cd.736bd8",
+        "group": "f9ae9fca.da912",
+        "order": 9,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Zylinder Magazin 3",
+        "format": "{{msg.payload}}",
+        "layout": "row-center",
+        "x": 950,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "96ed1ca9.05fb9",
+        "type": "ui_text",
+        "z": "c9cb89cd.736bd8",
+        "group": "f9ae9fca.da912",
+        "order": 10,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Zylinder Magazin 4",
+        "format": "{{msg.payload}}",
+        "layout": "row-center",
+        "x": 950,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "5cd5291f.a4b7e8",
+        "type": "ui_ui_control",
+        "z": "c9cb89cd.736bd8",
+        "name": "Seitenwechsel zu Handbetrieb",
+        "events": "all",
+        "x": 990,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7f67e675.ac7f38",
+        "type": "ui_button",
+        "z": "c9cb89cd.736bd8",
+        "name": "",
+        "group": "383b1827.7fd428",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Handbetrieb",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "Maschinensteuerung",
+        "payloadType": "str",
+        "topic": "",
+        "x": 270,
+        "y": 200,
+        "wires": [
+            [
+                "5cd5291f.a4b7e8"
+            ]
+        ]
+    },
+    {
+        "id": "e6bec787.c59e68",
+        "type": "ui_slider",
+        "z": "99c30596.370c78",
+        "name": "Slider - Ziel Absolut",
+        "label": "Ziel absolut",
+        "tooltip": "",
+        "group": "c8463278.704c6",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "outs": "end",
+        "topic": "",
+        "min": "1200",
+        "max": "0",
+        "step": 1,
+        "x": 930,
+        "y": 440,
+        "wires": [
+            [
+                "74906733.c75918"
+            ]
+        ]
+    },
+    {
+        "id": "78d7e082.2016f",
+        "type": "ui_button",
+        "z": "99c30596.370c78",
+        "name": "",
+        "group": "40b145a0.9b3e8c",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "label": "Nullpunkt anfahren",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "",
+        "x": 930,
+        "y": 200,
+        "wires": [
+            [
+                "f49ebe93.d9e7e"
+            ]
+        ]
+    },
+    {
+        "id": "ef19c6e2.f243c8",
+        "type": "ui_button",
+        "z": "99c30596.370c78",
+        "name": "",
+        "group": "40b145a0.9b3e8c",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "label": "Fahre auf Auswurfposition",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "A1200",
+        "payloadType": "str",
+        "topic": "",
+        "x": 950,
+        "y": 280,
+        "wires": [
+            [
+                "804d42b6.dc814"
+            ]
+        ]
+    },
+    {
+        "id": "4026328.941accc",
+        "type": "ui_button",
+        "z": "99c30596.370c78",
+        "name": "",
+        "group": "40b145a0.9b3e8c",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "label": "Referenz fahren",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "",
+        "x": 920,
+        "y": 160,
+        "wires": [
+            [
+                "73428273.1eb88c"
+            ]
+        ]
+    },
+    {
+        "id": "d3eb6935.67aed8",
+        "type": "link in",
+        "z": "99c30596.370c78",
+        "name": "Starte Referenzfahrt",
+        "links": [
+            "de6cc72e.1437d8"
+        ],
+        "x": 710,
+        "y": 160,
+        "wires": [
+            [
+                "4026328.941accc"
+            ]
+        ],
+        "l": true
+    },
+    {
+        "id": "184ea8cd.b151d7",
+        "type": "link in",
+        "z": "99c30596.370c78",
+        "name": "Werteingang - Position Schieberegler",
+        "links": [
+            "14899231.d4e30e"
+        ],
+        "x": 650,
+        "y": 440,
+        "wires": [
+            [
+                "e6bec787.c59e68",
+                "c475406c.74164"
+            ]
+        ],
+        "l": true
+    },
+    {
+        "id": "46bae71a.f7cb78",
+        "type": "ui_button",
+        "z": "99c30596.370c78",
+        "name": "",
+        "group": "d91da91d.797388",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "label": "Auswurf Sorte 1",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "",
+        "x": 920,
+        "y": 720,
+        "wires": [
+            [
+                "848100d9.d6bdf"
+            ]
+        ]
+    },
+    {
+        "id": "66330072.288e9",
+        "type": "comment",
+        "z": "99c30596.370c78",
+        "name": "Eingabeblock Verfahren (buttons)",
+        "info": "",
+        "x": 930,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "9a261ccc.488de",
+        "type": "ui_button",
+        "z": "99c30596.370c78",
+        "name": "Button - Fahre Relativ",
+        "group": "c8463278.704c6",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "label": "Fahre relativ",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "",
+        "x": 940,
+        "y": 520,
+        "wires": [
+            [
+                "cc6901ed.90b29"
+            ]
+        ]
+    },
+    {
+        "id": "4c7ec0f.06c8f4",
+        "type": "ui_text_input",
+        "z": "99c30596.370c78",
+        "name": "Textfeld - Ziel Relativ",
+        "label": "Zielwert relativ",
+        "tooltip": "",
+        "group": "c8463278.704c6",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "mode": "number",
+        "delay": "0",
+        "topic": "",
+        "x": 940,
+        "y": 560,
+        "wires": [
+            [
+                "3e007d42.858562"
+            ]
+        ]
+    },
+    {
+        "id": "3e007d42.858562",
+        "type": "function",
+        "z": "99c30596.370c78",
+        "name": "speicher Relativen Verfahrwert",
+        "func": "global.set(\"moveRelativeVal\",msg.payload)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1190,
+        "y": 560,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "cc6901ed.90b29",
+        "type": "function",
+        "z": "99c30596.370c78",
+        "name": "lade Relativen Verfahrwert",
+        "func": "msg.payload = \"R\" + global.get(\"moveRelativeVal\");\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1180,
+        "y": 520,
+        "wires": [
+            [
+                "26a807e0.9b43f8"
+            ]
+        ]
+    },
+    {
+        "id": "c475406c.74164",
+        "type": "ui_text_input",
+        "z": "99c30596.370c78",
+        "name": "Textfeld - Ziel Absolut",
+        "label": "Zielwert absolut",
+        "tooltip": "",
+        "group": "c8463278.704c6",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "mode": "number",
+        "delay": "0",
+        "topic": "",
+        "x": 940,
+        "y": 480,
+        "wires": [
+            [
+                "74906733.c75918"
+            ]
+        ]
+    },
+    {
+        "id": "1e47ca2d.98d756",
+        "type": "ui_button",
+        "z": "99c30596.370c78",
+        "name": "",
+        "group": "40b145a0.9b3e8c",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "label": "Testtaster",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "",
+        "x": 900,
+        "y": 340,
+        "wires": [
+            [
+                "4d7e7f42.63de7"
+            ]
+        ]
+    },
+    {
+        "id": "761add53.fa0af4",
+        "type": "ui_button",
+        "z": "99c30596.370c78",
+        "name": "",
+        "group": "d91da91d.797388",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "label": "Auswurf Sorte 2",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "",
+        "x": 920,
+        "y": 760,
+        "wires": [
+            [
+                "f8402e2.319cfd"
+            ]
+        ]
+    },
+    {
+        "id": "62ee9ca3.b72534",
+        "type": "ui_button",
+        "z": "99c30596.370c78",
+        "name": "",
+        "group": "d91da91d.797388",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "label": "Auswurf Sorte 3",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "",
+        "x": 920,
+        "y": 800,
+        "wires": [
+            [
+                "ac00664e.5e4378"
+            ]
+        ]
+    },
+    {
+        "id": "2cff99be.165356",
+        "type": "ui_button",
+        "z": "99c30596.370c78",
+        "name": "",
+        "group": "d91da91d.797388",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "label": "Auswurf Sorte 4",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "",
+        "x": 920,
+        "y": 840,
+        "wires": [
+            [
+                "17f59969.cb62b7"
+            ]
+        ]
+    },
+    {
+        "id": "74906733.c75918",
+        "type": "template",
+        "z": "99c30596.370c78",
+        "name": "Befehl absolut fahren",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "A{{payload}}",
+        "output": "str",
+        "x": 1160,
+        "y": 440,
+        "wires": [
+            [
+                "26a807e0.9b43f8"
+            ]
+        ]
+    },
+    {
+        "id": "2acc9514.aeedda",
+        "type": "ui_switch",
+        "z": "99c30596.370c78",
+        "name": "Zylinder 1",
+        "label": "Zylinder 1",
+        "tooltip": "",
+        "group": "6ba47504.d9680c",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "decouple": "true",
+        "topic": "",
+        "style": "",
+        "onvalue": "Z1,1",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "Z1,0",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "x": 900,
+        "y": 900,
+        "wires": [
+            [
+                "b789cf7c.08d49"
+            ]
+        ]
+    },
+    {
+        "id": "d2d2d1d3.89ce7",
+        "type": "ui_switch",
+        "z": "99c30596.370c78",
+        "name": "Zylinder 2",
+        "label": "Zylinder 2",
+        "tooltip": "",
+        "group": "6ba47504.d9680c",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "decouple": "true",
+        "topic": "",
+        "style": "",
+        "onvalue": "Z2,1",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "Z2,0",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "x": 900,
+        "y": 940,
+        "wires": [
+            [
+                "b789cf7c.08d49"
+            ]
+        ]
+    },
+    {
+        "id": "122d35ef.6efaea",
+        "type": "ui_switch",
+        "z": "99c30596.370c78",
+        "name": "Zylinder 3",
+        "label": "Zylinder 3",
+        "tooltip": "",
+        "group": "6ba47504.d9680c",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "decouple": "true",
+        "topic": "",
+        "style": "",
+        "onvalue": "Z3,1",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "Z3,0",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "x": 900,
+        "y": 980,
+        "wires": [
+            [
+                "b789cf7c.08d49"
+            ]
+        ]
+    },
+    {
+        "id": "f7229e42.f608c",
+        "type": "ui_switch",
+        "z": "99c30596.370c78",
+        "name": "Zylinder 4",
+        "label": "Zylinder 4",
+        "tooltip": "",
+        "group": "6ba47504.d9680c",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "decouple": "true",
+        "topic": "",
+        "style": "",
+        "onvalue": "Z4,1",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "Z4,0",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "x": 900,
+        "y": 1020,
+        "wires": [
+            [
+                "b789cf7c.08d49"
+            ]
+        ]
+    },
+    {
+        "id": "ad1fcc7a.be5ab",
+        "type": "link in",
+        "z": "99c30596.370c78",
+        "name": "Daten Zylinder - Binär",
+        "links": [
+            "8c0f3629.c3c518",
+            "7d500616.2b2fc8",
+            "4a448d22.abc0f4"
+        ],
+        "x": 375,
+        "y": 980,
+        "wires": [
+            [
+                "504a839c.9183fc"
+            ]
+        ]
+    },
+    {
+        "id": "504a839c.9183fc",
+        "type": "function",
+        "z": "99c30596.370c78",
+        "name": "Datensatz verarbeiten",
+        "func": "var values = msg.payload.trim().split(',');    // trim off the crlf first then split into parts   \nmsg.topic = values[0];      // set the topic in case we need to tell them apart later\nmsg.payload = \"Z\" + values[0] + \",\" + values[1] ;  // replace payload with the reading we want\n//if (msg.payload == 1) msg.payload = \"Z\"+ values[0] + ;\n//else if (msg.payload == 0) msg.payload = \"Z\" + values[0] + \",\" + values[1];\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 520,
+        "y": 980,
+        "wires": [
+            [
+                "60594667.7808b8"
+            ]
+        ]
+    },
+    {
+        "id": "60594667.7808b8",
+        "type": "switch",
+        "z": "99c30596.370c78",
+        "name": "Daten aufteilen",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "2",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "3",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "4",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "5",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 5,
+        "x": 720,
+        "y": 980,
+        "wires": [
+            [
+                "2acc9514.aeedda"
+            ],
+            [
+                "d2d2d1d3.89ce7"
+            ],
+            [
+                "122d35ef.6efaea"
+            ],
+            [
+                "f7229e42.f608c"
+            ],
+            [
+                "4a590aab.e0ff04"
+            ]
+        ]
+    },
+    {
+        "id": "7d500616.2b2fc8",
+        "type": "link out",
+        "z": "ce8195e.4c0cf68",
+        "name": "Feedback - Position Zylinder",
+        "links": [
+            "ad1fcc7a.be5ab",
+            "d4946cdb.5b54a"
+        ],
+        "x": 880,
+        "y": 400,
+        "wires": [],
+        "l": true
+    },
+    {
+        "id": "d4946cdb.5b54a",
+        "type": "link in",
+        "z": "ce8195e.4c0cf68",
+        "name": "Feedback - Position Zylinder",
+        "links": [
+            "7d500616.2b2fc8"
+        ],
+        "x": 180,
+        "y": 640,
+        "wires": [
+            [
+                "55317649.78a258"
+            ]
+        ],
+        "l": true
+    },
+    {
+        "id": "b46b9c34.86438",
+        "type": "link out",
+        "z": "ce8195e.4c0cf68",
+        "name": "Feedback - Fahre Schlitten Absolut (mm)",
+        "links": [],
+        "x": 920,
+        "y": 240,
+        "wires": [],
+        "l": true
+    },
+    {
+        "id": "f3fa79c.eb8f088",
+        "type": "link out",
+        "z": "ce8195e.4c0cf68",
+        "name": "Feedback - Fahre Schlitten Relativ (mm)",
+        "links": [],
+        "x": 920,
+        "y": 280,
+        "wires": [],
+        "l": true
+    },
+    {
+        "id": "781ae0e6.2fefe",
+        "type": "link out",
+        "z": "ce8195e.4c0cf68",
+        "name": "Feedback - Warte (ms)",
+        "links": [],
+        "x": 860,
+        "y": 320,
+        "wires": [],
+        "l": true
+    },
+    {
+        "id": "1d6250f2.81887f",
+        "type": "link out",
+        "z": "ce8195e.4c0cf68",
+        "name": "Feedback - Referenz",
+        "links": [
+            "7ba9d5c1.d8e0fc"
+        ],
+        "x": 860,
+        "y": 360,
+        "wires": [],
+        "l": true
+    },
+    {
+        "id": "294956fe.6e138a",
+        "type": "ui_gauge",
+        "z": "99c30596.370c78",
+        "name": "",
+        "group": "40bdc89a.1958b8",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Position - Schlitten",
+        "label": "mm",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "1200",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 930,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "dce098a5.608ae8",
+        "type": "link in",
+        "z": "99c30596.370c78",
+        "name": "Feedback - Position Schlitten (mm)",
+        "links": [
+            "14899231.d4e30e"
+        ],
+        "x": 660,
+        "y": 620,
+        "wires": [
+            [
+                "294956fe.6e138a"
+            ]
+        ],
+        "l": true
+    },
+    {
+        "id": "7ea16136.37c4a",
+        "type": "comment",
+        "z": "99c30596.370c78",
+        "name": "Eingabeblock Verfahren (data)",
+        "info": "",
+        "x": 920,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "49e509d1.22d138",
+        "type": "link out",
+        "z": "ce8195e.4c0cf68",
+        "name": "Feedback - Fehlercode",
+        "links": [
+            "1db89b08.6dd6f5",
+            "e49b4ec1.f89e6",
+            "5b2e4537.9918fc",
+            "74dd2038.f6854"
+        ],
+        "x": 870,
+        "y": 480,
+        "wires": [],
+        "l": true
+    },
+    {
+        "id": "4a590aab.e0ff04",
+        "type": "ui_switch",
+        "z": "99c30596.370c78",
+        "name": "Zylinder 5",
+        "label": "Zylinder 5",
+        "tooltip": "",
+        "group": "6ba47504.d9680c",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "decouple": "true",
+        "topic": "",
+        "style": "",
+        "onvalue": "Z5,1",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "Z5,0",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "x": 900,
+        "y": 1060,
+        "wires": [
+            [
+                "b789cf7c.08d49"
+            ]
+        ]
+    },
+    {
+        "id": "a44c596d.bc8e38",
+        "type": "http in",
+        "z": "c7595e13.cbbe9",
+        "name": "Anfrage auf /question1Correct",
+        "url": "/question1Correct",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 160,
+        "y": 320,
+        "wires": [
+            [
+                "2d15784.0ae8a88",
+                "742aa849.85f1a8"
+            ]
+        ],
+        "info": "das aufrufen von \nemag.com:1880/question1Correct\nleitet automatisch zur zweiten frage um\nLink: emag.com/Fragen/frage2.html\n\nund fährt gleichzeitig auf \"1. Fr. Richtig\""
+    },
+    {
+        "id": "4f3ae53c.c0d1dc",
+        "type": "http in",
+        "z": "c7595e13.cbbe9",
+        "name": "Anfrage auf /question2Correct",
+        "url": "/question2Correct",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 160,
+        "y": 420,
+        "wires": [
+            [
+                "2590525d.f1e9ae",
+                "57e0e378.9f094c"
+            ]
+        ],
+        "info": "das aufrufen von \nemag.com:1880/question2Correct\nleitet automatisch zur dritten frage um\nLink: emag.com/Fragen/frage3.html\n\nund fährt gleichzeitig auf \"2. Fr. Richtig\""
+    },
+    {
+        "id": "728c0a6b.48e6e4",
+        "type": "http in",
+        "z": "c7595e13.cbbe9",
+        "name": "Anfrage auf /question3Correct",
+        "url": "/question3Correct",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 160,
+        "y": 520,
+        "wires": [
+            [
+                "cbf3263d.8df168",
+                "7dde6af9.252b64"
+            ]
+        ],
+        "info": "das aufrufen von \nemag.com:1880/question3Correct\nleitet automatisch zur vierten frage um\nLink: emag.com/Fragen/frage4.html\n\nund fährt gleichzeitig auf \"3. Fr. Richtig\""
+    },
+    {
+        "id": "bccf7871.c64c38",
+        "type": "http in",
+        "z": "c7595e13.cbbe9",
+        "name": "Anfrage auf /question4Correct",
+        "url": "/question4Correct",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 160,
+        "y": 620,
+        "wires": [
+            [
+                "90209c8c.b8b24",
+                "6dad6a97.256834"
+            ]
+        ],
+        "info": "das aufrufen von \nemag.com:1880/question4Correct\nleitet automatisch zur endauswahl um\nLink: emag.com/Auswahl/endauswahl.html\n\nund fährt gleichzeitig auf \"4. Fr. Richtig\""
+    },
+    {
+        "id": "41a7bf61.874c2",
+        "type": "http in",
+        "z": "c7595e13.cbbe9",
+        "name": "Anfrage auf /incorrectAnswer",
+        "url": "/incorrectAnswer",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 160,
+        "y": 720,
+        "wires": [
+            [
+                "c351b61e.e45548",
+                "4e5712f2.fd05bc"
+            ]
+        ],
+        "info": "das aufrufen von \nemag.com:1880/incorrectAnswer\nleitet automatisch zur ansicht für falsche antwort um\nLink: emag.com/Fragen/falsch.html\n\nund fährt gleichzeitig auf \"grundposition\""
+    },
+    {
+        "id": "47684a64.53ec14",
+        "type": "http in",
+        "z": "c7595e13.cbbe9",
+        "name": "Anfrage auf /startQuiz",
+        "url": "/startQuiz",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 140,
+        "y": 200,
+        "wires": [
+            [
+                "8a6dbb55.fcee18",
+                "afbe5795.812bb8"
+            ]
+        ],
+        "info": "das aufrufen von \nemag.com:1880/startQuiz\nleitet automatisch zur ersten frage um\nLink: emag.com/Fragen/frage1.html\n\nund fährt gleichzeitig auf \"Startposition\""
+    },
+    {
+        "id": "8a6dbb55.fcee18",
+        "type": "link out",
+        "z": "c7595e13.cbbe9",
+        "name": "Zyklus - Fahre auf \"Startposition\"",
+        "links": [
+            "d10e5e91.ca143"
+        ],
+        "x": 520,
+        "y": 200,
+        "wires": [],
+        "l": true
+    },
+    {
+        "id": "2d15784.0ae8a88",
+        "type": "link out",
+        "z": "c7595e13.cbbe9",
+        "name": "Zyklus - Fahre auf \"1. Richtig Position\"",
+        "links": [
+            "861c7ad2.667ac8"
+        ],
+        "x": 530,
+        "y": 320,
+        "wires": [],
+        "l": true
+    },
+    {
+        "id": "2590525d.f1e9ae",
+        "type": "link out",
+        "z": "c7595e13.cbbe9",
+        "name": "Zyklus - Fahre auf \"2. Richtig Position\"",
+        "links": [
+            "63d75cc0.807844"
+        ],
+        "x": 530,
+        "y": 420,
+        "wires": [],
+        "l": true
+    },
+    {
+        "id": "cbf3263d.8df168",
+        "type": "link out",
+        "z": "c7595e13.cbbe9",
+        "name": "Zyklus - Fahre auf \"3. Richtig Position\"",
+        "links": [
+            "1960c3f5.013eac"
+        ],
+        "x": 530,
+        "y": 520,
+        "wires": [],
+        "l": true
+    },
+    {
+        "id": "90209c8c.b8b24",
+        "type": "link out",
+        "z": "c7595e13.cbbe9",
+        "name": "Zyklus - Fahre auf \"4. Richtig Position\"",
+        "links": [
+            "eabc0bce.854d88"
+        ],
+        "x": 530,
+        "y": 620,
+        "wires": [],
+        "l": true
+    },
+    {
+        "id": "afbe5795.812bb8",
+        "type": "http response",
+        "z": "c7595e13.cbbe9",
+        "name": "Weiterleitung zu 1. Frage",
+        "statusCode": "301",
+        "headers": {
+            "Location": "http://emag.com/Fragen/frage1.html",
+            "Cache-control": "no-cache, no-store, must-revalidate",
+            "Pragma": "no-cache",
+            "Expires": "0"
+        },
+        "x": 490,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "c351b61e.e45548",
+        "type": "link out",
+        "z": "c7595e13.cbbe9",
+        "name": "Zyklus - Fahre auf \"Falsche Antwort Position\"",
+        "links": [
+            "a3d1f0af.43b7b"
+        ],
+        "x": 550,
+        "y": 720,
+        "wires": [],
+        "l": true
+    },
+    {
+        "id": "e6afc0b6.352f9",
+        "type": "template",
+        "z": "88973f0a.53b75",
+        "name": "Anfahren Startposition",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "A1000",
+        "output": "str",
+        "x": 600,
+        "y": 60,
+        "wires": [
+            [
+                "c50896a8.8d2488"
+            ]
+        ]
+    },
+    {
+        "id": "d10e5e91.ca143",
+        "type": "link in",
+        "z": "88973f0a.53b75",
+        "name": "Fahre auf Startposition",
+        "links": [
+            "8a6dbb55.fcee18"
+        ],
+        "x": 360,
+        "y": 60,
+        "wires": [
+            [
+                "e6afc0b6.352f9"
+            ]
+        ],
+        "l": true
+    },
+    {
+        "id": "c87220c.0bc7ce",
+        "type": "template",
+        "z": "88973f0a.53b75",
+        "name": "Anfahren \"1. Richtig\"",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "A860",
+        "output": "str",
+        "x": 600,
+        "y": 100,
+        "wires": [
+            [
+                "c50896a8.8d2488"
+            ]
+        ]
+    },
+    {
+        "id": "861c7ad2.667ac8",
+        "type": "link in",
+        "z": "88973f0a.53b75",
+        "name": "Fahre auf 1. Richtig Position",
+        "links": [
+            "2d15784.0ae8a88"
+        ],
+        "x": 340,
+        "y": 100,
+        "wires": [
+            [
+                "c87220c.0bc7ce"
+            ]
+        ],
+        "l": true
+    },
+    {
+        "id": "c1329e67.779d9",
+        "type": "template",
+        "z": "88973f0a.53b75",
+        "name": "Anfahren \"2. Richtig\"",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "A640",
+        "output": "str",
+        "x": 600,
+        "y": 140,
+        "wires": [
+            [
+                "c50896a8.8d2488"
+            ]
+        ]
+    },
+    {
+        "id": "63d75cc0.807844",
+        "type": "link in",
+        "z": "88973f0a.53b75",
+        "name": "Fahre auf 2. Richtig Position",
+        "links": [
+            "2590525d.f1e9ae"
+        ],
+        "x": 340,
+        "y": 140,
+        "wires": [
+            [
+                "c1329e67.779d9"
+            ]
+        ],
+        "l": true
+    },
+    {
+        "id": "8f65b1d5.e1c34",
+        "type": "template",
+        "z": "88973f0a.53b75",
+        "name": "Anfahren \"3. Richtig\"",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "A420",
+        "output": "str",
+        "x": 600,
+        "y": 180,
+        "wires": [
+            [
+                "c50896a8.8d2488"
+            ]
+        ]
+    },
+    {
+        "id": "1960c3f5.013eac",
+        "type": "link in",
+        "z": "88973f0a.53b75",
+        "name": "Fahre auf 3. Richtig Position",
+        "links": [
+            "cbf3263d.8df168"
+        ],
+        "x": 340,
+        "y": 180,
+        "wires": [
+            [
+                "8f65b1d5.e1c34"
+            ]
+        ],
+        "l": true
+    },
+    {
+        "id": "628ffa2a.675204",
+        "type": "template",
+        "z": "88973f0a.53b75",
+        "name": "Anfahren \"4. Richtig\"",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "A200",
+        "output": "str",
+        "x": 600,
+        "y": 220,
+        "wires": [
+            [
+                "c50896a8.8d2488"
+            ]
+        ]
+    },
+    {
+        "id": "eabc0bce.854d88",
+        "type": "link in",
+        "z": "88973f0a.53b75",
+        "name": "Fahre auf 4. Richtig Position",
+        "links": [
+            "90209c8c.b8b24"
+        ],
+        "x": 340,
+        "y": 220,
+        "wires": [
+            [
+                "628ffa2a.675204"
+            ]
+        ],
+        "l": true
+    },
+    {
+        "id": "742aa849.85f1a8",
+        "type": "http response",
+        "z": "c7595e13.cbbe9",
+        "name": "Weiterleitung zu 2. Frage",
+        "statusCode": "301",
+        "headers": {
+            "Location": "http://emag.com/Fragen/frage2.html",
+            "Cache-control": "no-cache, no-store, must-revalidate",
+            "Pragma": "no-cache",
+            "Expires": "0"
+        },
+        "x": 490,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "57e0e378.9f094c",
+        "type": "http response",
+        "z": "c7595e13.cbbe9",
+        "name": "Weiterleitung zu 3. Frage",
+        "statusCode": "301",
+        "headers": {
+            "Location": "http://emag.com/Fragen/frage3.html",
+            "Cache-control": "no-cache, no-store, must-revalidate",
+            "Pragma": "no-cache",
+            "Expires": "0"
+        },
+        "x": 490,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "7dde6af9.252b64",
+        "type": "http response",
+        "z": "c7595e13.cbbe9",
+        "name": "Weiterleitung zu 4. Frage",
+        "statusCode": "301",
+        "headers": {
+            "Location": "http://emag.com/Fragen/frage4.html",
+            "Cache-control": "no-cache, no-store, must-revalidate",
+            "Pragma": "no-cache",
+            "Expires": "0"
+        },
+        "x": 490,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "6dad6a97.256834",
+        "type": "http response",
+        "z": "c7595e13.cbbe9",
+        "name": "Weiterleitung zu Sortenauswahl",
+        "statusCode": "301",
+        "headers": {
+            "Location": "http://emag.com/Auswahl/endauswahl.html",
+            "Cache-control": "no-cache, no-store, must-revalidate",
+            "Pragma": "no-cache",
+            "Expires": "0"
+        },
+        "x": 510,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "4e5712f2.fd05bc",
+        "type": "http response",
+        "z": "c7595e13.cbbe9",
+        "name": "Weiterleitung zu Falsche Antwort",
+        "statusCode": "301",
+        "headers": {
+            "Location": "http://emag.com/Fragen/falsch.html",
+            "Cache-control": "no-cache, no-store, must-revalidate",
+            "Pragma": "no-cache",
+            "Expires": "0"
+        },
+        "x": 520,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "b16ca9a1.98bbc8",
+        "type": "template",
+        "z": "88973f0a.53b75",
+        "name": "Anfahren Falsche Antwort Position",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "A1100",
+        "output": "str",
+        "x": 640,
+        "y": 260,
+        "wires": [
+            [
+                "c50896a8.8d2488"
+            ]
+        ]
+    },
+    {
+        "id": "a3d1f0af.43b7b",
+        "type": "link in",
+        "z": "88973f0a.53b75",
+        "name": "Fahre auf Falsche Antwort Position",
+        "links": [
+            "c351b61e.e45548"
+        ],
+        "x": 320,
+        "y": 260,
+        "wires": [
+            [
+                "b16ca9a1.98bbc8"
+            ]
+        ],
+        "l": true
+    },
+    {
+        "id": "c9eb2f2f.e4ca4",
+        "type": "http response",
+        "z": "c7595e13.cbbe9",
+        "name": "Weiterleitung zu Startseite (Caching aus)",
+        "statusCode": "301",
+        "headers": {
+            "Location": "http://emag.com/",
+            "Cache-control": "no-cache, no-store, must-revalidate",
+            "Pragma": "no-cache",
+            "Expires": "0"
+        },
+        "x": 540,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "81a9e331.16f67",
+        "type": "rpi-gpio in",
+        "z": "c81cf74e.ef3338",
+        "name": "SW_1 (pi/7)",
+        "pin": "7",
+        "intype": "up",
+        "debounce": "25",
+        "read": false,
+        "x": 350,
+        "y": 280,
+        "wires": [
+            [
+                "3d4c6b00.ec5154"
+            ]
+        ]
+    },
+    {
+        "id": "c7855baa.66ad78",
+        "type": "rpi-gpio in",
+        "z": "c81cf74e.ef3338",
+        "name": "SW_2 (pi/36)",
+        "pin": "36",
+        "intype": "up",
+        "debounce": "25",
+        "read": false,
+        "x": 350,
+        "y": 340,
+        "wires": [
+            [
+                "3d4c6b00.ec5154"
+            ]
+        ]
+    },
+    {
+        "id": "b8173846.8b0f58",
+        "type": "rpi-gpio in",
+        "z": "c81cf74e.ef3338",
+        "name": "SW_3 (pi/19)",
+        "pin": "19",
+        "intype": "up",
+        "debounce": "25",
+        "read": false,
+        "x": 350,
+        "y": 400,
+        "wires": [
+            [
+                "3d4c6b00.ec5154"
+            ]
+        ]
+    },
+    {
+        "id": "171e1979.286a77",
+        "type": "rpi-gpio in",
+        "z": "c81cf74e.ef3338",
+        "name": "SW_4 (pi/21)",
+        "pin": "21",
+        "intype": "up",
+        "debounce": "25",
+        "read": false,
+        "x": 350,
+        "y": 460,
+        "wires": [
+            [
+                "3d4c6b00.ec5154"
+            ]
+        ]
+    },
+    {
+        "id": "dcdc8fbb.b0045",
+        "type": "switch",
+        "z": "c81cf74e.ef3338",
+        "name": "auftrennen Taster",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "pi/7",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "pi/36",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "pi/19",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "pi/21",
+                "vt": "str"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 5,
+        "x": 750,
+        "y": 380,
+        "wires": [
+            [
+                "58ce2468.17fa0c"
+            ],
+            [
+                "930eb392.8613"
+            ],
+            [
+                "9b9fa690.c0a3c8"
+            ],
+            [
+                "621e3edd.88b9d"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "3d4c6b00.ec5154",
+        "type": "switch",
+        "z": "c81cf74e.ef3338",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 590,
+        "y": 380,
+        "wires": [
+            [
+                "dcdc8fbb.b0045"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "58ce2468.17fa0c",
+        "type": "link out",
+        "z": "c81cf74e.ef3338",
+        "name": "RPI Taster 1",
+        "links": [
+            "ac0bae9e.bd36e"
+        ],
+        "x": 970,
+        "y": 300,
+        "wires": [],
+        "l": true
+    },
+    {
+        "id": "930eb392.8613",
+        "type": "link out",
+        "z": "c81cf74e.ef3338",
+        "name": "RPI Taster 2",
+        "links": [
+            "e8ad4bf.42348b8"
+        ],
+        "x": 970,
+        "y": 360,
+        "wires": [],
+        "l": true
+    },
+    {
+        "id": "884badc5.6a4f1",
+        "type": "ui_button",
+        "z": "99c30596.370c78",
+        "name": "Zylinder 1 / Magazin 1",
+        "group": "14c927a4.bb4f18",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "label": "Zylinder 1 / Magazin 1",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "E1,250",
+        "payloadType": "str",
+        "topic": "",
+        "x": 940,
+        "y": 1120,
+        "wires": [
+            [
+                "7ec15a2b.e06bd4"
+            ]
+        ]
+    },
+    {
+        "id": "5651aa82.35c344",
+        "type": "ui_button",
+        "z": "99c30596.370c78",
+        "name": "Zylinder 2 / Magazin 2",
+        "group": "14c927a4.bb4f18",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "label": "Zylinder 2 / Magazin 2",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "E2,250",
+        "payloadType": "str",
+        "topic": "",
+        "x": 940,
+        "y": 1160,
+        "wires": [
+            [
+                "7ec15a2b.e06bd4"
+            ]
+        ]
+    },
+    {
+        "id": "61bf6941.d8ae58",
+        "type": "ui_button",
+        "z": "99c30596.370c78",
+        "name": "Zylinder 3 / Magazin 3",
+        "group": "14c927a4.bb4f18",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "label": "Zylinder 3 / Magazin 3",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "E3,250",
+        "payloadType": "str",
+        "topic": "",
+        "x": 940,
+        "y": 1200,
+        "wires": [
+            [
+                "7ec15a2b.e06bd4"
+            ]
+        ]
+    },
+    {
+        "id": "e498274.406b2d8",
+        "type": "ui_button",
+        "z": "99c30596.370c78",
+        "name": "Zylinder 4 / Magazin 4",
+        "group": "14c927a4.bb4f18",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "label": "Zylinder 4 / Magazin 4",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "E4,250",
+        "payloadType": "str",
+        "topic": "",
+        "x": 940,
+        "y": 1240,
+        "wires": [
+            [
+                "7ec15a2b.e06bd4"
+            ]
+        ]
+    },
+    {
+        "id": "2354b29a.2187ee",
+        "type": "ui_button",
+        "z": "99c30596.370c78",
+        "name": "Zylinder 5 / Auswurfposition",
+        "group": "14c927a4.bb4f18",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Zylinder 5 / Auswurfposition",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "E5,250",
+        "payloadType": "str",
+        "topic": "",
+        "x": 920,
+        "y": 1280,
+        "wires": [
+            [
+                "7ec15a2b.e06bd4"
+            ]
+        ]
+    },
+    {
+        "id": "ac0bae9e.bd36e",
+        "type": "link in",
+        "z": "99c30596.370c78",
+        "name": "PI Taster 1",
+        "links": [
+            "58ce2468.17fa0c"
+        ],
+        "x": 720,
+        "y": 120,
+        "wires": [
+            [
+                "4026328.941accc"
+            ]
+        ],
+        "l": true
+    },
+    {
+        "id": "e8ad4bf.42348b8",
+        "type": "link in",
+        "z": "99c30596.370c78",
+        "name": "PI Taster 2",
+        "links": [
+            "930eb392.8613"
+        ],
+        "x": 320,
+        "y": 780,
+        "wires": [
+            [
+                "bcdedd5d.cbf87"
+            ]
+        ],
+        "l": true
+    },
+    {
+        "id": "9b9fa690.c0a3c8",
+        "type": "link out",
+        "z": "c81cf74e.ef3338",
+        "name": "RPI Taster 3",
+        "links": [
+            "3a195191.da4cde",
+            "41cbf1d1.10811"
+        ],
+        "x": 970,
+        "y": 440,
+        "wires": [],
+        "l": true
+    },
+    {
+        "id": "1d60f20c.72706e",
+        "type": "ui_switch",
+        "z": "99c30596.370c78",
+        "name": "Mehrfaches Gewinnen erlauben",
+        "label": "Mehrfaches Gewinnen erlauben",
+        "tooltip": "",
+        "group": "d91da91d.797388",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 930,
+        "y": 1400,
+        "wires": [
+            [
+                "e3813f2f.f8c6f"
+            ]
+        ]
+    },
+    {
+        "id": "e3813f2f.f8c6f",
+        "type": "function",
+        "z": "99c30596.370c78",
+        "name": "Speichere Wert",
+        "func": "global.set(\"multiWin\",msg.payload)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1200,
+        "y": 1400,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "621e3edd.88b9d",
+        "type": "link out",
+        "z": "c81cf74e.ef3338",
+        "name": "RPI Taster 4",
+        "links": [
+            "b33e87e7.846518"
+        ],
+        "x": 970,
+        "y": 520,
+        "wires": [],
+        "l": true
+    },
+    {
+        "id": "41cbf1d1.10811",
+        "type": "link in",
+        "z": "99c30596.370c78",
+        "name": "PI Taster 3",
+        "links": [
+            "9b9fa690.c0a3c8"
+        ],
+        "x": 760,
+        "y": 200,
+        "wires": [
+            [
+                "78d7e082.2016f"
+            ]
+        ],
+        "l": true
+    },
+    {
+        "id": "b33e87e7.846518",
+        "type": "link in",
+        "z": "99c30596.370c78",
+        "name": "PI Taster 4",
+        "links": [
+            "621e3edd.88b9d"
+        ],
+        "x": 760,
+        "y": 340,
+        "wires": [
+            [
+                "1e47ca2d.98d756"
+            ]
+        ],
+        "l": true
+    },
+    {
+        "id": "1832bbee.34a1f4",
+        "type": "ui_button",
+        "z": "99c30596.370c78",
+        "name": "",
+        "group": "40b145a0.9b3e8c",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "label": "Fahre auf Grundposition",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "",
+        "x": 950,
+        "y": 240,
+        "wires": [
+            [
+                "44a415ae.65c67c"
+            ]
+        ]
+    },
+    {
+        "id": "a81f2fb3.29407",
+        "type": "serial out",
+        "z": "ccdbcd9b.22b11",
+        "name": "Arduino",
+        "serial": "9fc3bd98.a178c",
+        "x": 360,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "c2d5b3f2.ecc3e",
+        "type": "comment",
+        "z": "ccdbcd9b.22b11",
+        "name": "Eingangstext wird direkt an Arduino ausgegeben",
+        "info": "",
+        "x": 340,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "d607dedc.a9cef",
+        "type": "template",
+        "z": "cef98315.81339",
+        "name": "Arduino Befehle",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "H",
+        "output": "str",
+        "x": 300,
+        "y": 160,
+        "wires": [
+            [
+                "b7b1775e.e69c38"
+            ]
+        ]
+    },
+    {
+        "id": "b7b1775e.e69c38",
+        "type": "subflow:ccdbcd9b.22b11",
+        "z": "cef98315.81339",
+        "name": "",
+        "env": [],
+        "x": 540,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "b59db552.ea2b88",
+        "type": "template",
+        "z": "5003a3ba.fc9f3c",
+        "name": "Arduino Befehle",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "A0\nC",
+        "output": "str",
+        "x": 340,
+        "y": 160,
+        "wires": [
+            [
+                "943fdf95.64af6"
+            ]
+        ]
+    },
+    {
+        "id": "943fdf95.64af6",
+        "type": "subflow:ccdbcd9b.22b11",
+        "z": "5003a3ba.fc9f3c",
+        "name": "",
+        "env": [],
+        "x": 570,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "532ad208.af77ac",
+        "type": "template",
+        "z": "5003a3ba.fc9f3c",
+        "name": "LCD Text",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "Nullpunkt\nanfahren",
+        "output": "str",
+        "x": 320,
+        "y": 240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2267aa15.5eecc6",
+        "type": "exec",
+        "z": "c7305e50.48bd5",
+        "command": "python3 /home/pi/Desktop/LCD_Funktionen/PrintL2.py",
+        "addpay": true,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "Python script",
+        "x": 1350,
+        "y": 200,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "277a5ee1.34d362",
+        "type": "delay",
+        "z": "c7305e50.48bd5",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 780,
+        "y": 200,
+        "wires": [
+            [
+                "f172b670.742fd8"
+            ]
+        ]
+    },
+    {
+        "id": "da764b10.a514a8",
+        "type": "link in",
+        "z": "c7305e50.48bd5",
+        "name": "Funktion, ausgabe zu LCD",
+        "links": [
+            "562c8ede.581e5",
+            "7c0ab5c.0cb6a4c",
+            "efdaecd2.93fe6",
+            "6dc83db.45bd5c4",
+            "d8fa7c91.0c0c8",
+            "a48ecc2f.a4392",
+            "c2d88dc9.b735",
+            "864e205b.f2b4f",
+            "5ee39433.f229fc",
+            "482a12f3.ac01bc",
+            "15a272fe.62e73d",
+            "bddd9d90.ef2d1",
+            "4c8ce9a.152de18",
+            "4a4fd83c.468118"
+        ],
+        "x": 595,
+        "y": 260,
+        "wires": [
+            [
+                "277a5ee1.34d362"
+            ]
+        ]
+    },
+    {
+        "id": "f49ebe93.d9e7e",
+        "type": "subflow:5003a3ba.fc9f3c",
+        "z": "99c30596.370c78",
+        "name": "",
+        "x": 1170,
+        "y": 200,
+        "wires": [
+            [
+                "562c8ede.581e5"
+            ]
+        ]
+    },
+    {
+        "id": "562c8ede.581e5",
+        "type": "link out",
+        "z": "99c30596.370c78",
+        "name": "Text->LCD",
+        "links": [
+            "da764b10.a514a8"
+        ],
+        "x": 1530,
+        "y": 260,
+        "wires": [],
+        "l": true
+    },
+    {
+        "id": "d3ffb303.a76ba",
+        "type": "inject",
+        "z": "c7305e50.48bd5",
+        "name": "start impuls",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "x": 230,
+        "y": 180,
+        "wires": [
+            [
+                "93486a31.69f388",
+                "cc905896.079118",
+                "c1b5505f.ad6cb"
+            ]
+        ]
+    },
+    {
+        "id": "93486a31.69f388",
+        "type": "function",
+        "z": "c7305e50.48bd5",
+        "name": "Fake Ladebalken, Anlagenstart",
+        "func": "var msg1 = {payload:\"EMAG MESSESTAND\\n####____________\"};\nvar msg2 = {payload:\"EMAG MESSESTAND\\n########________\"};\nvar msg3 = {payload:\"EMAG MESSESTAND\\n############____\"};\nvar msg4 = {payload:\"EMAG MESSESTAND\\n################\"};\nvar msg5 = {payload:\"gestartet, warte\\nauf Arduino\"};\nnode.done();\nreturn [[msg1,msg2,msg3,msg4,msg5]];",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 490,
+        "y": 180,
+        "wires": [
+            [
+                "277a5ee1.34d362"
+            ]
+        ]
+    },
+    {
+        "id": "74dd2038.f6854",
+        "type": "link in",
+        "z": "c7305e50.48bd5",
+        "name": "Funktion, Verarbeite Fehlercode",
+        "links": [
+            "49e509d1.22d138"
+        ],
+        "x": 435,
+        "y": 220,
+        "wires": [
+            [
+                "c9a1308d.ef8f9"
+            ]
+        ]
+    },
+    {
+        "id": "c9a1308d.ef8f9",
+        "type": "function",
+        "z": "c7305e50.48bd5",
+        "name": "Code zu Text",
+        "func": "var code = msg.payload;\nasync function readyText() { \n    msg.payload = \"EMAG MESSESTAND\\nAnlage bereit\";\n    node.send(msg);\n}\nasync function f5021() { \n    msg.payload = \"Referenzfahrt\\nbeendet\";\n    node.send(msg);\n}\n\nasync function f5031() {\n    msg.payload = \"Referenzfahrt\\ngestartet\";\n    node.send(msg);\n    f5032();\n}\nasync function f5032() { \n    msg.payload = \"Referenzfahrt\\nlaeuft\";\n    node.send(msg);\n}\n\n   \n//else if (code == nnn) msg.payload = \"################\\n################\";\nif (code == 401) msg.payload = \"Arduino Reset   \\nReferenz fahren!\";\nelse if  (code == 402) msg.payload = \"FEHLER: Notaus\\nbetaetigt?\";\nelse if  (code == 403) msg.payload = \"FEHLER: \\nFreigabe fehlt\";\nelse if  (code == 404) msg.payload = \"FEHLER/INFO: \\nReferenz fahren!\";\nelse if  (code == 405) msg.payload = \"FEHLER: Abbruch\\nReferenzfahrt!\";\nelse if  (code == 406) msg.payload = \"FEHLER: erreichen\\nEndschalter!\";\nelse if  (code == 408) msg.payload = \"FEHLER: Nullpunkt\\nnicht gefunden!\";\nelse if  (code == 409) return;//info, referenz verloren\n\nelse if  (code == 410) msg.payload = \"FEHLER: Zyl 1?  \\nDruckluft fehlt?\";\nelse if  (code == 411) msg.payload = \"FEHLER: Zyl 2?  \\nDruckluft fehlt?\";\nelse if  (code == 412) msg.payload = \"FEHLER: Zyl 3?  \\nDruckluft fehlt?\";\nelse if  (code == 413) msg.payload = \"FEHLER: Zyl 4?  \\nDruckluft fehlt?\";\nelse if  (code == 414) msg.payload = \"FEHLER: Zyl 5?  \\nDruckluft fehlt?\";\n\nelse if  (code == 420) return;  //zielposition zu klein, fahrbefehl nicht akzeptiert\nelse if  (code == 421) return;  //zielposition zu gross, fahrbefehl nicht akzeptiert\n\nelse if (code == 430) return;   //befehl unbekannt\n\nelse if  (code == 501) msg.payload = \"Fehler quittiert\\nReferenz fahren!\";\nelse if  (code == 502) {\n    f5021();\n    readyText();\n    return;\n   }\nelse if  (code == 503) {\n    f5031();\n    return;\n}\nelse if  (code == 504) readyText(); //C empfangen --> zyklusende\n//return msg;\nif (msg.payload != \"EMAG MESSESTAND\\nAnlage bereit\") node.send(msg);\nnode.done();\nreturn;\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 550,
+        "y": 220,
+        "wires": [
+            [
+                "277a5ee1.34d362"
+            ]
+        ]
+    },
+    {
+        "id": "529b5f27.930db",
+        "type": "template",
+        "z": "2e8d7b9.dda7184",
+        "name": "Arduino Befehle",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "A1100\nC",
+        "output": "str",
+        "x": 300,
+        "y": 220,
+        "wires": [
+            [
+                "207012b9.6e62ce"
+            ]
+        ]
+    },
+    {
+        "id": "207012b9.6e62ce",
+        "type": "subflow:ccdbcd9b.22b11",
+        "z": "2e8d7b9.dda7184",
+        "name": "",
+        "env": [],
+        "x": 530,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "ae1b33ba.32738",
+        "type": "template",
+        "z": "2e8d7b9.dda7184",
+        "name": "LCD Text",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "Grundposition\nanfahren",
+        "output": "str",
+        "x": 280,
+        "y": 300,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "44a415ae.65c67c",
+        "type": "subflow:2e8d7b9.dda7184",
+        "z": "99c30596.370c78",
+        "name": "",
+        "x": 1190,
+        "y": 240,
+        "wires": [
+            [
+                "562c8ede.581e5"
+            ]
+        ]
+    },
+    {
+        "id": "f172b670.742fd8",
+        "type": "function",
+        "z": "c7305e50.48bd5",
+        "name": "Verpacke text in start/end zeichen",
+        "func": "val = \"\";\nmsg.payload = \"'\" + msg.payload + \"'\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1080,
+        "y": 200,
+        "wires": [
+            [
+                "2267aa15.5eecc6"
+            ]
+        ]
+    },
+    {
+        "id": "8303a6c9.7a6818",
+        "type": "template",
+        "z": "6588ff82.e153b",
+        "name": "Arduino Befehle",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "A1198\nC",
+        "output": "str",
+        "x": 280,
+        "y": 100,
+        "wires": [
+            [
+                "be45ceb1.df836"
+            ]
+        ]
+    },
+    {
+        "id": "be45ceb1.df836",
+        "type": "subflow:ccdbcd9b.22b11",
+        "z": "6588ff82.e153b",
+        "name": "",
+        "env": [],
+        "x": 510,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "b93d7f26.d66f3",
+        "type": "template",
+        "z": "6588ff82.e153b",
+        "name": "LCD Text",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "Auswurfposition\nanfahren",
+        "output": "str",
+        "x": 260,
+        "y": 180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "804d42b6.dc814",
+        "type": "subflow:6588ff82.e153b",
+        "z": "99c30596.370c78",
+        "name": "",
+        "x": 1190,
+        "y": 280,
+        "wires": [
+            [
+                "562c8ede.581e5"
+            ]
+        ]
+    },
+    {
+        "id": "5aee138d.ce7bcc",
+        "type": "template",
+        "z": "af233270.79565",
+        "name": "Demo Fahrt",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "A1200\nA1100\nA1000\nA860\nA640\nA420\nA200\nA98\nA13\nA0\nA1100\nC",
+        "output": "str",
+        "x": 270,
+        "y": 160,
+        "wires": [
+            [
+                "bb89c186.41ac5"
+            ]
+        ]
+    },
+    {
+        "id": "bb89c186.41ac5",
+        "type": "subflow:ccdbcd9b.22b11",
+        "z": "af233270.79565",
+        "name": "",
+        "env": [],
+        "x": 510,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "f3009024.db64d",
+        "type": "template",
+        "z": "af233270.79565",
+        "name": "LCD Text",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "Testzyklus\nlaeuft",
+        "output": "str",
+        "x": 260,
+        "y": 240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6adb9f1b.463e1",
+        "type": "template",
+        "z": "a898155e.67c758",
+        "name": "Arduino Befehle",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "A98\nE1,250\nA1198\nE5,250\nA1100\nC",
+        "output": "str",
+        "x": 220,
+        "y": 80,
+        "wires": [
+            [
+                "c8e6ab10.1fb788"
+            ]
+        ]
+    },
+    {
+        "id": "c8e6ab10.1fb788",
+        "type": "subflow:ccdbcd9b.22b11",
+        "z": "a898155e.67c758",
+        "name": "",
+        "env": [],
+        "x": 450,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "5662fde9.68cea4",
+        "type": "template",
+        "z": "a898155e.67c758",
+        "name": "LCD Text",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "EMAG MESSESTAND\nAuswurf Sorte 1",
+        "output": "str",
+        "x": 200,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "64263df5.e02244",
+        "type": "template",
+        "z": "c0fcdc76.a99c2",
+        "name": "Arduino Befehle",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "A13\nE3,250\nA1198\nE5,250\nA1100\nC",
+        "output": "str",
+        "x": 240,
+        "y": 220,
+        "wires": [
+            [
+                "e7e62bab.5dfee8"
+            ]
+        ]
+    },
+    {
+        "id": "e7e62bab.5dfee8",
+        "type": "subflow:ccdbcd9b.22b11",
+        "z": "c0fcdc76.a99c2",
+        "name": "",
+        "env": [],
+        "x": 470,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "64cf65ce.b9952c",
+        "type": "template",
+        "z": "c0fcdc76.a99c2",
+        "name": "LCD Text",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "EMAG MESSESTAND\nAuswurf Sorte 3",
+        "output": "str",
+        "x": 220,
+        "y": 300,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "544199af.7ceae8",
+        "type": "template",
+        "z": "5b6015e1.9df0fc",
+        "name": "Arduino Befehle",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "A98\nE4,250\nA1198\nE5,250\nA1100\nC",
+        "output": "str",
+        "x": 220,
+        "y": 160,
+        "wires": [
+            [
+                "e16a3fa3.e84ce"
+            ]
+        ]
+    },
+    {
+        "id": "e16a3fa3.e84ce",
+        "type": "subflow:ccdbcd9b.22b11",
+        "z": "5b6015e1.9df0fc",
+        "name": "",
+        "env": [],
+        "x": 450,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "e36cdeac.aad73",
+        "type": "template",
+        "z": "5b6015e1.9df0fc",
+        "name": "LCD Text",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "EMAG MESSESTAND\nAuswurf Sorte 4",
+        "output": "str",
+        "x": 200,
+        "y": 240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a188cf47.7ad61",
+        "type": "template",
+        "z": "6be034a7.37e81c",
+        "name": "Arduino Befehle",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "A13\nE2,250\nA1198\nE5,250\nA1100\nC",
+        "output": "str",
+        "x": 220,
+        "y": 160,
+        "wires": [
+            [
+                "6c8e885d.68e348"
+            ]
+        ]
+    },
+    {
+        "id": "6c8e885d.68e348",
+        "type": "subflow:ccdbcd9b.22b11",
+        "z": "6be034a7.37e81c",
+        "name": "",
+        "env": [],
+        "x": 450,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "391907e9.0533c8",
+        "type": "template",
+        "z": "6be034a7.37e81c",
+        "name": "LCD Text",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "EMAG MESSESTAND\nAuswurf Sorte 2",
+        "output": "str",
+        "x": 200,
+        "y": 240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "848100d9.d6bdf",
+        "type": "subflow:a898155e.67c758",
+        "z": "99c30596.370c78",
+        "name": "",
+        "x": 1170,
+        "y": 720,
+        "wires": [
+            [
+                "6dc83db.45bd5c4"
+            ]
+        ]
+    },
+    {
+        "id": "f8402e2.319cfd",
+        "type": "subflow:6be034a7.37e81c",
+        "z": "99c30596.370c78",
+        "name": "",
+        "x": 1170,
+        "y": 760,
+        "wires": [
+            [
+                "6dc83db.45bd5c4"
+            ]
+        ]
+    },
+    {
+        "id": "ac00664e.5e4378",
+        "type": "subflow:c0fcdc76.a99c2",
+        "z": "99c30596.370c78",
+        "name": "",
+        "x": 1170,
+        "y": 800,
+        "wires": [
+            [
+                "6dc83db.45bd5c4"
+            ]
+        ]
+    },
+    {
+        "id": "17f59969.cb62b7",
+        "type": "subflow:5b6015e1.9df0fc",
+        "z": "99c30596.370c78",
+        "name": "",
+        "x": 1170,
+        "y": 840,
+        "wires": [
+            [
+                "6dc83db.45bd5c4"
+            ]
+        ]
+    },
+    {
+        "id": "6dc83db.45bd5c4",
+        "type": "link out",
+        "z": "99c30596.370c78",
+        "name": "Text->LCD",
+        "links": [
+            "da764b10.a514a8"
+        ],
+        "x": 1430,
+        "y": 780,
+        "wires": [],
+        "l": true
+    },
+    {
+        "id": "e5897b5a.2d86c8",
+        "type": "subflow:cef98315.81339",
+        "z": "c7595e13.cbbe9",
+        "name": "",
+        "x": 470,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "d354a804.3b7d78",
+        "type": "change",
+        "z": "99c30596.370c78",
+        "name": "zahl zu text",
+        "rules": [
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "0",
+                "fromt": "str",
+                "to": "Nicht Gefahren",
+                "tot": "str"
+            },
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "1",
+                "fromt": "str",
+                "to": "Gefahren",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 730,
+        "y": 660,
+        "wires": [
+            [
+                "e0114e32.8eb73"
+            ]
+        ]
+    },
+    {
+        "id": "7ba9d5c1.d8e0fc",
+        "type": "link in",
+        "z": "99c30596.370c78",
+        "name": "Status Referenzfahrt",
+        "links": [
+            "1d6250f2.81887f"
+        ],
+        "x": 550,
+        "y": 660,
+        "wires": [
+            [
+                "d354a804.3b7d78"
+            ]
+        ],
+        "l": true
+    },
+    {
+        "id": "e0114e32.8eb73",
+        "type": "ui_text",
+        "z": "99c30596.370c78",
+        "group": "40bdc89a.1958b8",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "Status Referenzfahrt",
+        "label": "Referenzfahrt:",
+        "format": "{{msg.payload}}",
+        "layout": "row-center",
+        "x": 940,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "4d7e7f42.63de7",
+        "type": "subflow:af233270.79565",
+        "z": "99c30596.370c78",
+        "name": "",
+        "x": 1140,
+        "y": 340,
+        "wires": [
+            [
+                "562c8ede.581e5"
+            ]
+        ]
+    },
+    {
+        "id": "73428273.1eb88c",
+        "type": "subflow:cef98315.81339",
+        "z": "99c30596.370c78",
+        "name": "",
+        "x": 1170,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "7511f1a3.6fb3b",
+        "type": "subflow:a898155e.67c758",
+        "z": "99c30596.370c78",
+        "name": "",
+        "x": 1520,
+        "y": 1500,
+        "wires": [
+            [
+                "a48ecc2f.a4392"
+            ]
+        ]
+    },
+    {
+        "id": "49fcda27.91b4b4",
+        "type": "inject",
+        "z": "99c30596.370c78",
+        "name": "Timer 11s",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "12",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 870,
+        "y": 1560,
+        "wires": [
+            [
+                "73f2ee01.1005d"
+            ]
+        ]
+    },
+    {
+        "id": "ff9f26d3.25a818",
+        "type": "function",
+        "z": "99c30596.370c78",
+        "name": "Speichere Wert",
+        "func": "state = global.get(\"autoCycle\");\nif (state === true) {\n    global.set(\"autoCycle\",false)\n    msg.topic = \"Automatik einschalten\";\n    msg.payload = false;\n}\nelse {\n    global.set(\"autoCycle\",true);\n    msg.topic = \"Automatik ausschalten\";\n    msg.payload = true;\n}\nglobal.set(\"autoCycle\",msg.payload)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1200,
+        "y": 1440,
+        "wires": [
+            [
+                "6e7a7c4f.fb8164",
+                "9fd40068.eea24"
+            ]
+        ]
+    },
+    {
+        "id": "73f2ee01.1005d",
+        "type": "function",
+        "z": "99c30596.370c78",
+        "name": "Prüfe ob Zyklus an ist und welche Sorte gewählt ist",
+        "func": "//Ausgang 1 Ja\n//Ausgang 2 Nein\nval = global.get(\"autoCycle\");\nsorte = global.get(\"autoCycleSorte\");\nmsg.payload = true;\nif (val === true){\n    if(sorte == 1) return [msg,null,null,null];\n    else if(sorte == 2) return [null,msg,null,null];\n    else if(sorte == 3) return [null,null,msg,null];\n    else if(sorte == 4) return [null,null,null,msg];\n}\nreturn;",
+        "outputs": 4,
+        "noerr": 0,
+        "x": 1170,
+        "y": 1560,
+        "wires": [
+            [
+                "7511f1a3.6fb3b",
+                "be3357e5.bd8568"
+            ],
+            [
+                "be3357e5.bd8568",
+                "1d30964a.dd35ea"
+            ],
+            [
+                "be3357e5.bd8568",
+                "ef02c0d3.4375a"
+            ],
+            [
+                "be3357e5.bd8568",
+                "99c796d8.51ab38"
+            ]
+        ]
+    },
+    {
+        "id": "a48ecc2f.a4392",
+        "type": "link out",
+        "z": "99c30596.370c78",
+        "name": "Text->LCD",
+        "links": [
+            "da764b10.a514a8"
+        ],
+        "x": 1750,
+        "y": 1560,
+        "wires": [],
+        "l": true
+    },
+    {
+        "id": "566131a7.d2c8a",
+        "type": "function",
+        "z": "a898155e.67c758",
+        "name": "Zähle Zyklenzal hoch",
+        "func": "if (global.get(\"referenceState\")==0)return;\nval = global.get(\"CycleCount1\");\nmsg.payload = val + 1;\nglobal.set(\"CycleCount1\",msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 460,
+        "y": 120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "cad9d84d.f77558",
+        "type": "function",
+        "z": "c86d3eb6.1f301",
+        "name": "counter resetten",
+        "func": "global.set(\"CycleCount1\", 0);\nglobal.set(\"CycleCount2\", 0);\nglobal.set(\"CycleCount3\", 0);\nglobal.set(\"CycleCount4\", 0);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 230,
+        "y": 220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ba844610.1f58f8",
+        "type": "function",
+        "z": "6be034a7.37e81c",
+        "name": "Zähle Zyklenzal hoch",
+        "func": "if (global.get(\"referenceState\")==0)return;\nval = global.get(\"CycleCount2\");\nmsg.payload = val + 1;\nglobal.set(\"CycleCount2\",msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 460,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2429e21a.0193ae",
+        "type": "function",
+        "z": "c0fcdc76.a99c2",
+        "name": "Zähle Zyklenzal hoch",
+        "func": "if (global.get(\"referenceState\")==0)return;\nval = global.get(\"CycleCount3\");\nmsg.payload = val + 1;\nglobal.set(\"CycleCount3\",msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 480,
+        "y": 260,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "277e1f95.25ffe",
+        "type": "function",
+        "z": "5b6015e1.9df0fc",
+        "name": "Zähle Zyklenzal hoch",
+        "func": "if (global.get(\"referenceState\")==0)return;\nval = global.get(\"CycleCount4\");\nmsg.payload = val + 1;\nglobal.set(\"CycleCount4\",msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 460,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "35e6714a.df3cee",
+        "type": "inject",
+        "z": "c7305e50.48bd5",
+        "name": "5 sekunden intervall",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "5",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 200,
+        "y": 460,
+        "wires": [
+            [
+                "5db970a3.8b2ab",
+                "bfbe1a2f.ba53c8"
+            ]
+        ]
+    },
+    {
+        "id": "5db970a3.8b2ab",
+        "type": "template",
+        "z": "c7305e50.48bd5",
+        "name": "Sende 'P' um daten zu erhalten",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "plain",
+        "template": "P",
+        "output": "str",
+        "x": 490,
+        "y": 460,
+        "wires": [
+            [
+                "74a8bf49.bcd88"
+            ]
+        ]
+    },
+    {
+        "id": "74a8bf49.bcd88",
+        "type": "subflow:ccdbcd9b.22b11",
+        "z": "c7305e50.48bd5",
+        "name": "",
+        "x": 770,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "7ec15a2b.e06bd4",
+        "type": "subflow:ccdbcd9b.22b11",
+        "z": "99c30596.370c78",
+        "name": "",
+        "x": 1210,
+        "y": 1200,
+        "wires": []
+    },
+    {
+        "id": "b789cf7c.08d49",
+        "type": "subflow:ccdbcd9b.22b11",
+        "z": "99c30596.370c78",
+        "name": "",
+        "x": 1210,
+        "y": 960,
+        "wires": []
+    },
+    {
+        "id": "26a807e0.9b43f8",
+        "type": "subflow:ccdbcd9b.22b11",
+        "z": "99c30596.370c78",
+        "name": "",
+        "x": 1440,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "c50896a8.8d2488",
+        "type": "subflow:ccdbcd9b.22b11",
+        "z": "88973f0a.53b75",
+        "name": "",
+        "env": [],
+        "x": 950,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "bfbe1a2f.ba53c8",
+        "type": "link out",
+        "z": "c7305e50.48bd5",
+        "name": "Takt, 5s",
+        "links": [],
+        "x": 420,
+        "y": 420,
+        "wires": [],
+        "l": true
+    },
+    {
+        "id": "cc905896.079118",
+        "type": "link out",
+        "z": "c7305e50.48bd5",
+        "name": "Impuls, Start",
+        "links": [
+            "79ff54f.0e66aac"
+        ],
+        "x": 430,
+        "y": 140,
+        "wires": [],
+        "l": true
+    },
+    {
+        "id": "17387fd9.ab30c",
+        "type": "link in",
+        "z": "c9cb89cd.736bd8",
+        "name": "Takt 1/2s",
+        "links": [
+            "982b6086.503c2"
+        ],
+        "x": 300,
+        "y": 540,
+        "wires": [
+            [
+                "42071430.d8826c"
+            ]
+        ],
+        "l": true
+    },
+    {
+        "id": "8f600baf.b1e188",
+        "type": "function",
+        "z": "544ad43a.507b8c",
+        "name": "Gebe Zyklenzähler werte aus",
+        "func": "count1 = { payload: global.get(\"CycleCount1\")};\ncount2 = { payload: global.get(\"CycleCount2\")};\ncount3 = { payload: global.get(\"CycleCount3\")};\ncount4 = { payload: global.get(\"CycleCount4\")};\nreturn [count1, count2, count3, count4];",
+        "outputs": 4,
+        "noerr": 0,
+        "x": 300,
+        "y": 200,
+        "wires": [
+            [],
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "42071430.d8826c",
+        "type": "subflow:544ad43a.507b8c",
+        "z": "c9cb89cd.736bd8",
+        "name": "",
+        "x": 500,
+        "y": 520,
+        "wires": [
+            [
+                "7087180c.1d3be8"
+            ],
+            [
+                "7644863f.05dca8"
+            ],
+            [
+                "9df9f6e9.be0b98"
+            ],
+            [
+                "bc849fba.3aaef"
+            ]
+        ]
+    },
+    {
+        "id": "7087180c.1d3be8",
+        "type": "ui_text",
+        "z": "c9cb89cd.736bd8",
+        "group": "2313ca4.0946c36",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "Zähler Sorte 1",
+        "label": "Sorte 1:",
+        "format": "{{msg.payload}} Zyklen",
+        "layout": "row-spread",
+        "x": 760,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "79ff54f.0e66aac",
+        "type": "link in",
+        "z": "c9cb89cd.736bd8",
+        "name": "Initialisierung Zählertext",
+        "links": [
+            "cc905896.079118"
+        ],
+        "x": 260,
+        "y": 500,
+        "wires": [
+            [
+                "42071430.d8826c"
+            ]
+        ],
+        "l": true
+    },
+    {
+        "id": "7644863f.05dca8",
+        "type": "ui_text",
+        "z": "c9cb89cd.736bd8",
+        "group": "2313ca4.0946c36",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "Zähler Sorte 2",
+        "label": "Sorte 2:",
+        "format": "{{msg.payload}} Zyklen",
+        "layout": "row-spread",
+        "x": 760,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "9df9f6e9.be0b98",
+        "type": "ui_text",
+        "z": "c9cb89cd.736bd8",
+        "group": "2313ca4.0946c36",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "Zähler Sorte 3",
+        "label": "Sorte 3:",
+        "format": "{{msg.payload}} Zyklen",
+        "layout": "row-spread",
+        "x": 760,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "bc849fba.3aaef",
+        "type": "ui_text",
+        "z": "c9cb89cd.736bd8",
+        "group": "2313ca4.0946c36",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "Zähler Sorte 4",
+        "label": "Sorte 4:",
+        "format": "{{msg.payload}} Zyklen",
+        "layout": "row-spread",
+        "x": 760,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "7cc10d24.6206a4",
+        "type": "ui_button",
+        "z": "c9cb89cd.736bd8",
+        "name": "",
+        "group": "2313ca4.0946c36",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "reset",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "",
+        "x": 390,
+        "y": 640,
+        "wires": [
+            [
+                "5c07a609.57f0d8",
+                "42071430.d8826c"
+            ]
+        ]
+    },
+    {
+        "id": "5c07a609.57f0d8",
+        "type": "subflow:c86d3eb6.1f301",
+        "z": "c9cb89cd.736bd8",
+        "name": "",
+        "x": 670,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "4060dbda.d2cb04",
+        "type": "inject",
+        "z": "c7305e50.48bd5",
+        "name": "1 sekunden intervall",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "0.5",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 200,
+        "y": 520,
+        "wires": [
+            [
+                "982b6086.503c2"
+            ]
+        ]
+    },
+    {
+        "id": "982b6086.503c2",
+        "type": "link out",
+        "z": "c7305e50.48bd5",
+        "name": "Takt, 1/2s",
+        "links": [
+            "17387fd9.ab30c"
+        ],
+        "x": 420,
+        "y": 520,
+        "wires": [],
+        "l": true
+    },
+    {
+        "id": "8445dc72.0a45a",
+        "type": "ui_ui_control",
+        "z": "99c30596.370c78",
+        "name": "Seitenwechsel zu Status",
+        "events": "all",
+        "x": 1230,
+        "y": 1360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1fc9ab39.e1ec95",
+        "type": "ui_button",
+        "z": "99c30596.370c78",
+        "name": "",
+        "group": "d91da91d.797388",
+        "order": 8,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Status öffnen",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "Status",
+        "payloadType": "str",
+        "topic": "",
+        "x": 920,
+        "y": 1360,
+        "wires": [
+            [
+                "8445dc72.0a45a"
+            ]
+        ]
+    },
+    {
+        "id": "6cf706ff.516028",
+        "type": "function",
+        "z": "ce8195e.4c0cf68",
+        "name": "Status speichern",
+        "func": "val = msg.payload;\nglobal.set(\"referenceState\", val);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1110,
+        "y": 360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "431ef898.bc9778",
+        "type": "ui_dropdown",
+        "z": "99c30596.370c78",
+        "name": "Sorte für Automatik",
+        "label": "",
+        "tooltip": "",
+        "place": "Sorte wählen",
+        "group": "d91da91d.797388",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "multiple": false,
+        "options": [
+            {
+                "label": "Sorte 1",
+                "value": 1,
+                "type": "num"
+            },
+            {
+                "label": "Sorte 2",
+                "value": 2,
+                "type": "num"
+            },
+            {
+                "label": "Sorte 3",
+                "value": 3,
+                "type": "num"
+            },
+            {
+                "label": "Sorte 4",
+                "value": 4,
+                "type": "num"
+            }
+        ],
+        "payload": "",
+        "topic": "",
+        "x": 930,
+        "y": 1500,
+        "wires": [
+            [
+                "b736530.cd884b"
+            ]
+        ]
+    },
+    {
+        "id": "b736530.cd884b",
+        "type": "function",
+        "z": "99c30596.370c78",
+        "name": "Speichere Sorte",
+        "func": "global.set(\"autoCycleSorte\",msg.payload)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1200,
+        "y": 1500,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1d30964a.dd35ea",
+        "type": "subflow:6be034a7.37e81c",
+        "z": "99c30596.370c78",
+        "name": "",
+        "x": 1520,
+        "y": 1540,
+        "wires": [
+            [
+                "a48ecc2f.a4392"
+            ]
+        ]
+    },
+    {
+        "id": "ef02c0d3.4375a",
+        "type": "subflow:c0fcdc76.a99c2",
+        "z": "99c30596.370c78",
+        "name": "",
+        "x": 1520,
+        "y": 1580,
+        "wires": [
+            [
+                "a48ecc2f.a4392"
+            ]
+        ]
+    },
+    {
+        "id": "99c796d8.51ab38",
+        "type": "subflow:5b6015e1.9df0fc",
+        "z": "99c30596.370c78",
+        "name": "",
+        "x": 1520,
+        "y": 1620,
+        "wires": [
+            [
+                "a48ecc2f.a4392"
+            ]
+        ]
+    },
+    {
+        "id": "be3357e5.bd8568",
+        "type": "debug",
+        "z": "99c30596.370c78",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 1510,
+        "y": 1440,
+        "wires": []
+    },
+    {
+        "id": "bcdedd5d.cbf87",
+        "type": "function",
+        "z": "99c30596.370c78",
+        "name": "Prüfe ob Zyklus an ist und welche Sorte gewählt ist",
+        "func": "//Ausgang 1 Ja\n//Ausgang 2 Nein\nsorte = global.get(\"autoCycleSorte\");\nmsg.payload = true;\nif(sorte == 1) return [msg,null,null,null];\nelse if(sorte == 2) return [null,msg,null,null];\nelse if(sorte == 3) return [null,null,msg,null];\nelse if(sorte == 4) return [null,null,null,msg];\nreturn;",
+        "outputs": 4,
+        "noerr": 0,
+        "x": 590,
+        "y": 780,
+        "wires": [
+            [
+                "46bae71a.f7cb78"
+            ],
+            [
+                "761add53.fa0af4"
+            ],
+            [
+                "62ee9ca3.b72534"
+            ],
+            [
+                "2cff99be.165356"
+            ]
+        ]
+    },
+    {
+        "id": "360a64c5.33d20c",
+        "type": "link out",
+        "z": "ce8195e.4c0cf68",
+        "name": "Trigger, Tastendruck",
+        "links": [
+            "1dfe1d52.9afde3"
+        ],
+        "x": 860,
+        "y": 520,
+        "wires": [],
+        "l": true
+    },
+    {
+        "id": "1dfe1d52.9afde3",
+        "type": "link in",
+        "z": "c81cf74e.ef3338",
+        "name": "Arduino Tastendruck",
+        "links": [
+            "360a64c5.33d20c"
+        ],
+        "x": 370,
+        "y": 620,
+        "wires": [
+            [
+                "96b049a9.814d88"
+            ]
+        ],
+        "l": true
+    },
+    {
+        "id": "96b049a9.814d88",
+        "type": "switch",
+        "z": "c81cf74e.ef3338",
+        "name": "Taste Prüfen",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "str"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 1,
+        "x": 590,
+        "y": 620,
+        "wires": [
+            [
+                "c08cd48c.340a28"
+            ]
+        ],
+        "info": "# Unterscheidet Tasten an Arduino\nDerzeit nur eine verbaut"
+    },
+    {
+        "id": "1d77e115.14f51f",
+        "type": "function",
+        "z": "ce8195e.4c0cf68",
+        "name": "Position speichern",
+        "func": "val = msg.payload;\nglobal.set(\"position\", val);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1150,
+        "y": 440,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c1b5505f.ad6cb",
+        "type": "function",
+        "z": "c7305e50.48bd5",
+        "name": "Position löschen",
+        "func": "global.set(\"position\", 0);\nglobal.set(\"autoCycle\", false);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 440,
+        "y": 100,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ebc40e2e.94904",
+        "type": "link in",
+        "z": "99c30596.370c78",
+        "name": "Schalte Automatikbetrieb",
+        "links": [
+            "ee781b0c.dcd168"
+        ],
+        "x": 690,
+        "y": 1460,
+        "wires": [
+            [
+                "ff9f26d3.25a818"
+            ]
+        ],
+        "l": true
+    },
+    {
+        "id": "6e7a7c4f.fb8164",
+        "type": "ui_button",
+        "z": "99c30596.370c78",
+        "name": "Automatik einschalten",
+        "group": "d91da91d.797388",
+        "order": 7,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "{{msg.topic}}",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "true",
+        "payloadType": "str",
+        "topic": "",
+        "x": 940,
+        "y": 1440,
+        "wires": [
+            [
+                "ff9f26d3.25a818",
+                "9fd40068.eea24"
+            ]
+        ]
+    },
+    {
+        "id": "9fd40068.eea24",
+        "type": "debug",
+        "z": "99c30596.370c78",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 1390,
+        "y": 1420,
+        "wires": []
+    },
+    {
+        "id": "4fb9e1d1.eb7ab",
+        "type": "http response",
+        "z": "c7595e13.cbbe9",
+        "name": "Weiterleitung zu Startseite (Caching an)",
+        "statusCode": "301",
+        "headers": {
+            "Location": "http://emag.com/"
+        },
+        "x": 920,
+        "y": 1040,
+        "wires": []
+    },
+    {
+        "id": "29673041.62ead",
+        "type": "http response",
+        "z": "c7595e13.cbbe9",
+        "name": "Weiterleitung zu Startseite (Caching aus)",
+        "statusCode": "301",
+        "headers": {
+            "Location": "http://emag.com/",
+            "Cache-control": "no-cache, no-store, must-revalidate",
+            "Pragma": "no-cache",
+            "Expires": "0"
+        },
+        "x": 920,
+        "y": 1000,
+        "wires": []
+    },
+    {
+        "id": "2fd40a92.e5fcb6",
+        "type": "http in",
+        "z": "c7595e13.cbbe9",
+        "name": "Anfrage auf /flavour1",
+        "url": "/flavour1",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 150,
+        "y": 840,
+        "wires": [
+            [
+                "15cfbdc2.8e6c22",
+                "57091557.d3251c"
+            ]
+        ],
+        "info": "das aufrufen von \nemag.com:1880/flavour1\nleitet automatisch startseite um\nLink: emag.com/\n\nzusätzlich wird der link aggresiv gecachet wenn dies aktiviert ist\n\ndabei wird der zyklus für sorte 1 ausgeführt"
+    },
+    {
+        "id": "c1509990.05ef78",
+        "type": "http in",
+        "z": "c7595e13.cbbe9",
+        "name": "Anfrage auf /flavour2",
+        "url": "/flavour2",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 150,
+        "y": 880,
+        "wires": [
+            [
+                "15cfbdc2.8e6c22",
+                "17f80851.f8f848"
+            ]
+        ],
+        "info": "das aufrufen von \nemag.com:1880/flavour2\nleitet automatisch startseite um\nLink: emag.com/\n\nzusätzlich wird der link aggresiv gecachet wenn dies aktiviert ist\n\ndabei wird der zyklus für sorte 2 ausgeführt"
+    },
+    {
+        "id": "8bcc64cb.0534d8",
+        "type": "http in",
+        "z": "c7595e13.cbbe9",
+        "name": "Anfrage auf /flavour3",
+        "url": "/flavour3",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 150,
+        "y": 920,
+        "wires": [
+            [
+                "15cfbdc2.8e6c22",
+                "eb647455.b99758"
+            ]
+        ],
+        "info": "das aufrufen von \nemag.com:1880/flavour3\nleitet automatisch startseite um\nLink: emag.com/\n\nzusätzlich wird der link aggresiv gecachet wenn dies aktiviert ist\n\ndabei wird der zyklus für sorte 3 ausgeführt"
+    },
+    {
+        "id": "7ed1be69.1bfac",
+        "type": "http in",
+        "z": "c7595e13.cbbe9",
+        "name": "Anfrage auf /flavour4",
+        "url": "/flavour4",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 150,
+        "y": 960,
+        "wires": [
+            [
+                "15cfbdc2.8e6c22",
+                "d4141ba9.1f9528"
+            ]
+        ],
+        "info": "das aufrufen von \nemag.com:1880/flavour3\nleitet automatisch startseite um\nLink: emag.com/\n\nzusätzlich wird der link aggresiv gecachet wenn dies aktiviert ist\n\ndabei wird der zyklus für sorte 3 ausgeführt"
+    },
+    {
+        "id": "15cfbdc2.8e6c22",
+        "type": "function",
+        "z": "c7595e13.cbbe9",
+        "name": "Prüfe ob Mehrfach gewinnen erlaubt ist",
+        "func": "var val = global.get(\"multiWin\");\nmsg.payload = (String(val))\nif (val === true) return [msg, null];\nelse return [null,msg];",
+        "outputs": 2,
+        "noerr": 0,
+        "x": 540,
+        "y": 1020,
+        "wires": [
+            [
+                "29673041.62ead"
+            ],
+            [
+                "4fb9e1d1.eb7ab"
+            ]
+        ]
+    },
+    {
+        "id": "15a272fe.62e73d",
+        "type": "link out",
+        "z": "c7595e13.cbbe9",
+        "name": "Text->LCD",
+        "links": [
+            "da764b10.a514a8"
+        ],
+        "x": 710,
+        "y": 900,
+        "wires": [],
+        "l": true
+    },
+    {
+        "id": "d4141ba9.1f9528",
+        "type": "subflow:5b6015e1.9df0fc",
+        "z": "c7595e13.cbbe9",
+        "name": "",
+        "x": 460,
+        "y": 960,
+        "wires": [
+            [
+                "15a272fe.62e73d"
+            ]
+        ]
+    },
+    {
+        "id": "eb647455.b99758",
+        "type": "subflow:c0fcdc76.a99c2",
+        "z": "c7595e13.cbbe9",
+        "name": "",
+        "x": 460,
+        "y": 920,
+        "wires": [
+            [
+                "15a272fe.62e73d"
+            ]
+        ]
+    },
+    {
+        "id": "17f80851.f8f848",
+        "type": "subflow:6be034a7.37e81c",
+        "z": "c7595e13.cbbe9",
+        "name": "",
+        "x": 460,
+        "y": 880,
+        "wires": [
+            [
+                "15a272fe.62e73d"
+            ]
+        ]
+    },
+    {
+        "id": "57091557.d3251c",
+        "type": "subflow:a898155e.67c758",
+        "z": "c7595e13.cbbe9",
+        "name": "",
+        "x": 460,
+        "y": 840,
+        "wires": [
+            [
+                "15a272fe.62e73d"
+            ]
+        ]
+    },
+    {
+        "id": "2d96bd7a.7b8f02",
+        "type": "comment",
+        "z": "c7595e13.cbbe9",
+        "name": "Taster auf Startseite",
+        "info": "diese elemente werden direkt von der Startseite aufgerufen",
+        "x": 130,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "a9d41d18.b7709",
+        "type": "template",
+        "z": "af233270.79565",
+        "name": "Zylinder 5 Demo",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "E5,500\nD500\nE5,500\nD500\nE5,500\nD500\nE5,500\nD500\nE5,500\nD500\nC",
+        "output": "str",
+        "x": 280,
+        "y": 120,
+        "wires": [
+            [
+                "bb89c186.41ac5"
+            ]
+        ]
+    },
+    {
+        "id": "c08cd48c.340a28",
+        "type": "subflow:a898155e.67c758",
+        "z": "c81cf74e.ef3338",
+        "name": "",
+        "x": 780,
+        "y": 620,
+        "wires": [
+            [
+                "4a4fd83c.468118"
+            ]
+        ]
+    },
+    {
+        "id": "4a4fd83c.468118",
+        "type": "link out",
+        "z": "c81cf74e.ef3338",
+        "name": "Text -> LCD",
+        "links": [
+            "da764b10.a514a8"
+        ],
+        "x": 970,
+        "y": 620,
+        "wires": [],
+        "l": true
+    },
+    {
+        "id": "41232886.da9d38",
+        "type": "comment",
+        "z": "c7305e50.48bd5",
+        "name": "PPT Öffnen",
+        "info": "die ppt wird in folgender datei gecallt:\n/etc/xdg/lxsessions/LXDE-pi/autostart\n\ndarin folgender befehl:\nsudo libreoffice --impress --nolockcheck --nologo --norestore --show /home/pi/Desktop/Praesentation/Unbenannt1.odp",
+        "x": 360,
+        "y": 280,
+        "wires": []
+    }
+]
