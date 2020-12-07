@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="Cache-control" content="no-store" />
+<!meta http-equiv="refresh" content="1" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+
+<html>
+<head>
+        <title> Startseite </title>
+</head>
+<body>
+    <div class="grid-container">
+        <div class="logo">
+            <a href="http://emag.com/">
+                <img src="img/emag-logo_square.svg" class="firmenlogo_square"/>
+            </a>
+        </div>
+        <div class="title">
+            <h1> EMAG TIC 1200-4 Messestand </h1>
+        </div>
+
+
+        <div class="header"> <h2>Startseite</h2></div>
+        <div class="main">  <a href="http://emag.com:1880/startQuiz" class="startknopf">Quiz Starten</a> </div>
+        <div class="footer">  
+		<div class="startknopf" onclick="admin()">Admin</div> 
+		<br><br>
+		<div class="startknopf" onclick="referenzfahrt()">Referenz fahren</div> 		
+		<br><br>
+		<div class="startknopf" onclick="programmieren()">Programmieren</div> 		
+	</div>
+        </div>
+<script>
+var password;
+function admin() {
+	password = prompt("Passwort eingeben:");
+	if(password == "EMAG") {
+		location.href = "http://emag.com/Admin/index.html";
+	}
+}
+function referenzfahrt() {
+	password = prompt("Passwort eingeben:");
+	if(password == "EMAG") {
+		location.href = "http://emag.com:1880/referenzfahrt";
+	}
+}
+function programmieren() {
+	password = prompt("Passwort eingeben:");
+	if(password == "EMAG") {
+		location.href = "http://emag.com/Admin/control.html";
+	}
+}
+</script>
+</body>
+</html>
