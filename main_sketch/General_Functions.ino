@@ -5,7 +5,7 @@
   Arduino IDE Version: 1.8.10
 
   @author Johannes Röring
-  @version 1.1.2 07/12/20
+  @version 1.1.3 07/12/20
 
   the following scripts will all be documented in german,
   for international use as well as translations and questions,
@@ -42,7 +42,16 @@ bool checkFehler() {
   }
   //prüfe ob der letzte fehler behoben ist, dann gebe statuscode 501 aus, für Anlage bereit, ref fahren
   else {
-    if (lastStatus == 402 && !digitalRead(E_Anlage_EIN)) handleStatus(501);             //steuerspannung/notaus wieder ein
+    //prüfe ob steuerspannung wieder an ist (inkl. entprellen), warte dann 5s auf motor start und gebe anlage frei
+    if (lastStatus == 402 && !digitalRead(E_Anlage_EIN)) {
+      delay(1);                                                                         //warte 1ms zum entprellen
+      if (!digitalRead(E_Anlage_EIN)) {                                                 //prüfe ob spannung immernoch ein ist, zum entprellen
+        Merker_Blink_Meldeleuchte_Status = LOW;                                         //speichere Meldeleuchte aus
+        digitalWrite(A_Rly_Bed_Referenz, Merker_Blink_Meldeleuchte_Status);             //Schalte Meldeleuchte aus
+        delay(3500);                                                                    //warte 3.5 sekunden um Motor starten zu lasseb
+        handleStatus(501);                                                              //steuerspannung/notaus wieder ein
+      }
+    }
     else if (lastStatus == 406 && !digitalRead(E_Ini_Endschalter)) handleStatus(501);   //endschalter wieder frei
     else if (lastStatus == 410 && !checkCylinder(1)) handleStatus(501);                 //zylinder 1 wieder eingefahren
     else if (lastStatus == 411 && !checkCylinder(2)) handleStatus(501);                 //zylinder 2 wieder eingefahren
