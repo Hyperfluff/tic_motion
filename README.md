@@ -4,7 +4,7 @@ In dieser Datei sind grundlegende Informationen zum Programm der Maschine vermer
 das Projekt ist die Steuerung des Messestandes der EMAG Zerbst
 
 - **Autor:** Johannes Röring
-- **Programmiersprachen:** Arduino, HTML, Python
+- **Programmiersprachen:** Arduino, HTML, Python, Node-Red
 - **verwendete Hardware:** Raspberry Pi (3b+), Arduino Mega
 
 ## Abhängigkeiten
