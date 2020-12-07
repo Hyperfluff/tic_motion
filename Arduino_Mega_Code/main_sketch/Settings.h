@@ -30,7 +30,7 @@ const int C_ref_maximaleReferenzstreckeInMM = 1250; // Maximale länge der Refer
 float V_ref_nullpunktversatzInMM = 0;               // Verschiebung des Nullpunktes vom Ini in mm
 const int C_ref_speed = 250;                        // Maximalgeschwindigkeit in mm/s bei Referenzfahrt
 const int C_speed = 250;                            // Maximalgeschwindigkeit in mm/s
-const int C_beschleunigung = 1000;                  // Beschleunigung des Motors in mm/s²
+const int C_beschleunigung = 2500;                  // Beschleunigung des Motors in mm/s²
 
 //--Zylinder Überwachung--
 const long C_zylEinfahrdauer = 1000;                // Zeit zum einfahren der Zylinder in ms
