@@ -5,7 +5,7 @@
   Arduino IDE Version: 1.8.10
 
   @author Johannes Röring
-  @version 1.1.1 26/11/20
+  @version 1.1.2 07/12/20
 
   the following scripts will all be documented in german,
   for international use as well as translations and questions,
@@ -29,6 +29,14 @@ void initSerial() {
   Serial.println(F("#Dateiname " __FILE__));
   Serial.println(F("#Stand " __DATE__));
 
+  //warte bis Raspberry verbunden ist,
+  Serial.println(F("#P Eingeben um Anlage zu Starten"));
+  while (!Serial.available()) {
+    delay(1);
+  }
+  while (Serial.read() != 'P'){
+    Serial.println(F("# P EINGEBEN UM ZU STARTEN"));
+  }
   //gebe starttext aus, diese funktion ist etwas komplexer da anstatt einem string der text im PROGMEM (nicht im RAM) abgelegt wird
   printCharArray(Boot_Text);
 
