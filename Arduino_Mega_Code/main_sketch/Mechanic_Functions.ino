@@ -155,7 +155,7 @@ void pendelbetrieb() {
       break;
 
   }
-  if (Automatikbetrieb_Schritt == 5) Automatikbetrieb_Schritt = 0;
+  if (Automatikbetrieb_Schritt == 2) Automatikbetrieb_Schritt = 0;
 }
 
 /**
