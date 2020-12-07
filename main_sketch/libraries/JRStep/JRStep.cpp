@@ -4,7 +4,7 @@
 //      *                     JRStep Motor Driver                        *
 //      *                                                                *
 //      *            Johannes Röring                23/11/2020           *
-//      *                  Copyright (c) J. Röring, 2014                 *
+//      *                  Copyright (c) J. Röring, 2020                 *
 //      *                                                                *
 //      ******************************************************************
 //		This library is based on flexyStepper
