@@ -199,35 +199,49 @@ bool checkAllCylinders() {
   @return ergebnis ob der zylinder ausgefahren ist, true NICHT Eingefahren ist, sonst false
 */
 bool checkCylinder(int nr) {
+  bool val; //variable anlegen
   //wenn zylinder überwachung aktiv ist, frage die sensoren ab
   if (C_zylinderUeberwachen) {
     switch (nr) {
       case 1:
-        return (digitalRead(E_Ini_Zyl_1));
+        val = digitalRead(E_Ini_Zyl_1);
+        break;
       case 2:
-        return (digitalRead(E_Ini_Zyl_2));
+        val = digitalRead(E_Ini_Zyl_2);
+        break;
       case 3:
-        return (digitalRead(E_Ini_Zyl_3));
+        val = digitalRead(E_Ini_Zyl_3);
+        break;
       case 4:
-        return (digitalRead(E_Ini_Zyl_4));
+        val = digitalRead(E_Ini_Zyl_4);
+        break;
       case 5:
-        return (digitalRead(E_Ini_Zyl_5));
+        val = digitalRead(E_Ini_Zyl_5);
+        break;
     }
+    return (val);
   }
   //ansonsten frage die ausgänge der ventile ab
   else {
     switch (nr) {
       case 1:
-        return (digitalRead(A_Rly_Zyl_1));
+        val = digitalRead(A_Rly_Zyl_1);
+        break;
       case 2:
-        return (digitalRead(A_Rly_Zyl_2));
+        val = digitalRead(A_Rly_Zyl_2);
+        break;
       case 3:
-        return (digitalRead(A_Rly_Zyl_3));
+        val = digitalRead(A_Rly_Zyl_3);
+        break;
       case 4:
-        return (digitalRead(A_Rly_Zyl_4));
+        val = digitalRead(A_Rly_Zyl_4);
+        break;
       case 5:
-        return (digitalRead(A_Rly_Zyl_5));
+        val = digitalRead(A_Rly_Zyl_5);
+        break;
     }
+    if (Rly_ON_Level == LOW) val = !val;  //wenn relais bei low eingeschaltet sind negiere das signal
+    return(val);
   }
   //ansonsten gebe einfach wahr aus, dies fügt der anlage keinen schaden zu
   return (true);
@@ -239,6 +253,8 @@ bool checkCylinder(int nr) {
 */
 void setCylinder(int nr, bool state) {
   if (!Merker_Referenzfahrt_Gefahren && (state == 1)) return;
+
+  if (Rly_ON_Level == LOW) state = !state;  //wenn relais bei low eingeschaltet sind negiere das signal
   //frage variable nr ab, welcher zylinder angesteuert werden soll
   switch (nr) {
     case 1:
@@ -257,7 +273,7 @@ void setCylinder(int nr, bool state) {
       digitalWrite(A_Rly_Zyl_5, state);   //steuere zylinder 5 an
       break;
   }
-  if (state == 0) waitForCylinder(nr, C_zylEinfahrdauer);
+  if (state == !Rly_ON_Level) waitForCylinder(nr, C_zylEinfahrdauer);
 }
 
 /**
