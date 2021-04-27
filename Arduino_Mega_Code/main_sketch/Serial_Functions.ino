@@ -34,7 +34,7 @@ void initSerial() {
   while (!Serial.available()) {
     delay(1);
   }
-  while (Serial.read() != 'P'){
+  while (Serial.read() != 'P') {
     Serial.println(F("# P EINGEBEN UM ZU STARTEN"));
   }
   //gebe starttext aus, diese funktion ist etwas komplexer da anstatt einem string der text im PROGMEM (nicht im RAM) abgelegt wird
@@ -105,19 +105,19 @@ void serialEvent() {
       //fahre absolut
       case 'A':
         float1 = Serial.parseFloat();           //lese den folgenden zielwert aus
-        Serial.print("*A$"); Serial.println(float1);  //feedback für befehl erhalten
+        Serial.println("*A$" + String(float1)); //feedback für befehl erhalten
         fahreAbsolut(float1);                   //fahre den zielwert an
         break;
       //fahre relativ
       case 'R':
         float1 = Serial.parseFloat();           //lese den folgenden zielwert aus
-        Serial.print("*R$"); Serial.println(float1);  //feedback für befehl erhalten
+        Serial.println("*R$" + String(float1)); //feedback für befehl erhalten
         fahreRelativ(float1);                   //fahre den zielwert an
         break;
       //warte/pausiere
       case 'D':
         int1 = Serial.parseInt();               //lese die wartedauer aus
-        Serial.print("*D$"); Serial.println(int1);  //feedback für befehl erhalten
+        Serial.println("*D$" + String(int1));   //feedback für befehl erhalten
         delay(int1);                            //pausiere das programm für die wartedauer
         break;
       //werfe zylinder für bestimte zeit aus
@@ -132,7 +132,7 @@ void serialEvent() {
       case 'Z':
         int1 = Serial.parseInt();               //lese den zielzylinder aus
         int2 = Serial.parseInt();               //lese den zielstatus aus
-        Serial.print("*Z$"); Serial.print(int1); Serial.print(","); Serial.println(int2); //feedback für befehl erhalten
+        Serial.println("*Z$" + String(int1) + "," + String(int2)); //feedback für befehl erhalten
         //wandele int 2 in boolean um
         if (int2 == 1) bool1 = true;
         else bool1 = false;
@@ -162,8 +162,7 @@ void serialEvent() {
   @param text - menschenlesbarer text.
 */
 void printText(String text) {
-  Serial.print("§");
-  Serial.println(text);
+  Serial.println("§" + text);
 }
 
 /**
@@ -201,8 +200,7 @@ void printPos() {
   Serial.println("*Z$5," + String(checkCylinder(5)));
 
   //gebe Status der Referenzfahrt aus (Merker für Referenzfahrt gefahren)
-  Serial.print("*H$");
-  Serial.println(Merker_Referenzfahrt_Gefahren);
+  Serial.println("*H$"+String(Merker_Referenzfahrt_Gefahren));
 }
 
 /**
@@ -211,8 +209,7 @@ void printPos() {
 */
 void handleStatus(int statuscode) {
   if (statuscode == lastStatus) return;           //wenn statuscode sich widerholt, ignoriere den code
-  Serial.print("*F$");                            //gebe das Zeichen F für statuscode aus
-  Serial.println(statuscode);                     //beende die zeile mit dem statuscode
+  Serial.println("*F$"+String(statuscode));       //gebe das Zeichen F für statuscode aus, gefolgt vom Code
   if (statuscode != 504)lastStatus = statuscode;  //wenn Zyklusende kommt, code nicht speichern, widerholung erlauben
 
   //Gebe zu dem Jeweiligen statuscode eine Menschenlesbare Beschreibung mit aus
