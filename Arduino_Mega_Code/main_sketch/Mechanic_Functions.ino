@@ -38,9 +38,8 @@ void initMotor() {
 */
 void referenzfahrt() {
   //gebe den Status des Referenzmerkers vor beginn der Referenzfahrt aus
-  Serial.print("*H$");
-  Serial.println(Merker_Referenzfahrt_Gefahren);
-
+  Serial.println("*H$"+String(Merker_Referenzfahrt_Gefahren));
+  
   //deaktiviere die meldeleuchte im bedienpult
   digitalWrite(A_Rly_Bed_Referenz, LOW);
 
