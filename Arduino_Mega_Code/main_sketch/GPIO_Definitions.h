@@ -46,6 +46,9 @@
 #define A_Rly_Bed_Referenz  47  //  Ausgang Relais -K15, Meldeleuchte Referenzfahrt gefahren
 #define A_Rly_8 48  //  Ausgang Relais -K16, nicht verwendet
 
+//definiere ob Relay outputs LOW oder HIGH sein sollen für EIN zustand
+#define Rly_ON_Level LOW
+
 /**
   initialisiert alle GPIO Pins auf den korrekten pinMode (Input, Output or Input with Pullup)
 */
@@ -77,12 +80,12 @@ void initGPIO() {
 
   //ausgänge auf definierten status setzen
   digitalWrite(A_Mot_Freigabe, HIGH);       //Gebe den Motor Frei
-  digitalWrite(A_Rly_Power, LOW);          //relais -K9 einschalten um 24V für -K10 bis -K16 freizugeben
-  digitalWrite(A_Rly_Zyl_1, LOW);
-  digitalWrite(A_Rly_Zyl_2, LOW);
-  digitalWrite(A_Rly_Zyl_3, LOW);
-  digitalWrite(A_Rly_Zyl_4, LOW);
-  digitalWrite(A_Rly_Zyl_5, LOW);
-  digitalWrite(A_Rly_Bed_Referenz, LOW);
-  digitalWrite(A_Rly_8, LOW);
+  digitalWrite(A_Rly_Power, !Rly_ON_Level);          //relais -K9 ausschalten um 24V für -K10 bis -K16 freizugeben
+  digitalWrite(A_Rly_Zyl_1, !Rly_ON_Level);
+  digitalWrite(A_Rly_Zyl_2, !Rly_ON_Level);
+  digitalWrite(A_Rly_Zyl_3, !Rly_ON_Level);
+  digitalWrite(A_Rly_Zyl_4, !Rly_ON_Level);
+  digitalWrite(A_Rly_Zyl_5, !Rly_ON_Level);
+  digitalWrite(A_Rly_Bed_Referenz, !Rly_ON_Level);
+  digitalWrite(A_Rly_8, !Rly_ON_Level);
 }

@@ -194,50 +194,11 @@ void printPos() {
   Serial.print("*P$");
   Serial.println(motorPosition());
 
-  //prüfe ob Pneumatik überwachung aktiv ist
-  if (C_zylinderUeberwachen) {
-    //gebe Position Zylinder 1 aus
-    Serial.print("*Z$1,");
-    Serial.println(digitalRead(E_Ini_Zyl_1));
-
-    //gebe Position Zylinder 2 aus
-    Serial.print("*Z$2,");
-    Serial.println(digitalRead(E_Ini_Zyl_2));
-
-    //gebe Position Zylinder 3 aus
-    Serial.print("*Z$3,");
-    Serial.println(digitalRead(E_Ini_Zyl_3));
-
-    //gebe Position Zylinder 4 aus
-    Serial.print("*Z$4,");
-    Serial.println(digitalRead(E_Ini_Zyl_4));
-
-    //gebe Position Zylinder 5 aus
-    Serial.print("*Z$5,");
-    Serial.println(digitalRead(E_Ini_Zyl_5));
-  }
-  //ansonsten gebe status der Ventilausgänge aus
-  else {
-    //gebe Status Ventil 1 aus
-    Serial.print("*Z$1,");
-    Serial.println(digitalRead(A_Rly_Zyl_1));
-
-    //gebe Status Ventil 2 aus
-    Serial.print("*Z$2,");
-    Serial.println(digitalRead(A_Rly_Zyl_2));
-
-    //gebe Status Ventil 3 aus
-    Serial.print("*Z$3,");
-    Serial.println(digitalRead(A_Rly_Zyl_3));
-
-    //gebe Status Ventil 4 aus
-    Serial.print("*Z$4,");
-    Serial.println(digitalRead(A_Rly_Zyl_4));
-
-    //gebe Status Ventil 5 aus
-    Serial.print("*Z$5,");
-    Serial.println(digitalRead(A_Rly_Zyl_5));
-  }
+  Serial.println("*Z$1," + String(checkCylinder(1)));
+  Serial.println("*Z$2," + String(checkCylinder(2)));
+  Serial.println("*Z$3," + String(checkCylinder(3)));
+  Serial.println("*Z$4," + String(checkCylinder(4)));
+  Serial.println("*Z$5," + String(checkCylinder(5)));
 
   //gebe Status der Referenzfahrt aus (Merker für Referenzfahrt gefahren)
   Serial.print("*H$");
