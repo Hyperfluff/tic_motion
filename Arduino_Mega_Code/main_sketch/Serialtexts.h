@@ -5,7 +5,7 @@
   Arduino IDE Version: 1.8.10
 
   @author Johannes Röring
-  @version 1.1.4 07/12/20
+  @version 1.1.5 27/04/20
 
   the following scripts will all be documented in german,
   for international use as well as translations and questions,
@@ -13,7 +13,7 @@
 
   contact: mail@jroering.com
 */
-#define Boot_Software_Info  "EMAG MESSESTAND, Arduino Mega, Softwarestand: V1.1.4"        //Starttext für die Serielle ausgabe im setup
+#define Boot_Software_Info  "EMAG MESSESTAND, Arduino Mega, Softwarestand: V1.1.5"        //Starttext für die Serielle ausgabe im setup
 
 /**
  Speichern der Textzeilen im Progmem, zur ausgabe der Char arrays wird folgende funktion genutzt, 
@@ -31,7 +31,7 @@ const char Boot_Text[] PROGMEM = R"(#
 #*                                                                *
 #*        Programm für den Die Steuerung des Messestandes         *
 #*                                                                *
-#*               J.Röring                26/11/20               *
+#*               J.Röring                27/04/2021               *
 #*                   Ausgabe Hilfetext mit ?                      *
 #*                                                                *
 #******************************************************************
