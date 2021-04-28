@@ -126,11 +126,11 @@ void bedienfeld() {
   diese funktion prüft ob der Taster zum Herunterfahren gedrückt wurde
 */
 void checkButton(){
-  if (digitalRead(E_Herunterfahren)){
+  if (!digitalRead(E_Herunterfahren)){
     delay(5);
-    if(digitalRead(E_Herunterfahren)){
+    if(!digitalRead(E_Herunterfahren)){
       Serial.println("*K$2");
-      while(digitalRead(E_Herunterfahren))delay(1);
+      while(!digitalRead(E_Herunterfahren))delay(1);
     }
   }
 }
