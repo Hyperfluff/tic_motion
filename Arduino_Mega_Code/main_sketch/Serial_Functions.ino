@@ -131,11 +131,8 @@ void serialEvent() {
       //setze zylinder auf bestimmten status
       case 'Z':
         int1 = Serial.parseInt();               //lese den zielzylinder aus
-        int2 = Serial.parseInt();               //lese den zielstatus aus
-        Serial.println("*Z$" + String(int1) + "," + String(int2)); //feedback für befehl erhalten
-        //wandele int 2 in boolean um
-        if (int2 == 1) bool1 = true;
-        else bool1 = false;
+        bool1 = Serial.parseInt();              //lese den zielstatus aus
+        Serial.println("*Z$" + String(int1) + "," + String(bool1)); //feedback für befehl erhalten
         setCylinder(int1, bool1);               //fahre zylinder auf zielstatus
         break;
       //quittiere zyklusende oder gebe fehler zurück
