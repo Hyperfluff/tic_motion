@@ -5,7 +5,7 @@
   Arduino IDE Version: 1.8.10
 
   @author Johannes Röring
-  @version 1.1.5 27/04/20
+  @version 1.1.6 28/04/20
 
   the following scripts will all be documented in german,
   for international use as well as translations and questions,
@@ -19,6 +19,8 @@
 #define E_Anlage_EIN  2 //  Eingang vom Überwachungskontakt für K1, betätigt durch Notaus
 #define E_Bed_Automatik 12  //  Eingang vom Schalter Automatikbetrieb
 #define E_Bed_Starte_Referenzfahrt  13  //  Eingang vom Taster Referenzfahrt starten
+//  --Taster am HDMI Port
+#define E_Herunterfahren A3 //eingang vom Taster für Herunterfahren
 //  --Sensoren--
 #define E_Ini_Referenz  3 //  Eingang vom Referenztaster
 #define E_Ini_Endschalter 4 //  Eingang von Überwachungsrelais K2 & K3, überwachen Endschalter
@@ -64,6 +66,7 @@ void initGPIO() {
   pinMode(E_Ini_Zyl_3, INPUT_PULLUP);
   pinMode(E_Ini_Zyl_4, INPUT_PULLUP);
   pinMode(E_Ini_Zyl_5, INPUT_PULLUP);
+  pinMode(E_Herunterfahren, INPUT_PULLUP);
   
   //outputs
   //pinMode(A_Mot_Richtung,OUTPUT);       //wird durch Library erledigt

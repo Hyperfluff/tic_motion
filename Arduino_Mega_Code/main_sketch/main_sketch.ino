@@ -5,7 +5,7 @@
   Arduino IDE Version: 1.8.10
 
   @author Johannes Röring
-  @version 1.1.5 27/04/20
+  @version 1.1.6 28/04/20
 
   the following scripts will all be documented in german,
   for international use as well as translations and questions,
@@ -65,7 +65,9 @@ void loop() {
   //prüfe ob fehler vorhanden sind, falls ja breche loop ab
   if (checkFehler()) return;
   bedienfeld();
+  checkButton();
 }
+
 /**
   die verarbeitung von Seriellen events findet im tab Serial_Functions statt
   die funktion serialEvent() wird automatisch gestartet sobald seriell daten kommen und bedarf keiner manuellen abfrage
