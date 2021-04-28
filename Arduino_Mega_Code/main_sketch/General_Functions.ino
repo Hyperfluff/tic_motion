@@ -5,7 +5,7 @@
   Arduino IDE Version: 1.8.10
 
   @author Johannes Röring
-  @version 1.1.5 27/04/20
+  @version 1.1.6 28/04/20
 
   the following scripts will all be documented in german,
   for international use as well as translations and questions,
@@ -101,7 +101,8 @@ void bedienfeld() {
       if (!Merker_Referenzfahrt_Gefahren) referenzfahrt();    //wenn keine referenz gefahren, fahre Referenz
       else {
         Serial.println("*K$1");                               //ansonsten sende Taster 1 gedrückt an arduino
-        delay(1000);                                          //warte 1s, um zeit zum loslassen zu geben
+        //delay(1000);                                          //warte 1s, um zeit zum loslassen zu geben
+        while(!digitalRead(E_Bed_Starte_Referenzfahrt))delay(1);  //warte bis taster losgelassen wird
       }
     }
   }
@@ -117,6 +118,19 @@ void bedienfeld() {
     else if (lastAutocycleState == true) {
       fahreAbsolut(1100);                                     //fahre auf Grundposition (1100)
       lastAutocycleState = false;                             //merke das Automatik zuletzt aus war
+    }
+  }
+}
+
+/**
+  diese funktion prüft ob der Taster zum Herunterfahren gedrückt wurde
+*/
+void checkButton(){
+  if (digitalRead(E_Herunterfahren)){
+    delay(5);
+    if(digitalRead(E_Herunterfahren)){
+      Serial.println("*K$2");
+      while(digitalRead(E_Herunterfahren))delay(1);
     }
   }
 }
