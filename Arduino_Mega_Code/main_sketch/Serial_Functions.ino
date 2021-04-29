@@ -130,6 +130,7 @@ void serialEvent() {
       case 'E':
         int1 = Serial.parseInt();               //lese den zielzylinder aus
         int2 = Serial.parseInt();               //lese die wartezeit aus
+        Serial.println("*E$" + String(int1) + "," + String(int2)); //feedback für befehl erhalten
         setCylinder(int1, true);                //fahre zylinder aus
         delay(int2);                            //warte
         setCylinder(int1, false);               //fahre zylinder wieder ein
@@ -138,7 +139,8 @@ void serialEvent() {
       case 'Z':
         int1 = Serial.parseInt();               //lese den zielzylinder aus
         bool1 = Serial.parseInt();              //lese den zielstatus aus
-        Serial.println("*Z$" + String(int1) + "," + String(bool1)); //feedback für befehl erhalten
+        //Serial.println("*Z$" + String(int1) + "," + String(bool1)); //feedback für befehl erhalten
+        //kein feedback für befehl erhalten, wenn zylinder pos sich ändert wird es durch printpos ausgegeben
         setCylinder(int1, bool1);               //fahre zylinder auf zielstatus
         break;
       //quittiere zyklusende oder gebe fehler zurück
@@ -147,6 +149,10 @@ void serialEvent() {
         if (Merker_Referenzfahrt_Gefahren) handleStatus(504);
         //ansonsten setze den letzten status zurück um erneute fehlermeldung zu ermöglichen (bugfix)
         else lastStatus = 0;
+        break;
+      //S befehl um Shutdown der Anlage anzuzeigen
+      case 'S':
+        herunterfahren();
         break;
       //unbekannter befehl
       default:
@@ -204,13 +210,6 @@ void printPos() {
       lastCylinderPos[i] = currentCylinderPos[i];
     }
   }
-  /*
-    Serial.println("*Z$1," + String(checkCylinder(1)));
-    Serial.println("*Z$2," + String(checkCylinder(2)));
-    Serial.println("*Z$3," + String(checkCylinder(3)));
-    Serial.println("*Z$4," + String(checkCylinder(4)));
-    Serial.println("*Z$5," + String(checkCylinder(5)));
-  */
 
   //gebe Status der Referenzfahrt aus (Merker für Referenzfahrt gefahren)
   if (lastMerker_Referenzfahrt_Gefahren != Merker_Referenzfahrt_Gefahren) {

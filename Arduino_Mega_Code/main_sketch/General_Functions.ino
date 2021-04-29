@@ -102,7 +102,7 @@ void bedienfeld() {
       else {
         Serial.println("*K$1");                               //ansonsten sende Taster 1 gedrückt an arduino
         //delay(1000);                                          //warte 1s, um zeit zum loslassen zu geben
-        while(!digitalRead(E_Bed_Starte_Referenzfahrt))delay(1);  //warte bis taster losgelassen wird
+        while (!digitalRead(E_Bed_Starte_Referenzfahrt))delay(1); //warte bis taster losgelassen wird
       }
     }
   }
@@ -118,6 +118,7 @@ void bedienfeld() {
     else if (lastAutocycleState == true) {
       fahreAbsolut(1100);                                     //fahre auf Grundposition (1100)
       lastAutocycleState = false;                             //merke das Automatik zuletzt aus war
+      handleStatus(504);
     }
   }
 }
@@ -125,12 +126,30 @@ void bedienfeld() {
 /**
   diese funktion prüft ob der Taster zum Herunterfahren gedrückt wurde
 */
-void checkButton(){
-  if (!digitalRead(E_Herunterfahren)){
+void checkButton() {
+  if (!digitalRead(E_Herunterfahren)) {
     delay(5);
-    if(!digitalRead(E_Herunterfahren)){
+    if (!digitalRead(E_Herunterfahren)) {
       Serial.println("*K$2");
-      while(!digitalRead(E_Herunterfahren))delay(1);
+      while (!digitalRead(E_Herunterfahren))delay(1);
     }
   }
+}
+
+/**
+  diese funktion wird vom Pi ausgelöst und fährt den arduino in nullstellung
+*/
+void herunterfahren() {
+  Motor.setSpeedInMillimetersPerSecond(100);                        //Lege die Maximalgeschwindigkeit des Motors in mm/s fest
+  Motor.setAccelerationInMillimetersPerSecondPerSecond(100); //lege die Beschleunigung in mm/s² fest
+  fahreAbsolut(0);
+  delay(5000);
+  //blinke Meldeleuchte im bedienpult aus für anlage aus
+  digitalWrite(A_Rly_Bed_Referenz, !Rly_ON_Level);
+  delay(1000);
+  digitalWrite(A_Rly_Bed_Referenz, Rly_ON_Level);
+  delay(250);
+  digitalWrite(A_Rly_Bed_Referenz, !Rly_ON_Level);                     //Schalte Meldeleuchte im bedienpult aus für anlage aus
+  printText("shutdown complete");
+  while(true)delay(1000);                                              //friere die steuerung ein..
 }
