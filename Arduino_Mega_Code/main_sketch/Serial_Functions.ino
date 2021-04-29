@@ -14,7 +14,13 @@
   contact: mail@jroering.com
 */
 
-
+/*
+  Block an Variablen für die printPos funktion
+  Werte werden bewusst falsch gesetzt um beim ersten start einmal alles zu senden
+*/
+float lastMotorPos;
+bool lastCylinderPos[5];
+bool lastMerker_Referenzfahrt_Gefahren;
 /**
   initialisiert das Serial interface
 */
@@ -55,7 +61,7 @@ void serialEvent() {
     //initialisiere mehrere variablen in die die eingehenden werte gelegt werden können
     int int1, int2;                             //lege 2 integer variablen an, diese können 16 bit (-32768 bis 32767) als wert speichern
     bool bool1, bool2;                          //lege 2 boolean variablen an, diese können nur 1/true/HIGH oder 0/false/LOW als wert speichern
-    float float1;                       //lege 1 float variable an, diese kann 32 bit werte speichern
+    float float1;                               //lege 1 float variable an, diese kann 32 bit werte speichern
 
     char parameter = Serial.read();             //lese das erste zeichen und speichere es ab
     //prüfe ob der input mit den möglichen parametern übereinstimmt
@@ -147,8 +153,6 @@ void serialEvent() {
         handleStatus(430);                      //gebe fehlercode 430 aus, für befehl unbekannt
         break;
     }
-    //gebe zum schluss die aktuelle position zurück
-    printPos();
   }
   //ob der flush befehl überhaupt was macht ist mir bisher nicht bekannt, macht aber keine probleme :D
   Serial.flush(); //Serielle verbindung leerlaufen lassen (verhindert lästige bugs)
@@ -187,17 +191,32 @@ void printCharArray(char* VARIABLENNAME) {
 */
 void printPos() {
   //gebe motor/schlittenposition aus
-  Serial.print("*P$");
-  Serial.println(motorPosition());
-
-  Serial.println("*Z$1," + String(checkCylinder(1)));
-  Serial.println("*Z$2," + String(checkCylinder(2)));
-  Serial.println("*Z$3," + String(checkCylinder(3)));
-  Serial.println("*Z$4," + String(checkCylinder(4)));
-  Serial.println("*Z$5," + String(checkCylinder(5)));
+  float currentMotorPos = motorPosition();
+  if (lastMotorPos != currentMotorPos) {
+    Serial.println("*P$" + String(currentMotorPos));
+    lastMotorPos = currentMotorPos;
+  }
+  bool currentCylinderPos[5];
+  for (int i = 1; i < 6; i++) {
+    currentCylinderPos[i] = checkCylinder(i);
+    if (lastCylinderPos[i] != currentCylinderPos[i]) {
+      Serial.println("*Z$" + String(i) + "," + String(currentCylinderPos[i]));
+      lastCylinderPos[i] != currentCylinderPos[i];
+    }
+  }
+  /*
+    Serial.println("*Z$1," + String(checkCylinder(1)));
+    Serial.println("*Z$2," + String(checkCylinder(2)));
+    Serial.println("*Z$3," + String(checkCylinder(3)));
+    Serial.println("*Z$4," + String(checkCylinder(4)));
+    Serial.println("*Z$5," + String(checkCylinder(5)));
+  */
 
   //gebe Status der Referenzfahrt aus (Merker für Referenzfahrt gefahren)
-  Serial.println("*H$"+String(Merker_Referenzfahrt_Gefahren));
+  if (lastMerker_Referenzfahrt_Gefahren != Merker_Referenzfahrt_Gefahren) {
+    Serial.println("*H$" + String(Merker_Referenzfahrt_Gefahren));
+    lastMerker_Referenzfahrt_Gefahren = Merker_Referenzfahrt_Gefahren;
+  }
 }
 
 /**
@@ -206,7 +225,7 @@ void printPos() {
 */
 void handleStatus(int statuscode) {
   if (statuscode == lastStatus) return;           //wenn statuscode sich widerholt, ignoriere den code
-  Serial.println("*F$"+String(statuscode));       //gebe das Zeichen F für statuscode aus, gefolgt vom Code
+  Serial.println("*F$" + String(statuscode));     //gebe das Zeichen F für statuscode aus, gefolgt vom Code
   if (statuscode != 504)lastStatus = statuscode;  //wenn Zyklusende kommt, code nicht speichern, widerholung erlauben
 
   //Gebe zu dem Jeweiligen statuscode eine Menschenlesbare Beschreibung mit aus
