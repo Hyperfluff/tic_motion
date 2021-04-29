@@ -93,6 +93,7 @@ void referenzfahrt() {
 */
 void fahreAbsolut(float zielwert) {
   if (checkFahrenOk(zielwert))Motor.moveToPositionInMillimeters(zielwert);         //fahre auf zielposition in mm, sofern grenzbereich frei
+  printPos();
 }
 
 /**
@@ -273,6 +274,7 @@ void setCylinder(int nr, bool state) {
       break;
   }
   if (state == !Rly_ON_Level) waitForCylinder(nr, C_zylEinfahrdauer);
+  printPos();
 }
 
 /**

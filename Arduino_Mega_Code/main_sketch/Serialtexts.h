@@ -44,6 +44,14 @@ const char Boot_Text[] PROGMEM = R"(#
 #
 # zeilen die mit § beginnen sind informationstexte die auch in der Bedienoberfläche erscheinen
 #
+
+*P$0
+*Z$1,0
+*Z$2,0
+*Z$3,0
+*Z$4,0
+*Z$5,0
+*H$0
 )";
 
 const char Help_Text_1[] PROGMEM = R"(#
