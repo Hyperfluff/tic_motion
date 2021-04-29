@@ -5,7 +5,7 @@
   Arduino IDE Version: 1.8.10
 
   @author Johannes Röring
-  @version 1.1.6 28/04/20
+  @version 1.1.7 29/04/20
 
   the following scripts will all be documented in german,
   for international use as well as translations and questions,
@@ -31,7 +31,6 @@
 #define E_Ini_Zyl_4 8 //  Eingang Überwachung Zylinder 4 eingefahren
 #define E_Ini_Zyl_5 9 //  Eingang Überwachung Zylinder 5 eingefahren
 
-
 //  Ausgänge
 //  --Motor--
 #define A_Mot_Freigabe  A0          //  Ausgang Motorfreigabe, HIGH = Motor freigegeben
@@ -51,6 +50,10 @@
 //definiere ob Relay outputs LOW oder HIGH sein sollen für EIN zustand
 #define Rly_ON_Level LOW
 
+//zusammenfassung der Zylinder/Relay pins in Arrays
+int E_Ini_Zyl_n[5] = {E_Ini_Zyl_1,E_Ini_Zyl_2,E_Ini_Zyl_3,E_Ini_Zyl_4,E_Ini_Zyl_5};
+int A_Rly_Zyl_n[5] = {A_Rly_Zyl_1,A_Rly_Zyl_2,A_Rly_Zyl_3,A_Rly_Zyl_4,A_Rly_Zyl_5};
+
 /**
   initialisiert alle GPIO Pins auf den korrekten pinMode (Input, Output or Input with Pullup)
 */
@@ -67,7 +70,7 @@ void initGPIO() {
   pinMode(E_Ini_Zyl_4, INPUT_PULLUP);
   pinMode(E_Ini_Zyl_5, INPUT_PULLUP);
   pinMode(E_Herunterfahren, INPUT_PULLUP);
-  
+
   //outputs
   //pinMode(A_Mot_Richtung,OUTPUT);       //wird durch Library erledigt
   //pinMode(A_Mot_Takt,OUTPUT);           //wird durch Library erledigt

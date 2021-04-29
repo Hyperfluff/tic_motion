@@ -5,7 +5,7 @@
   Arduino IDE Version: 1.8.10
 
   @author Johannes Röring
-  @version 1.1.6 28/04/20
+  @version 1.1.7 29/04/20
 
   the following scripts will all be documented in german,
   for international use as well as translations and questions,
@@ -202,44 +202,12 @@ bool checkCylinder(int nr) {
   bool val; //variable anlegen
   //wenn zylinder überwachung aktiv ist, frage die sensoren ab
   if (C_zylinderUeberwachen) {
-    switch (nr) {
-      case 1:
-        val = digitalRead(E_Ini_Zyl_1);
-        break;
-      case 2:
-        val = digitalRead(E_Ini_Zyl_2);
-        break;
-      case 3:
-        val = digitalRead(E_Ini_Zyl_3);
-        break;
-      case 4:
-        val = digitalRead(E_Ini_Zyl_4);
-        break;
-      case 5:
-        val = digitalRead(E_Ini_Zyl_5);
-        break;
-    }
+    val = digitalRead(E_Ini_Zyl_n[nr-1]); //lese den sensor eingang, pin array startet bei 0 daher nr-1
     return (val);
   }
   //ansonsten frage die ausgänge der ventile ab
   else {
-    switch (nr) {
-      case 1:
-        val = digitalRead(A_Rly_Zyl_1);
-        break;
-      case 2:
-        val = digitalRead(A_Rly_Zyl_2);
-        break;
-      case 3:
-        val = digitalRead(A_Rly_Zyl_3);
-        break;
-      case 4:
-        val = digitalRead(A_Rly_Zyl_4);
-        break;
-      case 5:
-        val = digitalRead(A_Rly_Zyl_5);
-        break;
-    }
+    val = digitalRead(A_Rly_Zyl_n[nr-1]); //lese den Relaisausgang, pin array startet bei 0 daher nr-1
     if (Rly_ON_Level == LOW) val = !val;  //wenn relais bei low eingeschaltet sind negiere das signal
     return(val);
   }
@@ -256,23 +224,7 @@ void setCylinder(int nr, bool state) {
 
   if (Rly_ON_Level == LOW) state = !state;  //wenn relais bei low eingeschaltet sind negiere das signal
   //frage variable nr ab, welcher zylinder angesteuert werden soll
-  switch (nr) {
-    case 1:
-      digitalWrite(A_Rly_Zyl_1, state);   //steuere zylinder 1 an
-      break;
-    case 2:
-      digitalWrite(A_Rly_Zyl_2, state);   //steuere zylinder 2 an
-      break;
-    case 3:
-      digitalWrite(A_Rly_Zyl_3, state);   //steuere zylinder 3 an
-      break;
-    case 4:
-      digitalWrite(A_Rly_Zyl_4, state);   //steuere zylinder 4 an
-      break;
-    case 5:
-      digitalWrite(A_Rly_Zyl_5, state);   //steuere zylinder 5 an
-      break;
-  }
+  digitalWrite(A_Rly_Zyl_n[nr-1],state);  //setze den Relaisausgang, pin array startet bei 0 daher nr-1
   if (state == !Rly_ON_Level) waitForCylinder(nr, C_zylEinfahrdauer);
   printPos();
 }
