@@ -5,7 +5,7 @@
   Arduino IDE Version: 1.8.10
 
   @author Johannes Röring
-  @version 1.1.6 28/04/20
+  @version 1.1.7 29/04/20
 
   the following scripts will all be documented in german,
   for international use as well as translations and questions,
@@ -201,7 +201,7 @@ void printPos() {
     currentCylinderPos[i] = checkCylinder(i);
     if (lastCylinderPos[i] != currentCylinderPos[i]) {
       Serial.println("*Z$" + String(i) + "," + String(currentCylinderPos[i]));
-      lastCylinderPos[i] != currentCylinderPos[i];
+      lastCylinderPos[i] = currentCylinderPos[i];
     }
   }
   /*
