@@ -64,7 +64,7 @@ const char Help_Text_1[] PROGMEM = R"(#
 #******************************************************************
 #Ausgabe nächster seite mit "?2"
 #
-#Steuerbefehle:
+#Steuerbefehle (RPI -> Arduino):
 #Syntax   Beschreibung
 #------   ------------
 #?[seite] zeige Hilfemenü, mit jeweiliger Seitenangabe
@@ -76,6 +76,7 @@ const char Help_Text_1[] PROGMEM = R"(#
 #E[x],[y] stoße Zylinder nr X für zeit Y aus
 #Z[x],[y] steuere Zylinder X auf zustand Y an (y=1 -> ausfahren; y=0 -> einfahren)
 #C        gebe code 504 zurück für Zyklusende (als feedback für RPI)
+#S        fahre Arduino auf null, während Pi herunterfährt
 #******************************************************************
 )";
 
@@ -103,6 +104,7 @@ const char Help_Text_2[] PROGMEM = R"(#
 #*R$[x]             fahrbefehl fahre relativ um x mm empfangen
 #*D$[x]             befehl warte x ms empfangen
 #*E$[x],[y]         befehl fahre zylinder x für y ms aus empfangen
+#*V                 Automatikzyklus runde gefahren
 #******************************************************************
 )";
 

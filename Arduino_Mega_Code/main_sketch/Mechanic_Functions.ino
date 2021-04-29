@@ -79,7 +79,7 @@ void referenzfahrt() {
 
   //Versetze den Nullpunkt falls nötig
   Motor.setCurrentPositionInMillimeters(V_ref_nullpunktversatzInMM);  //lege die entfernung zum Nullpunkt fest
-  digitalWrite(A_Rly_Bed_Referenz, HIGH);                             //Schalte Meldeleuchte im bedienpult ein für Referenzfahrt gefahren
+  digitalWrite(A_Rly_Bed_Referenz, Rly_ON_Level);                     //Schalte Meldeleuchte im bedienpult ein für Referenzfahrt gefahren
   Merker_Referenzfahrt_Gefahren = true;                               //speichere das der referenzpunkt geholt wurde
   if (digitalRead(E_Bed_Automatik))fahreAbsolut(C_homePosInMM);       //wenn kein Automatikbetrieb aktiv ist fahre auf grundposition
   handleStatus(502);        //gebe statuscode 502 aus, für referenzfahrt beendet
@@ -148,6 +148,7 @@ void pendelbetrieb() {
       delay(500);                                       //warte 500ms
       setCylinder(5, 0);                                //fahre Zylinder 5 wieder ein
       Automatikbetrieb_Schritt++;                       //Zähle schritt hoch
+      Serial.println("*V");
       break;
     case 1:
       fahreAbsolut(0);                                  //fahre auf 0
