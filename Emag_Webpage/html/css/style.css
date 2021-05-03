@@ -1,79 +1,90 @@
-body { 
+body {
     margin: auto;
     text-align: center;
     background-color: white;
-    }
+}
+
 h1 {
     font-size: 5em;
 }
-h2 {
-    
-}
+
+h2 {}
+
 h3 {
-    
+    font-size: 150%;
 }
+
 hr {
     border-color: black;
 }
+
 table {
-    margin-left:auto;
-    margin-right:auto;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.firmenlogo_full{
+.firmenlogo_full {
     height: auto;
     width: auto;
     margin: auto auto auto auto;
 }
-.firmenlogo_square{
+
+.firmenlogo_square {
     max-width: 100%;
 }
+
 .startknopf {
-	background-color:#44c767;
-	border-radius:42px;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:Arial;
-	font-size:28px;
-	padding:23px 48px;
-	text-decoration:none;
+    background-color: #44c767;
+    border-radius: 42px;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-family: Arial;
+    font-size: 28px;
+    padding: 23px 48px;
+    text-decoration: none;
 }
+
 .startknopf:hover {
-	background-color:#5cbf2a;
+    background-color: #5cbf2a;
 }
+
 .startknopf:active {
-	position:relative;
-	top:1px;
+    position: relative;
+    top: 1px;
 }
 
 .logo {
-    background-color: white;
     grid-area: logo;
     margin-top: auto;
     margin-bottom: auto;
 }
+
 .title {
     grid-area: title;
     margin-top: auto;
     margin-bottom: auto;
 }
+
 .header {
     grid-area: header;
     background-color: #eeeeee;
 }
-.main { 
+
+.main {
     grid-area: main;
     background-color: #eeeeee;
 }
-.footer { grid-area: footer;
+
+.footer {
+    grid-area: footer;
     background-color: #eeeeee;
 }
 
 .grid-container {
     display: grid;
-    grid-template-columns: 25% auto;
-    grid-template-areas: 
+    grid-template-columns: 20% auto;
+    grid-template-areas:
         'logo title'
         'header header'
         'main main'
@@ -86,4 +97,32 @@ table {
 .grid-container > div {
     text-align: center;
     padding: 20px 0;
+}
+
+.grid-container-fragen {
+    max-width: 800px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-areas:
+        'block1 block2'
+        'block3 block4';
+    grid-gap: 10px;
+    padding: 10px;
+}
+
+.block1 {
+    grid-area: block1;
+}
+
+.block2 {
+    grid-area: block2;
+}
+
+.block3 {
+    grid-area: block3;
+}
+
+.block4 {
+    grid-area: block4;
 }
