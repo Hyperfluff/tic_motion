@@ -1,1 +1,1 @@
-pfade von \img/1.png auf ../img/1.png geändert
+Webseite komplett überarbeitet von Jordan Brunn

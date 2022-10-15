@@ -1,0 +1,12 @@
+
+.footer {
+    margin-top: auto;
+    padding: var(--s-padding) var(--padding) 2rem;
+}
+
+body.space-between .footer {
+    margin-top: 0;
+}
+
+@import './_vars';
+@include dynamic(".footer", 0.5);

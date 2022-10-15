@@ -1,0 +1,28 @@
+.btn {
+    --padding-top-bottom: 1em;
+    --padding-left-right: 2em;
+    display: inline-block;
+    position: relative;
+    color: var(--clr-white);
+    background-color: var(--clr-primary);
+    border-radius: 99999px;
+    padding: var(--padding-top-bottom) var(--padding-left-right);
+    font-size: 1.5rem;
+    font-weight: 100;
+    text-decoration: none;
+    &::after {
+        content: '';
+        position: absolute;
+        background-color: var(--clr-white);
+        height:2px;
+        width: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        bottom: var(--padding-top-bottom);
+        transition: width 0.5s ease-in-out;
+    }
+    &:hover::after {
+        width: calc(100% - var(--padding-left-right)*2);
+    }
+}

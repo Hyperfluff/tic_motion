@@ -1,0 +1,46 @@
+
+//Importing "Nunito Sans" font from Google Fonts as EMAG.com uses it.
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+    --clr-bg: #1041A7;
+    --clr-bg-darker: #051b44;
+    --clr-bg-gradient:linear-gradient(to bottom right, var(--clr-bg), var(--clr-bg-darker));
+    --clr-primary: #2F9CFF;
+    --clr-white: #fff;
+    --clr-black: #000;
+    --clr-grey: #bebebe;
+    --clr-dark-grey:#333333;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+html, body {
+    display: flex;
+    flex-direction: column;
+    color: var(--clr-white);
+    min-height: 100vh;
+    
+}
+
+.firmenlogo {
+    align-self: flex-start;
+    filter: saturate(0) brightness(99);
+    img {
+        aspect-ratio: 1/1;
+        width: clamp(4.5rem, 10vw, 6rem);
+    }
+}
+
+@media (max-width: 600px) {
+    html,body {
+        font-size: 0.8rem;
+    }
+}
+
+@import 'btn/btn','nav/nav', 'cards/answer_card', 'sections/main', 'sections/footer', 'misc/misc';

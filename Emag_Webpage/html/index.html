@@ -1,40 +1,44 @@
 <!DOCTYPE html>
-
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta http-equiv="Cache-control" content="no-store" />
-<!meta http-equiv="refresh" content="1" />
-<link rel="stylesheet" type="text/css" href="css/style.css" />
-
 <html>
-
 <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Cache-control" content="no-store" />
+    <!meta http-equiv="refresh" content="1" />
+    <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="./css/style.css" />
+
     <title> Startseite </title>
 </head>
 
-<body>
-    <div class="grid-container">
-        <div class="logo">
+<body class="bg-clr-gradient space-between">
+    <nav class="nav">
+        <div class="title">
+            <div class="sub">
+                Drehen Futterteile | Drehen Wellenteile | Fräsen | Wälzfräsen | Verzahnungsschleifen | Rundschleifen | Unrundschleifen | ECM/PECM | Laserbearbeitung 
+            </div>
+            EMAG TIC 1200-4 Messestand
+        </div>
+        <div class="firmenlogo">
             <a href="http://emag.com/">
-                <img src="img/emag-logo_square.svg" class="firmenlogo_square" />
+                <img src="./img/emag-logo_square.svg" />
             </a>
         </div>
-        <div class="title">
-            <h1> EMAG TIC 1200-4 Messestand </h1>
-        </div>
-
-
-        <div class="header">
-            <h2>Startseite</h2>
-        </div>
-        <div class="main"> <a href="http://emag.com:1880/startQuiz" class="startknopf">Quiz Starten</a> </div>
-        <div class="footer">
-            <div class="startknopf" onclick="admin()">Admin</div>
-            <br><br>
-            <div class="startknopf" onclick="referenzfahrt()">Referenz fahren</div>
-            <br><br>
-            <div class="startknopf" onclick="programmieren()">Programmieren</div>
-        </div>
-    </div>
+    </nav>
+    <section class="main bg-clr-white">
+        <div class="headline text-center border-dotted border-radius-l">
+            <div class="fs-250r fw-900 clr-dark-grey">Startseite</div> <br>
+            <a href="http://emag.com:1880/startQuiz" class="btn">Quiz Starten</a>
+        </div> <br>
+    </section>
+    <footer class="footer bg-clr-white">
+        <p class="clr-grey fs-125r">EMAG GmbH & Co. KG, 2022</p>
+        <span class="clr-grey fs-100r clickable-text" onclick="admin()">Admin</span>
+        <span class="clr-grey fs-100r clickable-text" onclick="referenzfahrt()">Referenz fahren</span>
+        <span class="clr-grey fs-100r clickable-text" onclick="programmieren()">Programmieren</span>
+    </footer>
     <script>
         var password;
 
@@ -60,5 +64,4 @@
         }
     </script>
 </body>
-
-</html>
+</html> 

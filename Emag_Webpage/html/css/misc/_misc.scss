@@ -1,0 +1,101 @@
+.clr-primary {
+    color: var(--clr-primary);
+}
+.bg-clr-primary {
+    background-color: var(--clr-primary);
+}
+.bg-clr-gradient {
+    background: var(--clr-bg-gradient);
+}
+
+.clr-white {
+    color: var(--clr-white);
+}
+.bg-clr-white {
+    background-color: var(--clr-white);
+}
+
+.clr-black {
+    color: var(--clr-black);
+}
+.bg-clr-black {
+    background-color: var(--clr-black);
+}
+
+.clr-grey {
+    color: var(--clr-grey);
+}
+.bg-clr-grey {
+    background-color: var(--clr-grey);
+}
+
+.clr-dark-grey {
+    color: var(--clr-dark-grey);
+}
+.bg-clr-dark-grey {
+    background-color: var(--clr-dark-grey);
+}
+
+.text-left {
+    text-align: left;
+}
+.text-center {
+    text-align: center;
+}
+.text-right {
+    text-align: right;
+}
+
+.clickable-text {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+.overflow-hidden {
+    overflow: hidden;
+}
+
+.border-radius-s {
+    border-radius: .5rem;
+}
+
+.border-radius {
+    border-radius: 1rem;
+}
+
+.border-radius-l {
+    border-radius: 1.5rem;
+}
+.border-dotted {
+    padding: 1rem;
+    border: 5px dotted var(--clr-grey);
+}
+.space-between {
+    justify-content: space-between;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background-color: rgb(0 0 0 / 0.1);
+    margin: 1rem 0;
+}
+
+@for $i from 1 through 10 {
+    $val: $i * .25;
+    .fs-#{$i*25}r {
+        font-size: #{$val}rem;
+    }
+}
+
+@for $i from 1 to 10 {
+    $val: $i*100;
+    .fw-#{$val} {
+        font-weight: #{$val};
+    }
+}

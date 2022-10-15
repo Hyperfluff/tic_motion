@@ -1,0 +1,34 @@
+.answer_card {
+    display:flex;
+    position: relative;
+    isolation: isolate;
+    .card_title {
+        position: absolute;
+        inset:0;
+        color: var(--clr-white);
+        height: fit-content;
+        font-size: 1.25rem;
+        padding: .5rem;
+        margin: auto;
+        text-align: center;
+        text-shadow: 0 0 0.4rem rgb(0 0 0 / 0.6);
+        word-break: break-all;
+        word-break: break-word;
+        z-index: 1;
+    }
+    .card_img {
+        width: 100%;
+        min-width: 1rem;
+        min-height: 10rem;
+        max-height: 25vh;
+        object-position: center center;
+        object-fit: cover;
+        filter: brightness(0.15);
+        transition: filter 0.5s ease-in-out;
+    }
+    &:hover {
+        .card_img {
+            filter: brightness(.5);
+        }
+    }
+}
