@@ -1,0 +1,25 @@
+// Fun-fact: People are more creative in the shower. When we take a warm shower, we experience an increased dopamine flow that makes us more creative.
+// Adds nothing to context, but just to make it more interesting while reading.
+// --------------------------------------------------------------------------------------------------------------------
+.nav {
+    display: flex;
+    gap:2rem;
+    padding: 1rem;
+    justify-content: space-between;
+    align-items: center;
+    .title {
+        display: table;
+        table-layout: fixed;
+        width: 100%;
+        font-size: 2rem;
+        font-weight: 200;
+        .sub {
+            color: var(--clr-grey);
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            font-size: 1rem;
+            font-weight: 200;
+        }
+    }
+}

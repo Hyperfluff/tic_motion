@@ -1,0 +1,11 @@
+@mixin dynamic($selector, $multiplier_s: 1, $multiplier_dyn: 1) {
+    #{$selector} {
+        --s-padding: #{5*$multiplier_s}rem;
+        --padding: #{5*$multiplier_dyn}rem;
+    }
+    @media (max-width:600px) {
+        #{$selector} {
+            --padding: #{1*$multiplier_dyn}rem;
+        }
+    }
+}

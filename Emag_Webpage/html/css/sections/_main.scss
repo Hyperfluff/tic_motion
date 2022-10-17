@@ -1,0 +1,5 @@
+.main {
+    padding: var(--s-padding) var(--padding);
+}
+@import './_vars';
+@include dynamic(".main",0.75);
